@@ -9,7 +9,8 @@ class EventSearch extends Component {
     this.state = {
       //temp coordinates
       lat: 42.9634,
-      lng: -85.6681
+      lng: -85.6681,
+      categories: ["ARTS_ENTERTAINMENT"]
     }
   }
 
@@ -40,7 +41,8 @@ class EventSearch extends Component {
 
     this.props.fetchEvents(
       this.state.lat,
-      this.state.lng
+      this.state.lng,
+      this.state.categories
     );
   };
 
