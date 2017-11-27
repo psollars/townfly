@@ -5,7 +5,14 @@ import $ from "jquery-ajax";
 export function fetchEvents(lat, lng) {
 	return function(dispatch) {
 		dispatch(requestEvents());
-		$.get("/api/lat/lng/").done(function(events) {
+ 		$.ajax({
+            url: "/api/",
+            method: "GET",
+            data: {
+            	lat: lat,
+            	lng: lng
+            }
+        }).done(function(events) {
             dispatch(receiveEvents(events));
 		});
 	};

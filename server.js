@@ -10,25 +10,18 @@ app.use(express.static('client/build'));
 const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
 
-app.get("/api/:lat/:lng", (req, res) => {
-    var data = {
-        "location": {
-            "lat": req.params.lat,
-            "lng": req.params.lng
-        }
-    };
-  console.log(data.location.lat); 
+app.get("/api/", (req, res) => {
+  console.log(req.query.lat);
+  console.log(req.query.lng); 
   es.search({
-    "lat": data.location.lat,
-    "lng": -85.6681,
+    "lat": req.query.lat, //42.9634
+    "lng": req.query.lng, //-85.6681
+    "sort": "time",
     "accessToken": "815582698621963|M98FZpl1cTvP0STpQUvGpFbH2AQ"
   }).then(function (events) {
-    console.log(JSON.stringify(events.events[0]));
-    // res.send(result.rows);
-    res.send(events);
+    res.send(events.events);
   }).catch(function (error) {
-    console.error(JSON.stringify(error));
-    //console.log(errorCallback);
+    console.log(errorCallback);
   });
 });
 

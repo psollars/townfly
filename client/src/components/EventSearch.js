@@ -17,7 +17,7 @@ class EventSearch extends Component {
       <div className="EventSearch">
         <input type="number" placeholder="lat" onChange={this.handleLatChange} />
         <input type="number" placeholder="lng" onChange={this.handleLngChange} />
-        <button onClick={this.props.fetchEvents(this.state.lat, this.state.lng)}>Fetch Events</button>
+        <button onClick={this.handleSubmit}>Fetch Events</button>
       </div>
     );
   }
@@ -32,6 +32,15 @@ class EventSearch extends Component {
     this.setState({
       lng: event.target.value
     })
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    this.props.fetchEvents(
+      this.state.lat,
+      this.state.lng
+    );
   };
 
 }
