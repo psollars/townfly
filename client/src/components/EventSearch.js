@@ -7,8 +7,9 @@ class EventSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lat: 0,
-      lng: 0
+      //temp coordinates
+      lat: 42.9634,
+      lng: -85.6681
     }
   }
 
@@ -45,15 +46,8 @@ class EventSearch extends Component {
 
 }
 
-function mapStateToProps(state) {
-  return {
-    loading: state.loading,
-    events: state.events
-  };
-}
-
 const mapActionsToProps = {
   fetchEvents
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(EventSearch);
+export default connect(null, mapActionsToProps)(EventSearch);

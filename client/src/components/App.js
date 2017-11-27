@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventSearch from './EventSearch';
+import Events from './Events';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <EventSearch />
+        { this.props.loading ?
+          <EventSearch /> :
+          <Events />
+        }
       </div>
     );
   }
