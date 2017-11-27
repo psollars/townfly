@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import EventDetail from './EventDetail';
 
 class Events extends Component {
 
@@ -12,9 +13,14 @@ class Events extends Component {
   // }
 
   render() {
+
+    const renderEvents = this.props.events.map((event) => {
+      return <EventDetail key={event.id} event={event}/>;
+    });
+
     return (
       <div className="Events">
-        <p>{this.props.events[0].name}</p>
+        {renderEvents}
       </div>
     );
   }
