@@ -2,15 +2,14 @@ import $ from "jquery-ajax";
 
 //const apiUrl = process.env.API_URL;
 
-export function fetchEvents(lat, lng, categories) {
+export function fetchEvents(location, categories) {
 	return function(dispatch) {
 		dispatch(requestEvents());
  		$.ajax({
             url: "/api/",
             method: "GET",
             data: {
-            	lat: lat,
-            	lng: lng,
+            	location: location,
             	categories: categories
             }
         }).done(function(events) {

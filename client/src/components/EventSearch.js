@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchEvents } from '../actions';
+import _ from 'lodash';
 
 class EventSearch extends Component {
 
@@ -8,40 +9,33 @@ class EventSearch extends Component {
     super(props);
     this.state = {
       //temp coordinates
-      lat: 42.9634,
-      lng: -85.6681,
-      categories: ["ARTS_ENTERTAINMENT"]
+      location: "",
+      categories: []
     }
   }
 
   render() {
     return (
       <div className="EventSearch">
-        <input type="number" placeholder="lat" onChange={this.handleLatChange} />
-        <input type="number" placeholder="lng" onChange={this.handleLngChange} />
+        <input type="text" placeholder="location" onChange={this.handleLocation} />
+        
         <button onClick={this.handleSubmit}>Fetch Events</button>
       </div>
     );
   }
 
-  handleLatChange = (event) => {
+  handleLocation = (event) => {
     this.setState({
-      lat: event.target.value
+      location: event.target.value
     })
   };
 
-  handleLngChange = (event) => {
-    this.setState({
-      lng: event.target.value
-    })
-  };
 
   handleSubmit = (event) => {
     event.preventDefault();
 
     this.props.fetchEvents(
-      this.state.lat,
-      this.state.lng,
+      this.state.location,
       this.state.categories
     );
   };
