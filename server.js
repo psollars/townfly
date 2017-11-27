@@ -10,9 +10,16 @@ app.use(express.static('client/build'));
 const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
 
-app.get("/api/", (req, res) => {
+app.get("/api/:lat/:lng", (req, res) => {
+    var data = {
+        "location": {
+            "lat": req.params.lat,
+            "lng": req.params.lng
+        }
+    };
+  console.log(data.location.lat); 
   es.search({
-    "lat": 42.9634,
+    "lat": data.location.lat,
     "lng": -85.6681,
     "accessToken": "815582698621963|M98FZpl1cTvP0STpQUvGpFbH2AQ"
   }).then(function (events) {

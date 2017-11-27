@@ -17,7 +17,7 @@ class EventSearch extends Component {
       <div className="EventSearch">
         <input type="number" placeholder="lat" onChange={this.handleLatChange} />
         <input type="number" placeholder="lng" onChange={this.handleLngChange} />
-        <button onClick={this.props.fetchEvents}>Fetch Events</button>
+        <button onClick={this.props.fetchEvents(this.state.lat, this.state.lng)}>Fetch Events</button>
       </div>
     );
   }
