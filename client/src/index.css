@@ -3,3 +3,25 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.EventSearch {
+
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.category {
+    word-wrap: break-word;
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+}
+
+.Events {
+
+}
+
