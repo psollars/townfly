@@ -13,12 +13,6 @@ class Events extends Component {
   // }
 
   render() {
-
-    let message = "";
-    if (this.props.events.length <= 0) {
-      message = "Sorry, no events. :(";
-    }
-
     const renderEvents = this.props.events.map((event) => {
       return <EventDetail key={event.id} event={event}/>;
     });
@@ -26,7 +20,9 @@ class Events extends Component {
     return (
       <div className="Events">
         {renderEvents}
-        {message}
+        { this.props.events.length <= 0 ?
+          <p>Sorry, no events. :(</p> : null
+        }
       </div>
     );
   }

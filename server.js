@@ -2,25 +2,23 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const errorCallback = console.error.bind(console);
-const NodeGeocoder = require('node-geocoder');
+require('dotenv').config();
 
 app.use(express.static('client/build'));
 
 // geocoder
+const NodeGeocoder = require('node-geocoder');
 const locationOptions = {
   provider: 'google',
-  httpAdapter: 'https', // Default
-  apiKey: 'AIzaSyDMk2B-pWRaC779c39kcEX6lgQ11AZp6mY', // for Mapquest, OpenCage, Google Premier
+  httpAdapter: 'https',
+  apiKey: process.env.GOOGLE_API_KEY,
   formatter: null
 };
 const geocoder = NodeGeocoder(locationOptions);
 
 // event search
-//const FEBL_ACCESS_TOKEN = "815582698621963|M98FZpl1cTvP0STpQUvGpFbH2AQ";
-//node dotenv
 const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
-
 
 app.get("/api/", (req, res) => {
   geocoder.geocode(req.query.location).then(function(geoResponse) {
@@ -30,7 +28,7 @@ app.get("/api/", (req, res) => {
       "sort": "time",
       "categories": req.query.categories,
       "distance": 1609, // one mile in meters
-      "accessToken": "815582698621963|M98FZpl1cTvP0STpQUvGpFbH2AQ" //process.env....
+      "accessToken": process.env.FEBL_ACCESS_TOKEN
     }).then(function (events) {
       res.send(events.events);
     }).catch(function (error) {

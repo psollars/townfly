@@ -8,7 +8,6 @@ class EventSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //temp coordinates
       location: "",
       categories: []
     }
@@ -18,7 +17,6 @@ class EventSearch extends Component {
     return (
       <div className="EventSearch">
         <input type="text" placeholder="location" onChange={this.handleLocation} />
-        
         <button onClick={this.handleSubmit}>Fetch Events</button>
       </div>
     );
@@ -30,10 +28,8 @@ class EventSearch extends Component {
     })
   };
 
-
   handleSubmit = (event) => {
     event.preventDefault();
-
     this.props.fetchEvents(
       this.state.location,
       this.state.categories
