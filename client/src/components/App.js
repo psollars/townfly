@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventSearch from './EventSearch';
 import Events from './Events';
+import Controls from './Controls';
 
 class App extends Component {
   render() {
@@ -11,6 +12,8 @@ class App extends Component {
           <EventSearch /> :
           <Events />
         }
+          <Controls />
+          
       </div>
     );
   }

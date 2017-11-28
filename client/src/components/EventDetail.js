@@ -6,6 +6,7 @@ class EventDetail extends Component {
     return (
       <div className="EventDetail">
         <p>{this.props.event.name}</p>
+        <h6>{this.props.active}/{this.props.length}</h6>
       </div>
     );
   }
