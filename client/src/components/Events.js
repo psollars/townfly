@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventDetail from './EventDetail';
+import Controls from './Controls';
 
 class Events extends Component {
 
@@ -29,6 +30,7 @@ class Events extends Component {
           <p>Sorry, no events. :(</p> : null
         }
         {activeEventIndex}
+        <Controls />
       </div>
     );
   }

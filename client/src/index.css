@@ -23,9 +23,7 @@ body {
 
 .EventDetail{
   width: 335px;
-  border: 1px solid rgba(128, 128, 128, 0.37);
-  
-  
+  /* border: 1px solid rgba(128, 128, 128, 0.37); */
 }
 
 .eventTitle{
