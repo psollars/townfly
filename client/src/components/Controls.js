@@ -14,6 +14,6 @@ class Controls extends Component {
   }
 }
 
-const mapActionsToProps = { previousEvent, nextEvent}
+const mapActionsToProps = { previousEvent, nextEvent};
 
 export default connect(null, mapActionsToProps)(Controls);
