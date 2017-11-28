@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEvents } from '../actions';
+import EventSearch from './EventSearch';
+import Events from './Events';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.props.fetchEvents}>Fetch Events</button>
+        { this.props.loading ?
+          <EventSearch /> :
+          <Events />
+        }
       </div>
     );
   }
@@ -14,13 +18,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    loading: state.loading,
-    events: state.events
+    loading: state.loading
   };
 }
 
-const mapActionsToProps = {
-  fetchEvents
-};
-
-export default connect(mapStateToProps, mapActionsToProps)(App);
+export default connect(mapStateToProps)(App);

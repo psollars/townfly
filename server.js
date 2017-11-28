@@ -2,27 +2,42 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const errorCallback = console.error.bind(console);
+require('dotenv').config();
 
 app.use(express.static('client/build'));
 
+// geocoder
+const NodeGeocoder = require('node-geocoder');
+const locationOptions = {
+  provider: 'google',
+  httpAdapter: 'https',
+  apiKey: process.env.GOOGLE_API_KEY,
+  formatter: null
+};
+const geocoder = NodeGeocoder(locationOptions);
+
 // event search
-//const FEBL_ACCESS_TOKEN = "815582698621963|M98FZpl1cTvP0STpQUvGpFbH2AQ";
 const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
 
 app.get("/api/", (req, res) => {
-  es.search({
-    "lat": 42.9634,
-    "lng": -85.6681,
-    "accessToken": "815582698621963|M98FZpl1cTvP0STpQUvGpFbH2AQ"
-  }).then(function (events) {
-    console.log(JSON.stringify(events.events[0]));
-    // res.send(result.rows);
-    res.send(events);
+  geocoder.geocode(req.query.location).then(function(geoResponse) {
+    es.search({
+      "lat": geoResponse[0].latitude,
+      "lng": geoResponse[0].longitude,
+      "sort": "time",
+      "categories": req.query.categories,
+      "distance": 1609, // one mile in meters
+      "accessToken": process.env.FEBL_ACCESS_TOKEN
+    }).then(function (events) {
+      res.send(events.events);
+    }).catch(function (error) {
+      console.log(errorCallback);
+    });
   }).catch(function (error) {
-    console.error(JSON.stringify(error));
-    //console.log(errorCallback);
+    console.log(errorCallback);
   });
+
 });
 
 const PORT = process.env.PORT || 5000;
