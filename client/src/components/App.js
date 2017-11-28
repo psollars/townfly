@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import EventSearch from './EventSearch';
 import Events from './Events';
 
+
 class App extends Component {
   render() {
     return (
@@ -11,6 +12,7 @@ class App extends Component {
           <EventSearch /> :
           <Events />
         }
+            
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventDetail from './EventDetail';
+import Controls from './Controls';
 
 class Events extends Component {
 
@@ -13,16 +14,23 @@ class Events extends Component {
   // }
 
   render() {
-    const renderEvents = this.props.events.map((event) => {
-      return <EventDetail key={event.id} event={event}/>;
+    const activeEventIndex = this.props.events.map((event, index) => {
+      if (this.props.activeEventIndex === index){
+        return <EventDetail 
+                     key={event.id}
+                     event={event}
+                     active={index + 1}
+                     length={this.props.events.length} />
+      }
     });
 
     return (
       <div className="Events">
-        {renderEvents}
         { this.props.events.length <= 0 ?
           <p>Sorry, no events. :(</p> : null
         }
+        {activeEventIndex}
+        <Controls />
       </div>
     );
   }
@@ -31,8 +39,9 @@ class Events extends Component {
 
 function mapStateToProps(state) {
   return {
-    events: state.events
+    events: state.events,
+    activeEventIndex: state.activeEventIndex,
   };
 }
 
-export default connect(mapStateToProps)(Events);
+export default connect(mapStateToProps, null)(Events);
