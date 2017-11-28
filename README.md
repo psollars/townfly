@@ -20,3 +20,11 @@ Our app accesses the Facebook API to find public events within a certain distanc
 - Use interactive Google Map to pinpoint location
 - Facebook login vs. account-free access
 - "Bucketing" of events (save interesting events for later recall)
+
+## The Team
+| Name | LinkedIn |
+| --- | --- |
+| Patrick Sollars | https://www.linkedin.com/in/patricksollars/ |
+| Brennan Martin | https://www.linkedin.com/in/itsbrennan/ |
+| Jillane Cook | https://www.linkedin.com/in/jillanecook/ |
+| Sloth I | https://www.linkedin.com/in/slothwerks/ |
