@@ -19,7 +19,7 @@ class Events extends Component {
                      key={event.id}
                      event={event}
                      active={index + 1}
-                     length={this.props.events.length} />
+                     length={this.props.events.length} />;
       }
     });
 

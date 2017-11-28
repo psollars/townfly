@@ -2,4 +2,136 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+
 }
+
+.Controls{
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+
+.EventSearch{
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+.eventCanvas{
+  display: flex;
+  justify-content: center;
+}
+
+.EventDetail{
+  border: 1px solid blue;
+  width: 335px;
+  
+}
+
+.eventTitle{
+	font-family: Avenir;
+	font-size: 24px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	text-align: center;
+	color: rgba(42, 42, 42, 0.9);
+}
+
+.eventDate{
+	font-family: Avenir;
+	font-size: 12px;
+	font-weight: 900;
+	line-height: 1.0;
+	letter-spacing: 1px;
+	text-align: center;
+  color: rgba(88, 88, 88, 0.45);
+  text-transform: uppercase;
+}
+
+.imageCard{
+  display: flex;
+  justify-content: center;
+  position:relative;
+}
+
+    .eventImage{
+      width: 295px;
+      height: 200px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); 
+      
+    }
+
+    .eventCategory{
+      bottom:0px;
+      position: absolute;
+      background:white;
+      font-family: Avenir;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      text-align: right;
+      color: #fd6968;
+      padding:4px 10px;
+      border-radius: 2px;
+    }
+
+     
+.eventInfo{
+  display: flex;
+  justify-content: center;
+}
+
+.eventInfoCard{
+  margin: 0;
+  width: 335px;
+	height: 237px;
+	border-radius: 4px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+}
+
+  .eventTime{
+    font-family: Avenir;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 0.6;
+    letter-spacing: 1.7px;
+    text-align: center;
+    color: rgba(88, 88, 88, 0.9);
+  }
+
+  .eventLocation{
+    font-family: Avenir;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #4a90e2;
+    margin: 20px;
+  }
+
+  .eventDescription{
+    margin:20px;
+    font-family: Avenir;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: 1px;
+    text-align: left;
+    color: rgba(88, 88, 88, 0.9);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 295px;
+    max-height: 72px;
+  }
+
+  .viewMore{
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 2.3px;
+    color: #fd6968;
+  }

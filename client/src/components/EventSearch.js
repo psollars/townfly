@@ -15,10 +15,10 @@ class EventSearch extends Component {
 
   render() {
     return (
-      <div className="EventSearch">
-        <input type="text" placeholder="location" onChange={this.handleLocation} />
-        <button onClick={this.handleSubmit}>Fetch Events</button>
-      </div>
+        <div className="EventSearch">
+          <input type="text" placeholder="location" onChange={this.handleLocation} />
+          <button onClick={this.handleSubmit}>Fetch Events</button>
+        </div>
     );
   }
 
