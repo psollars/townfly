@@ -8,7 +8,6 @@ class Events extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: "",
       string: "",
     }
   }
@@ -20,9 +19,6 @@ class Events extends Component {
 
     return (
       <div className="Events">
-        <input type="date" onChange={this.handleDate} />
-        <button onClick={this.eventFilter}>Filter Results by Date</button>
-        <br />
         <input type="string" onChange={this.handleString} />
         <button onClick={this.eventFilter}>Filter Results by String</button>
         <br />
@@ -34,12 +30,6 @@ class Events extends Component {
     );
   }
 
-  handleDate = (event) => {
-    this.setState({
-      date: event.target.value
-    })
-  };
-
   handleString = (event) => {
     this.setState({
       string: event.target.value
@@ -48,7 +38,7 @@ class Events extends Component {
 
   eventFilter = (event) => {
     event.preventDefault();
-    this.props.filterEvents(this.state.date, this.state.string);
+    this.props.filterEvents(this.state.string);
   };
 
 }

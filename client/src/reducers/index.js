@@ -15,16 +15,17 @@ export default function(state = INITIAL_STATE, action) {
 				events: action.events
 			});
 		case "FILTER_EVENTS":
-			return filterEvents(state, action.date, action.string);
+			return filterEvents(state, action.string);
 		default:
 			return state;
 
 	}
 }
 
-function filterEvents(state, date, string) {
+function filterEvents(state, string) {
 	const eventsToFilter = state.events.splice(0);
 	const searchTerms = string.split(" ");
+	// Potentially sanitize the input and eliminate punctuation such as commas and the like
 	let filteredEvents = [];
 	let foundMatch;
 	eventsToFilter.forEach(function(item) {
@@ -37,14 +38,6 @@ function filterEvents(state, date, string) {
 				foundMatch = true;
 			}
 		});
-		/* 
-		let eventDate = item.startTime.substring(0,10);
-		if (date === "") {
-			filteredEvents = eventsToFilter;
-		} else if (eventDate === date) {
-			filteredEvents.push(item);
-		}
-		*/
 	});
 	return Object.assign({}, state, {
 		events: filteredEvents

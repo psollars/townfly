@@ -18,10 +18,9 @@ export function fetchEvents(location, categories) {
 	};
 }
 
-export function filterEvents(date, string) {
+export function filterEvents(string) {
 	return {
 		type: "FILTER_EVENTS",
-		date,
 		string
 	};
 }
