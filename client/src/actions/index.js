@@ -38,4 +38,14 @@ function receiveEvents(events) {
 	};
 }
 
+export function nextEvent() {
+    return {
+        type: "NEXT_EVENT"
+    };
+}
 
+export function previousEvent() {
+    return {
+        type: "PREVIOUS_EVENT"
+    };
+}

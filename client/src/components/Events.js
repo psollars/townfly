@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventDetail from './EventDetail';
 import { filterEvents } from '../actions/';
+import Controls from './Controls';
 
 class Events extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -13,19 +13,25 @@ class Events extends Component {
   }
 
   render() {
-    const renderEvents = this.props.events.map((event) => {
-      return <EventDetail key={event.id} event={event}/>;
+    const activeEventIndex = this.props.events.map((event, index) => {
+      if (this.props.activeEventIndex === index){
+        return <EventDetail 
+                     key={event.id}
+                     event={event}
+                     active={index + 1}
+                     length={this.props.events.length} />;
+      }
     });
 
     return (
       <div className="Events">
         <input type="string" onChange={this.handleString} />
         <button onClick={this.eventFilter}>Filter Results by String</button>
-        <br />
-        {renderEvents}
         { this.props.events.length <= 0 ?
           <p>Sorry, no events. :(</p> : null
         }
+        {activeEventIndex}
+        <Controls />
       </div>
     );
   }
@@ -49,7 +55,8 @@ const mapActionsToProps = {
 
 function mapStateToProps(state) {
   return {
-    events: state.events
+    events: state.events,
+    activeEventIndex: state.activeEventIndex,
   };
 }
 
