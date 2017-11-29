@@ -10,6 +10,8 @@ class EventSearch extends Component {
     this.state = {
       location: "",
       categories: []
+      // distance
+      // time
     }
   }
 
