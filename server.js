@@ -29,7 +29,7 @@ app.get("/api/", (req, res) => {
       "sort": "time",
       "since": req.query.date[0],
       "until": req.query.date[1],
-      "distance": "1609", // one mile in meters
+      "distance": req.query.distance, // in meters
       "categories": req.query.categories,
       "accessToken": process.env.FEBL_ACCESS_TOKEN
     }).then(function (events) {
