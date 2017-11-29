@@ -4,7 +4,6 @@ import 'moment-timezone';
 
 class EventDetail extends Component {
 
-  
 
   render() {
     
@@ -17,7 +16,6 @@ class EventDetail extends Component {
   //   return false;
   //   }
   // };
-
 
     return (
       
@@ -42,6 +40,8 @@ class EventDetail extends Component {
               
             </div>
           </div>
+
+          <h6>{this.props.active}/{this.props.length}</h6>
         </div>
       </div>
     );

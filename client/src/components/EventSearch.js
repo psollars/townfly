@@ -17,7 +17,7 @@ class EventSearch extends Component {
     return (
         <div className="EventSearch">
           <input type="text" placeholder="location" onChange={this.handleLocation} />
-          <button onClick={this.handleSubmit}>Fetch Events</button>
+          <button className = "primaryButton" onClick={this.handleSubmit}>Fetch Events</button>
         </div>
     );
   }
