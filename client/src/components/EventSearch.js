@@ -9,6 +9,7 @@ class EventSearch extends Component {
     super(props);
     this.state = {
       location: "",
+      date: "",
       categories: []
     }
   }
@@ -35,7 +36,7 @@ class EventSearch extends Component {
       this.state.categories
     );
   };
-
+  
 }
 
 const mapActionsToProps = {

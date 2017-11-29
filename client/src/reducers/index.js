@@ -14,7 +14,24 @@ export default function(state = INITIAL_STATE, action) {
 				loading: false,
 				events: action.events
 			});
+		case "FILTER_EVENTS":
+			return filterEvents(state, action.date, action.string);
 		default:
 			return state;
+
 	}
+}
+
+function filterEvents(state, date, string) {
+	const eventsToFilter = state.events.splice(0);
+	const filteredEvents = [];
+	eventsToFilter.forEach(function(item) {
+		let eventDate = item.startTime.substring(0,10);
+		if (eventDate === date) {
+			filteredEvents.push(item);
+		}
+	});
+	return Object.assign({}, state, {
+		events: filteredEvents
+	});
 }
