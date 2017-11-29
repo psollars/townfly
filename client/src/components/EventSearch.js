@@ -61,6 +61,7 @@ class EventSearch extends Component {
       this.state.categories
     );
   };
+
 }
 
 const mapActionsToProps = {

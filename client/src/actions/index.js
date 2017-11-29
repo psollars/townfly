@@ -18,6 +18,13 @@ export function fetchEvents(location, categories) {
 	};
 }
 
+export function filterEvents(string) {
+	return {
+		type: "FILTER_EVENTS",
+		string
+	};
+}
+
 function requestEvents() {
 	return {
 		type: "REQUEST_EVENTS"
@@ -30,6 +37,7 @@ function receiveEvents(events) {
 		events
 	};
 }
+
 export function nextEvent() {
     return {
         type: "NEXT_EVENT"
@@ -41,5 +49,3 @@ export function previousEvent() {
         type: "PREVIOUS_EVENT"
     };
 }
-
-
