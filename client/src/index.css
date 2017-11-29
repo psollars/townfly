@@ -1,21 +1,48 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 
+}
+
+.App {
+  min-width: 320px;
 }
 
 .Controls{
   display: flex;
   justify-content: center;
-  margin: 50px;
 }
 
 .EventSearch{
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  margin: 50px;
+  padding: 20px;
 }
+
+.date-params {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.radio-button {
+  padding: 5px 10px;
+  text-align: center;
+  color: #ed6564;
+  border: 1px solid #ed6564;
+  border-radius: 20px;
+}
+
+.active {
+  color: #fff;
+  background-color: #ed6564;
+  font-weight: 600;
+
+}
+
 .eventCanvas{
   display: flex;
   justify-content: center;
