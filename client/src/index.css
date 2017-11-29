@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-
 }
 
 .headerBar{
@@ -43,12 +42,35 @@ input{
   flex-direction: column;
 }
 
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.category {
+    word-wrap: break-word;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+}
+.category-active {
+    word-wrap: break-word;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #fd6968;
+}
+
 .primaryButton{
   width: 237px;
 	height: 40px;
 	border-radius: 31.5px;
   background-color: #ed6564;
   margin:20px;
+}
+
+.Events {
+
 }
 
 .eventCanvas{
