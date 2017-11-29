@@ -49,3 +49,9 @@ export function previousEvent() {
         type: "PREVIOUS_EVENT"
     };
 }
+
+export function shuffleEvents() {
+    return {
+        type: "SHUFFLE_EVENTS"
+    }
+}
