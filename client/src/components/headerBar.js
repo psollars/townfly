@@ -4,7 +4,7 @@ class HeaderBar extends Component {
     render() {
       return (
         <div className="headerBar">
-            <p>Townie</p>
+            <p>TOWNFLY</p>
         </div>
       );
     }

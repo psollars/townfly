@@ -33,7 +33,9 @@ class EventSearch extends Component {
           <div className={ this.state.categories.findIndex(category => {return category === "SHOPPING_RETAIL"}) === -1 ? "category" : "category-active"} id="SHOPPING_RETAIL" onClick={this.handleCatChange}>Shopping & Retail</div>
           <div className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "category" : "category-active"} id="TRAVEL_TRANSPORTATION" onClick={this.handleCatChange}>Travel & Transportation</div>
         </div>
+        <div className="btnContain">
         <button className = "primaryButton" onClick={this.handleSubmit}>Fetch Events</button>
+        </div>
       </div>
     );
   }
