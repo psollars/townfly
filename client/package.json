@@ -5,6 +5,7 @@
   "dependencies": {
     "font-awesome": "^4.7.0",
     "jquery-ajax": "^2.1.4",
+    "lodash": "^4.17.4",
     "moment-timezone": "^0.5.14",
     "node-geocoder": "^3.21.1",
     "react": "^15.6.1",
