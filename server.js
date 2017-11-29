@@ -6,6 +6,17 @@ require('dotenv').config();
 
 app.use(express.static('client/build'));
 
+const moment = require('moment');
+    let now = moment().unix();
+    let sevenDays = moment(now).add(7, 'days');
+    let myThing = moment().add(7, 'days');
+    //let unix = moment.unix(now);
+    console.log(now);
+    console.log(sevenDays);
+    console.log(myThing);
+    console.log(moment(myThing).unix());
+    //console.log(moment().format());
+
 // geocoder
 const NodeGeocoder = require('node-geocoder');
 const locationOptions = {

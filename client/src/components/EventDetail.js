@@ -18,7 +18,6 @@ class EventDetail extends Component {
   //   }
   // };
 
-
     return (
       
       <div className ="eventCanvas">
