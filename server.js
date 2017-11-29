@@ -27,10 +27,10 @@ app.get("/api/", (req, res) => {
       "lat": geoResponse[0].latitude,
       "lng": geoResponse[0].longitude,
       "sort": "time",
-      "categories": req.query.categories,
-      "distance": 1609, // one mile in meters
       "since": req.query.date[0],
       "until": req.query.date[1],
+      "distance": "1609", // one mile in meters
+      "categories": req.query.categories,
       "accessToken": process.env.FEBL_ACCESS_TOKEN
     }).then(function (events) {
       res.send(events.events);
