@@ -18,13 +18,11 @@ class EventSearch extends Component {
     return (
       <div className="EventSearch">
         <input type="text" placeholder="location" onChange={this.handleLocation} />
-           
-      <div className="date-params">
-        <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
-        <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
-        <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
-      </div>
-      
+        <div className="date-params">
+          <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
+          <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
+          <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
+        </div>
         <div className="categories">
           <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category" : "category-active"} id="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>Arts & Entertainment</div>
           <div className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "category" : "category-active"} id="EDUCATION" onClick={this.handleCatChange}>Education</div>
@@ -65,6 +63,8 @@ class EventSearch extends Component {
       this.setState({
         date: [nowUnix, endOfWeekUnix, 3]
       })
+    }
+  };
 
   handleCatChange = (event) => {
     const clickedCategory = event.target.id;    
@@ -92,8 +92,8 @@ class EventSearch extends Component {
       this.state.categories
     );
   };
-}
 
+} // end of component
 
 const mapActionsToProps = {
   fetchEvents
