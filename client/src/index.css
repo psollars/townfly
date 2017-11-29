@@ -52,6 +52,12 @@ input{
   justify-content: space-evenly;
 }
 
+.distance-params {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .radio-button {
   padding: 5px 10px;
   text-align: center;
@@ -64,9 +70,6 @@ input{
   color: #fff;
   background-color: #ed6564;
   font-weight: 600;
-
-  margin: 50px;
-  flex-direction: column;
 }
 
 .categories {
