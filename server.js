@@ -7,15 +7,8 @@ require('dotenv').config();
 app.use(express.static('client/build'));
 
 const moment = require('moment');
-    let now = moment().unix();
-    let sevenDays = moment(now).add(7, 'days');
-    let myThing = moment().add(7, 'days');
-    //let unix = moment.unix(now);
-    console.log(now);
-    console.log(sevenDays);
-    console.log(myThing);
-    console.log(moment(myThing).unix());
-    //console.log(moment().format());
+  let oneWeekFromNowUnix = moment().add(7, 'days').unix();
+  console.log(oneWeekFromNowUnix);
 
 // geocoder
 const NodeGeocoder = require('node-geocoder');
@@ -39,6 +32,7 @@ app.get("/api/", (req, res) => {
       "sort": "time",
       "categories": req.query.categories,
       "distance": 1609, // one mile in meters
+      "until": oneWeekFromNowUnix,
       "accessToken": process.env.FEBL_ACCESS_TOKEN
     }).then(function (events) {
       res.send(events.events);
