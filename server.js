@@ -40,7 +40,6 @@ app.get("/api/", (req, res) => {
   }).catch(function (error) {
     console.log(errorCallback);
   });
-
 });
 
 const PORT = process.env.PORT || 5000;
