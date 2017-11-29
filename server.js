@@ -3,18 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const errorCallback = console.error.bind(console);
 require('dotenv').config();
+//const moment = require('moment');
 
 app.use(express.static('client/build'));
-
-const moment = require('moment');
-  let nowUnix = moment().unix();
-  let endOfTodayUnix = moment().endOf("day").unix();
-  let endOfTomorrowUnix = moment().endOf("day").add(1, 'days').unix();
-  let oneWeekFromNowUnix = moment().add(7, 'days').unix();
-  console.log(nowUnix);
-  console.log(endOfTodayUnix);
-  console.log(endOfTomorrowUnix);
-  console.log(oneWeekFromNowUnix);
 
 // geocoder
 const NodeGeocoder = require('node-geocoder');
@@ -38,8 +29,8 @@ app.get("/api/", (req, res) => {
       "sort": "time",
       "categories": req.query.categories,
       "distance": 1609, // one mile in meters
-      "since": nowUnix,
-      "until": oneWeekFromNowUnix,
+      "since": req.query.date[0],
+      "until": req.query.date[1],
       "accessToken": process.env.FEBL_ACCESS_TOKEN
     }).then(function (events) {
       res.send(events.events);
