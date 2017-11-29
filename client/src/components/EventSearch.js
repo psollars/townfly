@@ -9,7 +9,6 @@ class EventSearch extends Component {
     super(props);
     this.state = {
       location: "",
-      date: "",
       categories: []
     }
   }
