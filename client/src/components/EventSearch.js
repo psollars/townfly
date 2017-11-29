@@ -24,9 +24,9 @@ class EventSearch extends Component {
           <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
         </div>
         <div className="distance-params">
-          <div className={ this.state.distance === ".5" ? "radio-button active" : "radio-button"} data-distance=".5" onClick={this.handleDistance}>today</div>
-          <div className={ this.state.distance === "1" ? "radio-button active" : "radio-button"} data-distance="1" onClick={this.handleDistance}>tomorrow</div>
-          <div className={ this.state.distance === "5" ? "radio-button active" : "radio-button"} data-distance="5" onClick={this.handleDistance}>this week</div>
+          <div className={ this.state.distance === ".5" ? "radio-button active" : "radio-button"} data-distance=".5" onClick={this.handleDistance}>1/2 mile</div>
+          <div className={ this.state.distance === "1" ? "radio-button active" : "radio-button"} data-distance="1" onClick={this.handleDistance}>1 mile</div>
+          <div className={ this.state.distance === "5" ? "radio-button active" : "radio-button"} data-distance="5" onClick={this.handleDistance}>5 miles</div>
         </div>
         <div className="categories">
           <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category" : "category-active"} id="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>Arts & Entertainment</div>
@@ -72,7 +72,9 @@ class EventSearch extends Component {
   };
 
   handleDistance = (event) => {
-    event.target.dataset
+    this.setState({
+        distance: event.target.dataset.distance
+      })
   };
 
   handleCatChange = (event) => {
