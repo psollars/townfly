@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventDetail from './EventDetail';
 import Controls from './Controls';
+import { returnToSearch } from '../actions';
 
 class Events extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class Events extends Component {
 
     return (
       <div className="Events">
+        <div className="backToSearch" onClick={this.props.returnToSearch}>New Search</div>
           <input type="text" id="eventFilter" onChange={this.eventFilter} />
         { this.state.eventsToDisplay.length <= 0 ?
           <p>Sorry, no events.</p> : null
@@ -112,4 +114,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Events);
+const mapActionsToProps={returnToSearch};
+
+export default connect(mapStateToProps, mapActionsToProps)(Events);

@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
           <HeaderBar/>
-        { this.props.loading ?
+        { this.props.initialSearch ?
           <EventSearch /> :
           <Events />
         }
@@ -22,7 +22,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    loading: state.loading
+    initialSearch: state.initialSearch
   };
 }
 
