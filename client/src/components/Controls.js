@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { previousEvent, nextEvent, shuffleEvents } from '../actions';
 
 class Controls extends Component {
   render() {
@@ -16,6 +13,4 @@ class Controls extends Component {
   }
 }
 
-const mapActionsToProps = { previousEvent, nextEvent, shuffleEvents};
-
-export default connect(null, mapActionsToProps)(Controls);
+export default Controls;
