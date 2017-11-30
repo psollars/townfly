@@ -8,25 +8,61 @@ body {
   display: flex;
   width: 100%;
 	height: 60px;
-  background-color: #ed6564;
+  background-color: white;
+  border-bottom: 1px solid rgba(216, 216, 216, 0.6);
   text-align: center;
   font-family: Avenir;
 	font-size: 16px;
 	font-weight: 300;
 	letter-spacing: 2.7px;
 	text-align: center;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ed6564;
   align-items: center;
   justify-content: center;
 }
 
-input{
+.divider {
+  color:yellow;
+}
+
+.searchInput::placeholder {
+  opacity: .5;
+}
+
+.searchInput{
+  opacity:1;
+  margin: 20px auto 10px auto;
   width:335px;
   text-align: center;
   border-style: none;
   border-bottom: 2px solid #ed6564;
-  font-size: 2em;
   padding-bottom: 10px;
+  font-size: 2em;
+	font-weight: 600;
+	letter-spacing: 2.7px;
+	text-align: center;
+	color: #ed6564;
+  
+}
+
+.nearMe{
+	font-size: 18px;
+	font-weight: 900;
+	letter-spacing: 2.7px;
+	text-align: center;
+  color: #fd6968;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.label{
+  display: flex;
+  justify-content: center;
+	font-size: 14px;
+	font-weight: 900;
+	letter-spacing: 2.3px;
+  color: rgba(88, 88, 88, 0.6);
+  margin:20px;
 }
 
 .App {
@@ -37,6 +73,61 @@ input{
   display: flex;
   justify-content: center;
 }
+
+.primaryButton{
+  width: 237px;
+	height: 40px;
+  margin: 30px 5px 30px 5px;
+  position: fixed;
+  bottom:12px;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-align: center;
+	color: #ffffff;
+	border-radius: 31.5px;
+	background-color: #01C69F;
+  box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
+}
+
+.btnContain {
+  display: flex; 
+  justify-content: center;
+}
+
+.stringSearchBG{
+  margin:0;
+  width:100%;
+  height:60px;
+  background: #ffff00;
+}
+
+.stringSearch{
+  text-align: left;
+  width:95%;
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  border-radius: 4px;
+  margin:10px;
+  height:40px;
+  position: relative;
+  padding-left: 10px;
+
+}
+
+.stringSearchBG button{
+  position: absolute;
+  right:20px;
+  top:82px;
+  font-size: 16px;
+	font-weight: 900;
+	letter-spacing: 2.7px;
+	text-align: right;
+	color: #fd6968;
+  text-transform: capitalize;
+
+}
+
 
 .EventSearch{
   display: flex;
@@ -50,12 +141,15 @@ input{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 
 .distance-params {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-bottom: 20px;
+
 }
 
 .radio-button {
@@ -64,8 +158,9 @@ input{
   color: #ed6564;
   border: 1px solid #ed6564;
   border-radius: 20px;
-  width: 93px;
-  margin: 30px 5px 30px 5px;
+  letter-spacing: 2.7px;
+  max-width: 114px;
+  max-height:32px;
  
 }
 
@@ -88,35 +183,47 @@ input{
     width: 49%;
     height: 160px;
     border: .5px solid rgba(88, 88, 88, 0.1);
-    font-family: Avenir;
     text-align: center;
-    mix-blend-mode: lighten; 
+    opacity: .5;
+     
     
 }
 .category-active {
     word-wrap: break-word;
-    width: 100px;
-    height: 100px;
-    border: .5px solid #fd6968;
+    width: 49%;
+    height: 160px;
+    border: .5px solid rgba(88, 88, 88, 0.1);
+    text-align: center;
+    opacity: 1;
+    color:#ed6564;
 }
 
-.primaryButton{
-  width: 237px;
-	height: 40px;
-	border-radius: 31.5px;
-  background-color: #ed6564;
-  margin: 30px 5px 30px 5px;
-  font-family: Avenir;
-  text-align: center;
-  color: #fff;
-  padding: 5px 10px;
-  font-size: 16px;
-  font-weight: 600;
+.circle{
+  background-color:#ed6564;
+  opacity: 1;
+  height:48px;
+  width:48px;
+  border-radius: 100%;
+  margin:32px auto 16px auto;
+
 }
 
-.btnContain {
-  display: flex; 
-  justify-content: center;
+.active-circle{
+  /* // add check mark */
+  
+}
+
+h6{
+  width: 125px;
+	height: 18px;
+	font-family: Avenir;
+	font-size: 14px;
+	font-weight: 900;
+	line-height: 1.29;
+	letter-spacing: 2px;
+	text-align: center;
+  color: rgba(88, 88, 88, 0.6);
+  margin: 0 auto;
 }
 
 .Events {
@@ -133,6 +240,49 @@ input{
   /* border: 1px solid rgba(128, 128, 128, 0.37); */
 }
 
+.imageCard{
+  display: flex;
+  justify-content: center;
+  position:relative;
+  background-size:cover;
+}
+
+.eventImage{
+      width: 295px;
+      height: 200px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); 
+      
+}
+
+.eventCategory{
+      bottom:0px;
+      position: absolute;
+      background:white;
+      font-family: Avenir;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      text-align: right;
+      color: #fd6968;
+      padding:4px 10px;
+      border-radius: 2px;
+}
+
+     
+.eventSwipeableArea{
+  display: flex;
+  justify-content: center;
+}
+
+.eventInfoCard{
+  margin: 0;
+  width: 335px;
+	height: 237px;
+	border-radius: 4px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+}
 .eventTitle{
 	font-family: Avenir;
 	font-size: 24px;
@@ -151,50 +301,6 @@ input{
 	text-align: center;
   color: rgba(88, 88, 88, 0.45);
   text-transform: uppercase;
-}
-
-.imageCard{
-  display: flex;
-  justify-content: center;
-  position:relative;
-  background-size:cover;
-}
-
-    .eventImage{
-      width: 295px;
-      height: 200px;
-      border-radius: 4px;
-      box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); 
-      
-    }
-
-    .eventCategory{
-      bottom:0px;
-      position: absolute;
-      background:white;
-      font-family: Avenir;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-      text-align: right;
-      color: #fd6968;
-      padding:4px 10px;
-      border-radius: 2px;
-    }
-
-     
-.eventInfo{
-  display: flex;
-  justify-content: center;
-}
-
-.eventInfoCard{
-  margin: 0;
-  width: 335px;
-	height: 237px;
-	border-radius: 4px;
-	background-color: #ffffff;
-	box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
   .eventTime{

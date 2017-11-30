@@ -28,8 +28,10 @@ class Events extends Component {
 
     return (
       <div className="Events">
+       <div className ="stringSearchBG">
         <div className="backToSearch" onClick={this.props.returnToSearch}>New Search</div>
-          <input type="text" id="eventFilter" onChange={this.eventFilter} />
+        <input className = "stringSearch" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="Refine Results" />
+       </div>
         { this.state.eventsToDisplay.length <= 0 ?
           <p>Sorry, no events.</p> : null
         }
