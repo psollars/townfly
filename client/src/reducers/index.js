@@ -1,4 +1,3 @@
-import _ from 'lodash';
 
 const INITIAL_STATE = {
 	loading: true,
@@ -23,8 +22,6 @@ export default function(state = INITIAL_STATE, action) {
         return nextEvent(state);
     case "PREVIOUS_EVENT":
 				return previousEvent(state);
-		case 'SHUFFLE_EVENTS':
-				return shuffleEvents(state);
 		default:
 			return state;
 	}
@@ -69,10 +66,5 @@ function previousEvent(state) {
   });
 }
 
-function shuffleEvents(state) {
-	return Object.assign({}, state, {
-			events: _.shuffle(state.events),
-			activeEventIndex: 0
-	});
-}
+
 

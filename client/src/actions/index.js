@@ -50,8 +50,3 @@ export function previousEvent() {
     };
 }
 
-export function shuffleEvents() {
-    return {
-        type: "SHUFFLE_EVENTS"
-    }
-}
