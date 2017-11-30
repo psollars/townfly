@@ -64,31 +64,40 @@ input{
   color: #ed6564;
   border: 1px solid #ed6564;
   border-radius: 20px;
+  width: 93px;
+  margin: 30px 5px 30px 5px;
+ 
 }
 
 .active {
   color: #fff;
   background-color: #ed6564;
   font-weight: 600;
+  flex-direction: column;
 }
 
 .categories {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    
 }
 
 .category {
     word-wrap: break-word;
-    width: 100px;
-    height: 100px;
-    border: 1px solid #000;
+    width: 49%;
+    height: 160px;
+    border: .5px solid rgba(88, 88, 88, 0.1);
+    font-family: Avenir;
+    text-align: center;
+    mix-blend-mode: lighten; 
+    
 }
 .category-active {
     word-wrap: break-word;
     width: 100px;
     height: 100px;
-    border: 1px solid #fd6968;
+    border: .5px solid #fd6968;
 }
 
 .primaryButton{
@@ -96,7 +105,18 @@ input{
 	height: 40px;
 	border-radius: 31.5px;
   background-color: #ed6564;
-  margin:20px;
+  margin: 30px 5px 30px 5px;
+  font-family: Avenir;
+  text-align: center;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btnContain {
+  display: flex; 
+  justify-content: center;
 }
 
 .Events {
@@ -221,4 +241,8 @@ input{
     font-weight: 900;
     letter-spacing: 2.3px;
     color: #fd6968;
+  }
+
+  input:focus {
+    outline: none;
   }
