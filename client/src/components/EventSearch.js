@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchEvents } from '../actions';
 import moment from 'moment';
 import $ from "jquery-ajax";
+import _ from 'lodash';
 
 class EventSearch extends Component {
   constructor(props) {
@@ -103,7 +104,7 @@ class EventSearch extends Component {
 
   handleGeoLocation = () => {
     this.setState({
-      displayLocation: "Loading..."
+      displayLocation: "Detecting..."
     })
     const options = {
       enableHighAccuracy: true,
@@ -111,7 +112,6 @@ class EventSearch extends Component {
       maximumAge: 0
     };
     navigator.geolocation.getCurrentPosition((pos) => {
-      console.log(pos.coords);
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
       this.detectLocation(lat, lon);
@@ -138,15 +138,35 @@ class EventSearch extends Component {
     });
   };
 
+  detectTextLocation = (text) => {
+    $.ajax({
+      url: "/api/geolocate/",
+      method: "GET",
+      data: { text: text }
+    }).then(geoResponse => {
+      this.setState({ location: geoResponse })
+    }).then(() => {
+      this.props.fetchEvents(
+        this.state.location,
+        this.state.date,
+        this.state.distance,
+        this.state.categories
+      )}
+    )};
+
   handleSubmit = (event) => {
     event.preventDefault();
-
-    this.props.fetchEvents(
-      this.state.location,
-      this.state.date,
-      this.state.distance,
-      this.state.categories
-    );
+    if (_.isEmpty(this.state.location)) {
+      const text = this.state.displayLocation;
+      this.detectTextLocation(text)
+    } else {
+      this.props.fetchEvents(
+        this.state.location,
+        this.state.date,
+        this.state.distance,
+        this.state.categories
+      )
+    }
   };
 
 } // end of component
