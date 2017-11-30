@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventDetail from './EventDetail';
 import Controls from './Controls';
-import _ from 'lodash';
 
 class Events extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      initialEvents: this.props.events,
       eventsToDisplay: this.props.events,
       searchString: "",
-      activeEventIndex: 0
+      activeEventIndex: 0,
+      filterUse: false
     }
   }
 
@@ -27,27 +28,30 @@ class Events extends Component {
 
     return (
       <div className="Events">
-        <input type="text" onChange={this.eventFilter} />
+        <form>
+          <input type="text" id="eventFilter" onChange={this.handleString} />
+          <button type="submit" onClick={this.eventFilter}>Filter Results</button>
+          <button type="reset" onClick={this.resetFilter}>Clear Filter</button>
+        </form>
+
         { this.state.eventsToDisplay.length <= 0 ?
-          <p>Sorry, no events. :(</p> : null
+          <p>Sorry, no events.</p> : null
         }
         {activeEvent}
-        <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} shuffleEvents={this.shuffleEvents} />
+        <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} />
       </div>
     );
   }
 
   eventFilter = (event) => {
-    let currentString = event.target.value;
-    let eventsToFilter = this.props.events.splice(0);
+    event.preventDefault();
+    let currentString = this.state.searchString;
+    let eventsToFilter = this.state.initialEvents;
     let userFilter = sanitizeString(currentString);
     let searchTerms = userFilter.split(" ");
     let filteredEvents = [];
     let foundMatch;
-    if (currentString.length <= 1) {
-      this.setState({
-        eventsToDisplay: this.props.events
-      })
+    if (currentString.length === 0) {
       return
     } else {
       eventsToFilter.forEach(function(item) {
@@ -65,7 +69,7 @@ class Events extends Component {
     }
     this.setState({
       eventsToDisplay: filteredEvents,
-      searchString: event.target.value,
+      filterUse: true,
       activeEventIndex: 0
     })
   }
@@ -73,6 +77,16 @@ class Events extends Component {
   handleString = (event) => {
     this.setState({
       searchString: event.target.value,
+    })
+  };
+
+  resetFilter = (event) => {
+    let initialEvents = this.state.initialEvents;
+    this.setState({
+      eventsToDisplay: initialEvents,
+      searchString: "",
+      filterUse: false,
+      activeEventIndex: 0
     })
   };
 
@@ -98,15 +112,6 @@ class Events extends Component {
         activeEventIndex: newIndex
       })
     }
-  }
-
-  shuffleEvents = (event) => {
-    event.preventDefault();
-    let shuffledEvents = _.shuffle(this.state.eventsToDisplay);
-    this.setState({
-      eventsToDisplay: shuffledEvents,
-      activeEventIndex: 0
-    })
   }
 
 }
