@@ -18,23 +18,36 @@ const locationOptions = {
 const geocoder = NodeGeocoder(locationOptions);
 
 app.get("/api/geolocate/", (req, res) => {
-
-  geocoder.reverse({lat:42.9661778, lon:-85.6695778})
-  .then(function(res) {
-    console.log(res);
-  })
-  .catch(function(error) {
-    console.log(errorCallback);
-  });
-
+  console.log(req.query.lat);
+  console.log(req.query.lon);
+  console.log(req.query.location);
+  if (req.query.lat) {
+    geocoder.reverse({
+      lat:req.query.lat,
+      lon:req.query.lon
+    }).then(function(geoResponse) {
+      console.log(geoResponse[0]);
+      res.send(geoResponse[0]);
+    }).catch(function(error) {
+      console.log(errorCallback);
+    });
+  } else {
+    geocoder.geocode(
+      req.query.location
+    ).then(function(geoResponse) {
+      console.log(geoResponse[0]);
+      res.send(geoResponse[0]);
+    }).catch(function (error) {
+      console.log(errorCallback);
+    });
+  }
 });
 
 // event search
 const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
 
-app.get("/api/", (req, res) => {
-  geocoder.geocode(req.query.location).then(function(geoResponse) {
+app.get("/api/events", (req, res) => {
     es.search({
       "lat": geoResponse[0].latitude,
       "lng": geoResponse[0].longitude,
@@ -49,9 +62,6 @@ app.get("/api/", (req, res) => {
     }).catch(function (error) {
       console.log(errorCallback);
     });
-  }).catch(function (error) {
-    console.log(errorCallback);
-  });
 });
 
 const PORT = process.env.PORT || 5000;

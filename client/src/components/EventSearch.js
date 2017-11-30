@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchEvents } from '../actions';
 import moment from 'moment';
+import $ from "jquery-ajax";
 
 class EventSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      latitude: "",
+      longitude: "",
       location: "",
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
@@ -17,7 +20,12 @@ class EventSearch extends Component {
   render() {
     return (
       <div className="EventSearch">
-        <input type="text" placeholder="location" onChange={this.handleLocation} />
+        <div className="location-params">
+          <input type="text" placeholder="location" value="" onChange={this.handleLocation} />
+          <div>
+            <button onClick={this.handleGeolocation}>Detect My Location</button>
+          </div>
+        </div>
         <div className="date-params">
           <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
           <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
@@ -43,12 +51,32 @@ class EventSearch extends Component {
     );
   }
 
-  handleLocation = (event) => {
-    this.setState({
-      location: event.target.value
-    })
+  detectLocation = (location, lat, lon) => {
+    alert("yo");
+    $.ajax({
+       url: "/api/geolocate",
+       method: "GET",
+       data: {
+           location: location,
+           lat: lat,
+           lon: lon
+       }
+    }).then(function(location) {
+      this.setState({
+          location: location
+      })
+    });
   };
 
+  handleLocation = (event) => {
+    function() {
+      detectLocation(event.target.value)
+    }
+    
+    // this.setState({
+    //   location: event.target.value
+    // })
+  };
 
   handleDate = (event) => {
     const dateParam = event.target.dataset.dateParam;
@@ -93,6 +121,36 @@ class EventSearch extends Component {
         categories: newCategories
       }));
     }
+  };
+
+  handleGeolocation = () => {
+    let currentLat = "";
+    let currentLon = "";
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    function success(pos) {
+      var crd = pos.coords;
+      console.log(pos);
+      console.log('Your current position is:');
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+      currentLat = crd.latitude;
+      currentLon = crd.longitude;
+    };
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+    
+    //detectLocation(currentLat, currentLon)
+
   };
 
   handleSubmit = (event) => {

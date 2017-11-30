@@ -6,7 +6,7 @@ export function fetchEvents(location, date, distance, categories) {
 	return function(dispatch) {
 		dispatch(requestEvents());
  		$.ajax({
-            url: "/api/",
+            url: "/api/events/",
             method: "GET",
             data: {
             	location: location,
