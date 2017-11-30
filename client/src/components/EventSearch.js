@@ -8,9 +8,8 @@ class EventSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lat: "",
-      lon: "",
-      location: "",
+      displayLocation: "",
+      location: {},
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
       categories: []
@@ -21,7 +20,7 @@ class EventSearch extends Component {
     return (
       <div className="EventSearch">
         <div className="location-params">
-          <input type="text" placeholder="location" value={this.state.location} onChange={this.handleTextLocation} />
+          <input type="text" placeholder="location" value={this.state.displayLocation} onChange={this.handleTextLocation} />
           <div>
             <button onClick={this.handleGeoLocation}>Detect My Location</button>
           </div>
@@ -98,101 +97,52 @@ class EventSearch extends Component {
 
   handleTextLocation = (event) => {
     this.setState({
-      location: event.target.value
+      displayLocation: event.target.value
     })
   };
 
   handleGeoLocation = () => {
-    let crd = {};
-    let currentLat = "";
-    let currentLon = "";
+    this.setState({
+      displayLocation: "Loading..."
+    })
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0
     };
-
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    };
-
     navigator.geolocation.getCurrentPosition((pos) => {
       console.log(pos.coords);
-      console.log('Your current position is:');
-      console.log(`Latitude : ${pos.coords.latitude}`);
-      console.log(`Longitude: ${pos.coords.longitude}`);
-      console.log(`More or less ${pos.coords.accuracy} meters.`);
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      this.detectLocation(lat, lon);
+    }, (err) => {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }, options);
+  };
+
+  detectLocation = (lat, lon, text) => {
+    $.ajax({
+      url: "/api/geolocate/",
+      method: "GET",
+      data: {
+        lat: lat,
+        lon: lon,
+        text: text
+      }
+    }).then(geoResponse => {
+      const displayLocation = `${geoResponse.city}, ${geoResponse.administrativeLevels.level1short}`;
       this.setState({
-        location: "location detected!",
-        lat: pos.coords.latitude,
-        lon: pos.coords.longitude
+          location: geoResponse,
+          displayLocation: displayLocation
       })
-    }, error, options);
-    
-    
-
-    //detectLocation(null, currentLat, currentLon);
-
-  //   function detectLocation(textLocation) {
-  //   alert("yo");
-  //   $.ajax({
-  //      url: "/api/geolocate",
-  //      method: "GET",
-  //      data: {
-  //          location: textLocation,
-  //      }
-  //   }).then(function(geoResponse) {
-  //     this.setState({
-  //         location: geoResponse
-  //     })
-  //   });
-  // };
-
-  //   detectLocation = (location, lat, lon) => {
-  //   alert("yo");
-  //   $.ajax({
-  //      url: "/api/geolocate",
-  //      method: "GET",
-  //      data: {
-  //          location: location,
-  //          lat: lat,
-  //          lon: lon
-  //      }
-  //   }).then(function(location) {
-  //     this.setState({
-  //         location: location
-  //     })
-  //   });
-  // };
-
-  //  const textLocation = event.target.value;
-  //   let mygeoResponse = {};
-  //   function detectLocation(textLocation) {
-  //   $.ajax({
-  //      url: "/api/geolocate/",
-  //      method: "GET",
-  //      data: {
-  //          location: textLocation,
-  //      }
-  //   }).then(function(geoResponse) {
-  //     console.log(geoResponse)
-  //     mygeoResponse = geoResponse;
-  //   });
-  // };
-  // detectLocation(event.target.value)
-  // this.setState({
-  //   location: textLocation,
-  //   lat: mygeoResponse.latitude,
-  //   lon: mygeoResponse.longitude
-  // })
-
+    });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     this.props.fetchEvents(
-      this.state.lat,
-      this.state.lon,
+      this.state.location,
       this.state.date,
       this.state.distance,
       this.state.categories
