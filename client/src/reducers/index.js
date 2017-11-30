@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
-  loading: true,
-  events: []
+  loading: false,
+	events: [],
+	initialSearch: true
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -12,8 +13,13 @@ export default function(state = INITIAL_STATE, action) {
     case "RECEIVE_EVENTS":
       return Object.assign({}, state, {
         loading: false,
-        events: action.events
-      });
+				events: action.events,
+				initialSearch: false
+			});
+		case "RETURN_SEARCH":
+			return Object.assign({}, state, {
+			initialSearch: true
+		});
     default:
       return state;
   }

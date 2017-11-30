@@ -32,3 +32,9 @@ function receiveEvents(events) {
 		events
 	};
 }
+
+export function returnToSearch () {
+	return {
+		type : "RETURN_SEARCH"
+	};
+}
