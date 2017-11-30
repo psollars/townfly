@@ -9,8 +9,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
           <div className="headerBar"><p>TOWNFLY</p></div>
         { this.props.loading ?
+
+          
+        { this.props.initialSearch ? 
           <EventSearch /> :
           <Events />
         }
@@ -22,7 +26,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    loading: state.loading
+    initialSearch: state.initialSearch
   };
 }
 
