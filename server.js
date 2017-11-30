@@ -17,6 +17,18 @@ const locationOptions = {
 };
 const geocoder = NodeGeocoder(locationOptions);
 
+app.get("/api/geolocate/", (req, res) => {
+
+  geocoder.reverse({lat:42.9661778, lon:-85.6695778})
+  .then(function(res) {
+    console.log(res);
+  })
+  .catch(function(error) {
+    console.log(errorCallback);
+  });
+
+});
+
 // event search
 const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
