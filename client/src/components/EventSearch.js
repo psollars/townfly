@@ -9,8 +9,8 @@ class EventSearch extends Component {
     this.state = {
       location: "",
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
+      distance: "1609",
       categories: []
-      // distance
     }
   }
 
@@ -23,6 +23,11 @@ class EventSearch extends Component {
           <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
           <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
         </div>
+        <div className="distance-params">
+          <div className={ this.state.distance === "1609" ? "radio-button active" : "radio-button"} data-distance="1609" onClick={this.handleDistance}>1 mile</div>
+          <div className={ this.state.distance === "8046" ? "radio-button active" : "radio-button"} data-distance="8046" onClick={this.handleDistance}>5 miles</div>
+          <div className={ this.state.distance === "16093" ? "radio-button active" : "radio-button"} data-distance="16093" onClick={this.handleDistance}>10 miles</div>
+        </div>
         <div className="categories">
           <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category" : "category-active"} id="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>Arts & Entertainment</div>
           <div className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "category" : "category-active"} id="EDUCATION" onClick={this.handleCatChange}>Education</div>
@@ -34,7 +39,7 @@ class EventSearch extends Component {
           <div className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "category" : "category-active"} id="TRAVEL_TRANSPORTATION" onClick={this.handleCatChange}>Travel & Transportation</div>
         </div>
         <div className="btnContain">
-        <button className = "primaryButton" onClick={this.handleSubmit}>Fetch Events</button>
+          <button className = "primaryButton" onClick={this.handleSubmit}>Fetch Events</button>
         </div>
       </div>
     );
@@ -68,6 +73,12 @@ class EventSearch extends Component {
     }
   };
 
+  handleDistance = (event) => {
+    this.setState({
+        distance: event.target.dataset.distance
+      })
+  };
+
   handleCatChange = (event) => {
     const clickedCategory = event.target.id;    
     const categoryIndex = this.state.categories.findIndex(category => {
@@ -91,6 +102,7 @@ class EventSearch extends Component {
     this.props.fetchEvents(
       this.state.location,
       this.state.date,
+      this.state.distance,
       this.state.categories
     );
   };
