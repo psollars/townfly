@@ -1,43 +1,41 @@
 import $ from "jquery-ajax";
 
-//const apiUrl = process.env.API_URL;
-
 export function fetchEvents(location, date, distance, categories) {
-	return function(dispatch) {
-		dispatch(requestEvents());
- 		$.ajax({
-            url: "/api/events/",
-            method: "GET",
-            data: {
-            	location: location,
-                date: date,
-                distance: distance,
-            	categories: categories
-            }
-        }).done(function(events) {
-            dispatch(receiveEvents(events));
-		});
-	};
+  return function(dispatch) {
+    dispatch(requestEvents());
+    $.ajax({
+      url: "/api/events/",
+      method: "GET",
+      data: {
+        location: location,
+          date: date,
+          distance: distance,
+        categories: categories
+      }
+      }).done(function(events) {
+        dispatch(receiveEvents(events));
+    });
+  };
 }
 
 export function filterEvents(string) {
-	return {
-		type: "FILTER_EVENTS",
-		string
-	};
+  return {
+    type: "FILTER_EVENTS",
+    string
+  };
 }
 
 function requestEvents() {
-	return {
-		type: "REQUEST_EVENTS"
-	};
+  return {
+    type: "REQUEST_EVENTS"
+  };
 }
 
 function receiveEvents(events) {
-	return {
-		type: "RECEIVE_EVENTS",
-		events
-	};
+  return {
+    type: "RECEIVE_EVENTS",
+    events
+  };
 }
 
 export function nextEvent() {

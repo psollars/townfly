@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const errorCallback = console.error.bind(console);
 require('dotenv').config();
-//const moment = require('moment');
 
 app.use(express.static('client/build'));
 
@@ -18,15 +17,11 @@ const locationOptions = {
 const geocoder = NodeGeocoder(locationOptions);
 
 app.get("/api/geolocate/", (req, res) => {
-  console.log(req.query.lat);
-  console.log(req.query.lon);
-  console.log(req.query.text);
   if (req.query.lat && req.query.lon) {
     geocoder.reverse({
       lat:req.query.lat,
       lon:req.query.lon
     }).then(function(geoResponse) {
-      console.log(geoResponse[0]);
       res.send(geoResponse[0]);
     }).catch(function(error) {
       console.log(errorCallback);
@@ -35,7 +30,6 @@ app.get("/api/geolocate/", (req, res) => {
     geocoder.geocode(
       req.query.text
     ).then(function(geoResponse) {
-      console.log(geoResponse[0]);
       res.send(geoResponse[0]);
     }).catch(function (error) {
       console.log(errorCallback);
@@ -48,7 +42,6 @@ const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
 
 app.get("/api/events/", (req, res) => {
-  console.log(req.query.location);
     es.search({
       "lat": req.query.location.latitude,
       "lng": req.query.location.longitude,
