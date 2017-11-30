@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetchEvents } from '../actions';
 import moment from 'moment';
 
+
+
 class EventSearch extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class EventSearch extends Component {
   render() {
     return (
       <div className="EventSearch">
-        <input type="text" placeholder="location" onChange={this.handleLocation} />
+        <input type="text" placeholder="location" onChange={this.handleLocation}  />
         <div className="date-params">
           <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
           <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
@@ -105,6 +107,9 @@ class EventSearch extends Component {
       this.state.distance,
       this.state.categories
     );
+    if (!this.state.location) {
+       alert("Please enter a city or zipcode");
+    }
   };
 
 } // end of component
