@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetchEvents } from '../actions';
 import moment from 'moment';
 
+
+
 class EventSearch extends Component {
   constructor(props) {
     super(props);
@@ -116,6 +118,9 @@ class EventSearch extends Component {
       this.state.distance,
       this.state.categories
     );
+    if (!this.state.location) {
+       alert("Please enter a city or zipcode");
+    }
   };
 
 } // end of component
