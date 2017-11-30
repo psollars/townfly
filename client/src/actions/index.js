@@ -8,20 +8,13 @@ export function fetchEvents(location, date, distance, categories) {
       method: "GET",
       data: {
         location: location,
-          date: date,
-          distance: distance,
+        date: date,
+        distance: distance,
         categories: categories
       }
       }).done(function(events) {
         dispatch(receiveEvents(events));
     });
-  };
-}
-
-export function filterEvents(string) {
-  return {
-    type: "FILTER_EVENTS",
-    string
   };
 }
 
@@ -38,20 +31,8 @@ function receiveEvents(events) {
   };
 }
 
-export function nextEvent() {
-    return {
-        type: "NEXT_EVENT"
-    };
-}
-
-export function previousEvent() {
-    return {
-        type: "PREVIOUS_EVENT"
-    };
-}
-
-export function shuffleEvents() {
-    return {
-        type: "SHUFFLE_EVENTS"
-    };
+export function returnToSearch () {
+	return {
+		type : "RETURN_SEARCH"
+	};
 }
