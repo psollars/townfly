@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchEvents } from '../actions';
 import moment from 'moment';
+import $ from "jquery-ajax";
+import _ from 'lodash';
 
 
 
@@ -9,7 +11,8 @@ class EventSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "",
+      displayLocation: "",
+      location: {},
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
       categories: []
@@ -19,29 +22,27 @@ class EventSearch extends Component {
   render() {
     return (
       <div className="EventSearch">
-        <input className = "searchInput" type="text" placeholder="zip code or city" onChange={this.handleLocation} />
-        <a className="nearMe" href="#">near me<span src = "icongoeshere"></span></a>
-        <div>
-          <hr className = "divider"></hr>
-          <label className= "label">TIME</label>
-          <div className="date-params">
-            <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
-            <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
-            <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
+        <div className="location-params">
+          <input className="searchInput" type="text" placeholder="zip code or city" value={this.state.displayLocation} onChange={this.handleTextLocation} />
+          <div>
+            <div className="detect-location" onClick={this.handleGeoLocation}>detect my location <span className="fa "></span></div>
           </div>
         </div>
-        <div >
-          <hr className ="divider"></hr>
-          <label className= "label">MILES AWAY</label>
-          <div className="distance-params"> 
-            <div className={ this.state.distance === "1609" ? "radio-button active" : "radio-button"} data-distance="1609" onClick={this.handleDistance}>1 mile</div>
-            <div className={ this.state.distance === "8046" ? "radio-button active" : "radio-button"} data-distance="8046" onClick={this.handleDistance}>5 miles</div>
-            <div className={ this.state.distance === "16093" ? "radio-button active" : "radio-button"} data-distance="16093" onClick={this.handleDistance}>10 miles</div>
-          </div>
+        <hr className = "divider"></hr>
+        <label className= "label">TIME</label>
+        <div className="date-params">
+          <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
+          <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
+          <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
         </div>
-        
+        <hr className ="divider"></hr>
+        <label className= "label">MILES AWAY</label>
+        <div className="distance-params"> 
+          <div className={ this.state.distance === "1609" ? "radio-button active" : "radio-button"} data-distance="1609" onClick={this.handleDistance}>1 mile</div>
+          <div className={ this.state.distance === "8046" ? "radio-button active" : "radio-button"} data-distance="8046" onClick={this.handleDistance}>5 miles</div>
+          <div className={ this.state.distance === "16093" ? "radio-button active" : "radio-button"} data-distance="16093" onClick={this.handleDistance}>10 miles</div>
+        </div>
         <div className="categories">
-        
           <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category" : "category-active"} id="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}><div className = "circle"></div><h6>Arts & Entertainment</h6></div>
           <div className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "category" : "category-active"} id="EDUCATION" onClick={this.handleCatChange}><div className = "circle"></div><h6>Education</h6></div>
           <div className={ this.state.categories.findIndex(category => {return category === "FITNESS_RECREATION"}) === -1 ? "category" : "category-active"} id="FITNESS_RECREATION" onClick={this.handleCatChange}><div className = "circle"></div><h6>Fitness & Recreation</h6></div>
@@ -57,13 +58,6 @@ class EventSearch extends Component {
       </div>
     );
   }
-
-  handleLocation = (event) => {
-    this.setState({
-      location: event.target.value
-    })
-  };
-
 
   handleDate = (event) => {
     const dateParam = event.target.dataset.dateParam;
@@ -110,16 +104,79 @@ class EventSearch extends Component {
     }
   };
 
+  handleTextLocation = (event) => {
+    this.setState({
+      displayLocation: event.target.value
+    })
+  };
+
+  handleGeoLocation = () => {
+    this.setState({
+      displayLocation: "Detecting..."
+    })
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      this.detectLocation(lat, lon);
+    }, (err) => {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }, options);
+  };
+
+  detectLocation = (lat, lon, text) => {
+    $.ajax({
+      url: "/api/geolocate/",
+      method: "GET",
+      data: {
+        lat: lat,
+        lon: lon,
+        text: text
+      }
+    }).then(geoResponse => {
+      const displayLocation = `${geoResponse.city}, ${geoResponse.administrativeLevels.level1short}`;
+      this.setState({
+          location: geoResponse,
+          displayLocation: displayLocation
+      })
+    });
+  };
+
+  detectTextLocation = (text) => {
+    $.ajax({
+      url: "/api/geolocate/",
+      method: "GET",
+      data: { text: text }
+    }).then(geoResponse => {
+      this.setState({ location: geoResponse })
+    }).then(() => {
+      this.props.fetchEvents(
+        this.state.location,
+        this.state.date,
+        this.state.distance,
+        this.state.categories
+      )}
+    )};
+
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.fetchEvents(
-      this.state.location,
-      this.state.date,
-      this.state.distance,
-      this.state.categories
-    );
-    if (!this.state.location) {
-       alert("Please enter a city or zipcode");
+    if (!this.state.displayLocation && _.isEmpty(this.state.location)) {
+       alert("Please enter a city or zipcode.");
+    }
+    if (_.isEmpty(this.state.location)) {
+      const text = this.state.displayLocation;
+      this.detectTextLocation(text)
+    } else {
+      this.props.fetchEvents(
+        this.state.location,
+        this.state.date,
+        this.state.distance,
+        this.state.categories
+      )
     }
   };
 
