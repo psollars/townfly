@@ -11,7 +11,6 @@ class Events extends Component {
       eventsToDisplay: this.props.events,
       searchString: "",
       activeEventIndex: 0,
-      filterUse: false
     }
   }
 
@@ -28,12 +27,7 @@ class Events extends Component {
 
     return (
       <div className="Events">
-        <form>
-          <input type="text" id="eventFilter" onChange={this.handleString} />
-          <button type="submit" onClick={this.eventFilter}>Filter Results</button>
-          <button type="reset" onClick={this.resetFilter}>Clear Filter</button>
-        </form>
-
+          <input type="text" id="eventFilter" onChange={this.eventFilter} />
         { this.state.eventsToDisplay.length <= 0 ?
           <p>Sorry, no events.</p> : null
         }
@@ -45,13 +39,19 @@ class Events extends Component {
 
   eventFilter = (event) => {
     event.preventDefault();
-    let currentString = this.state.searchString;
+    let currentString = event.target.value;
     let eventsToFilter = this.state.initialEvents;
     let userFilter = sanitizeString(currentString);
     let searchTerms = userFilter.split(" ");
     let filteredEvents = [];
     let foundMatch;
     if (currentString.length === 0) {
+      let initialEvents = this.state.initialEvents;
+      this.setState({
+        searchString: event.target.value,
+        eventsToDisplay: initialEvents,
+        activeEventIndex: 0
+      })
       return
     } else {
       eventsToFilter.forEach(function(item) {
@@ -68,27 +68,11 @@ class Events extends Component {
       });
     }
     this.setState({
+      searchString: event.target.value,
       eventsToDisplay: filteredEvents,
-      filterUse: true,
       activeEventIndex: 0
     })
   }
-
-  handleString = (event) => {
-    this.setState({
-      searchString: event.target.value,
-    })
-  };
-
-  resetFilter = (event) => {
-    let initialEvents = this.state.initialEvents;
-    this.setState({
-      eventsToDisplay: initialEvents,
-      searchString: "",
-      filterUse: false,
-      activeEventIndex: 0
-    })
-  };
 
   nextEvent = (event) => {
     event.preventDefault();

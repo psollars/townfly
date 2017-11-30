@@ -5,8 +5,7 @@ class Controls extends Component {
     return (
       <div className="Controls">
         <button onClick={this.props.previousEvent}>Previous Event</button>
-       <button onClick={this.props.nextEvent}>Next Event</button>
-        
+        <button onClick={this.props.nextEvent}>Next Event</button>
       </div>
     );
   }
