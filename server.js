@@ -21,7 +21,7 @@ app.get("/api/geolocate/", (req, res) => {
   console.log(req.query.lat);
   console.log(req.query.lon);
   console.log(req.query.location);
-  if (req.query.lat) {
+  if (req.query.lat && req.query.lon) {
     geocoder.reverse({
       lat:req.query.lat,
       lon:req.query.lon
@@ -47,10 +47,11 @@ app.get("/api/geolocate/", (req, res) => {
 const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
 
-app.get("/api/events", (req, res) => {
+app.get("/api/events/", (req, res) => {
+  console.log(req.query);
     es.search({
-      "lat": geoResponse[0].latitude,
-      "lng": geoResponse[0].longitude,
+      "lat": req.query.lat,
+      "lng": req.query.lon,
       "sort": "time",
       "since": req.query.date[0],
       "until": req.query.date[1],

@@ -2,14 +2,15 @@ import $ from "jquery-ajax";
 
 //const apiUrl = process.env.API_URL;
 
-export function fetchEvents(location, date, distance, categories) {
+export function fetchEvents(lat, lon, date, distance, categories) {
 	return function(dispatch) {
 		dispatch(requestEvents());
  		$.ajax({
             url: "/api/events/",
             method: "GET",
             data: {
-            	location: location,
+            	lat: lat,
+                lon: lon,
                 date: date,
                 distance: distance,
             	categories: categories
@@ -55,5 +56,5 @@ export function previousEvent() {
 export function shuffleEvents() {
     return {
         type: "SHUFFLE_EVENTS"
-    }
+    };
 }

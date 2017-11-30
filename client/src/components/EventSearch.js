@@ -8,8 +8,8 @@ class EventSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude: "",
-      longitude: "",
+      lat: "",
+      lon: "",
       location: "",
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
@@ -21,9 +21,9 @@ class EventSearch extends Component {
     return (
       <div className="EventSearch">
         <div className="location-params">
-          <input type="text" placeholder="location" value="" onChange={this.handleLocation} />
+          <input type="text" placeholder="location" value={this.state.location} onChange={this.handleTextLocation} />
           <div>
-            <button onClick={this.handleGeolocation}>Detect My Location</button>
+            <button onClick={this.handleGeoLocation}>Detect My Location</button>
           </div>
         </div>
         <div className="date-params">
@@ -50,33 +50,6 @@ class EventSearch extends Component {
       </div>
     );
   }
-
-  detectLocation = (location, lat, lon) => {
-    alert("yo");
-    $.ajax({
-       url: "/api/geolocate",
-       method: "GET",
-       data: {
-           location: location,
-           lat: lat,
-           lon: lon
-       }
-    }).then(function(location) {
-      this.setState({
-          location: location
-      })
-    });
-  };
-
-  handleLocation = (event) => {
-    function() {
-      detectLocation(event.target.value)
-    }
-    
-    // this.setState({
-    //   location: event.target.value
-    // })
-  };
 
   handleDate = (event) => {
     const dateParam = event.target.dataset.dateParam;
@@ -123,7 +96,14 @@ class EventSearch extends Component {
     }
   };
 
-  handleGeolocation = () => {
+  handleTextLocation = (event) => {
+    this.setState({
+      location: event.target.value
+    })
+  };
+
+  handleGeoLocation = () => {
+    let crd = {};
     let currentLat = "";
     let currentLon = "";
     const options = {
@@ -132,31 +112,87 @@ class EventSearch extends Component {
       maximumAge: 0
     };
 
-    function success(pos) {
-      var crd = pos.coords;
-      console.log(pos);
-      console.log('Your current position is:');
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
-      currentLat = crd.latitude;
-      currentLon = crd.longitude;
-    };
-
     function error(err) {
       console.warn(`ERROR(${err.code}): ${err.message}`);
     };
 
-    navigator.geolocation.getCurrentPosition(success, error, options);
+    navigator.geolocation.getCurrentPosition((pos) => {
+      console.log(pos.coords);
+      console.log('Your current position is:');
+      console.log(`Latitude : ${pos.coords.latitude}`);
+      console.log(`Longitude: ${pos.coords.longitude}`);
+      console.log(`More or less ${pos.coords.accuracy} meters.`);
+      this.setState({
+        location: "location detected!",
+        lat: pos.coords.latitude,
+        lon: pos.coords.longitude
+      })
+    }, error, options);
     
-    //detectLocation(currentLat, currentLon)
+    
+
+    //detectLocation(null, currentLat, currentLon);
+
+  //   function detectLocation(textLocation) {
+  //   alert("yo");
+  //   $.ajax({
+  //      url: "/api/geolocate",
+  //      method: "GET",
+  //      data: {
+  //          location: textLocation,
+  //      }
+  //   }).then(function(geoResponse) {
+  //     this.setState({
+  //         location: geoResponse
+  //     })
+  //   });
+  // };
+
+  //   detectLocation = (location, lat, lon) => {
+  //   alert("yo");
+  //   $.ajax({
+  //      url: "/api/geolocate",
+  //      method: "GET",
+  //      data: {
+  //          location: location,
+  //          lat: lat,
+  //          lon: lon
+  //      }
+  //   }).then(function(location) {
+  //     this.setState({
+  //         location: location
+  //     })
+  //   });
+  // };
+
+  //  const textLocation = event.target.value;
+  //   let mygeoResponse = {};
+  //   function detectLocation(textLocation) {
+  //   $.ajax({
+  //      url: "/api/geolocate/",
+  //      method: "GET",
+  //      data: {
+  //          location: textLocation,
+  //      }
+  //   }).then(function(geoResponse) {
+  //     console.log(geoResponse)
+  //     mygeoResponse = geoResponse;
+  //   });
+  // };
+  // detectLocation(event.target.value)
+  // this.setState({
+  //   location: textLocation,
+  //   lat: mygeoResponse.latitude,
+  //   lon: mygeoResponse.longitude
+  // })
 
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.fetchEvents(
-      this.state.location,
+      this.state.lat,
+      this.state.lon,
       this.state.date,
       this.state.distance,
       this.state.categories
