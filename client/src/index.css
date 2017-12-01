@@ -124,13 +124,6 @@ hr{
   min-width: 320px;
 }
 
-.Controls{
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  
-}
-
 .searchButton{
   width: 80%;
 	height: 50px;
@@ -144,16 +137,6 @@ hr{
 	background-color: #01C69F;
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
   border-radius: 100px;
-}
-
-.Controls{
-  height:50px;
-  width:100%;
-  bottom:0px;
-  position: absolute;
-  border-bottom:1px solid rgba(216, 216, 216, 0.25);
-  background: #fff;
-  box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
 }
 
 .previousEventButton{
@@ -302,9 +285,7 @@ hr{
   
 }
 
-h6{
-  width: 125px;
-	height: 18px;
+h6 {
 	font-size: 14px;
 	font-weight: 900;
 	line-height: 1.29;
@@ -342,21 +323,23 @@ h6{
       
 }
 
-.eventInfoContainer{
+.eventInfoContainer {
   display: flex;
   justify-content: center;
-  margin: -30px 20px;
+  margin: -20px 0px 0px 0px;
 }
 
-.eventInfoCard{
+.eventInfoCard {
   padding: 20px;
-  width: 335px;
+  min-width: 320px;
+  margin: 0px 60px;
 	height: auto;
 	border-radius: 4px;
 	background-color: #ffffff;
 	box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
-.eventTitle{
+
+.eventTitle {
 	font-size: 1.5em;
 	font-weight: 600;
 	letter-spacing: 2px;
@@ -415,7 +398,7 @@ h6{
 
 }
 
-.eventDescription {
+.event-description {
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: 1px;
@@ -423,8 +406,13 @@ h6{
   color: rgba(88, 88, 88, 0.9);
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 72px;
-  }
+  height: 72px;
+}
+
+.event-description.expanded {
+  overflow: unset;
+  height: auto;
+}
 
 .viewMore {
     margin-bottom: 20px;
@@ -438,39 +426,15 @@ input:focus {
     outline: none;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.Controls {
+  display: flex;
+  justify-content: center;
+  height:50px;
+  width:100%;
+  border-bottom:1px solid rgba(216, 216, 216, 0.25);
+  background: #fff;
+  box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
+}
 
 
 

@@ -3,6 +3,12 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 
 class EventDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expanded: false
+    };
+  }
 
   render() {
     return (
@@ -23,8 +29,11 @@ class EventDetail extends Component {
                   <p>{this.props.event.place.location.street}, {this.props.event.place.location.city}, {this.props.event.place.location.state} {this.props.event.place.location.zip}</p>
                   <i className="fa fa-external-link" aria-hidden="true"></i>
                 </a>
-                <p className="eventDescription">{this.props.event.description}</p>
-                <button className="viewMore">view more</button>
+                <p className={this.state.expanded ? `event-description expanded` : `event-description` }>{this.props.event.description}</p>
+                {this.state.expanded ? 
+                  <p>Hey there</p>
+                : null }
+                <button onClick={this.handleExpand} className="viewMore">view more</button>
               </div>  
             </div>
             <h6>{this.props.active}/{this.props.length}</h6>
@@ -32,6 +41,12 @@ class EventDetail extends Component {
       </div>
     );
   }
+
+  handleExpand = () => {
+    this.setState({
+      expanded: !this.state.expanded
+    });
+  };
 }
 
 export default EventDetail;
