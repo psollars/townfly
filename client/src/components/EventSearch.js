@@ -23,8 +23,6 @@ class EventSearch extends Component {
     return (
       <div className="EventSearch">
         <div className="heroHeader">
-          <p>TOWNFLY</p>
-          <p>Explore. Experience. Excite.</p>
         </div>
         <div className="location-params">
           <input className="searchInput" type="text" placeholder="zip code or city" value={this.state.displayLocation} onChange={this.handleTextLocation} />
