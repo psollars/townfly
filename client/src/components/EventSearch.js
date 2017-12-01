@@ -22,6 +22,10 @@ class EventSearch extends Component {
   render() {
     return (
       <div className="EventSearch">
+        <div className="heroHeader">
+          <p>TOWNFLY</p>
+          <p>Explore. Experience. Excite.</p>
+        </div>
         <div className="location-params">
           <input className="searchInput" type="text" placeholder="zip code or city" value={this.state.displayLocation} onChange={this.handleTextLocation} />
           <div>
@@ -53,7 +57,7 @@ class EventSearch extends Component {
           <div className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "category" : "category-active"} id="TRAVEL_TRANSPORTATION" onClick={this.handleCatChange}><div className = "circle"></div><h6>Travel & Transportation</h6></div>
         </div>
         <div className="btnContain">
-          <button className = "primaryButton" onClick={this.handleSubmit}>Fetch Events</button>
+          <button className="searchButton" onClick={this.handleSubmit}>search events</button>
         </div>
       </div>
     );

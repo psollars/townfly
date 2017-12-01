@@ -4,8 +4,8 @@ class Controls extends Component {
   render() {
     return (
       <div className="Controls">
-        <button onClick={this.props.previousEvent}>Previous Event</button>
-        <button onClick={this.props.nextEvent}>Next Event</button>
+        <button className="previousEventButton" onClick={this.props.previousEvent}>Previous Event</button>
+        <button className="nextEventButton" onClick={this.props.nextEvent}>Next Event</button>
       </div>
     );
   }
