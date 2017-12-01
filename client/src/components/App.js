@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import EventSearch from './EventSearch';
 import Events from './Events';
 import Loader from './Loader';
+import 'font-awesome/css/font-awesome.min.css';
 
 
 class App extends Component {
