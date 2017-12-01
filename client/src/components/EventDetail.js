@@ -22,6 +22,7 @@ class EventDetail extends Component {
                 <hr/>
                 <div className="eventTime">
                   <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <Moment format="LT">{this.props.event.endTime}</Moment> }</p>
+                  <a href="https://www.facebook.com/events/1733439890286096"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
                   <i className="fa fa-calendar" aria-hidden="true"></i>
                 </div>
                 <p className="eventVenue">{this.props.event.venue.name}</p>
@@ -31,7 +32,15 @@ class EventDetail extends Component {
                 </a>
                 <p className={this.state.expanded ? `event-description expanded` : `event-description` }>{this.props.event.description}</p>
                 {this.state.expanded ? 
-                  <p>Hey there</p>
+                <div className="event-expanded-container">
+                  <div className="event-map">
+                    <p>I'm the map.</p>
+                    <p>Directions</p>
+                  </div>
+                  <p>Share - Facebook link</p>
+                 
+                  <p>I'm the map.</p>
+                </div>
                 : null }
                 <button onClick={this.handleExpand} className="viewMore">view more</button>
               </div>  
