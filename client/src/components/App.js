@@ -10,7 +10,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Loader loading={this.props.loading} />
         { this.props.initialSearch ? 
           <EventSearch /> :
           <Events />

@@ -54,8 +54,10 @@ class Events extends Component {
     let eventsToFilter = this.state.initialEvents;
     let userFilter = sanitizeString(currentString);
     let searchTerms = userFilter.split(" ");
-    let filteredEvents = [];
+    let numberOfTerms = searchTerms.length;
+    let numberOfMatches;
     let foundMatch;
+    let filteredEvents = [];
     if (currentString.length === 0) {
       let initialEvents = this.state.initialEvents;
       this.setState({
@@ -68,14 +70,19 @@ class Events extends Component {
       eventsToFilter.forEach(function(item) {
         let eventDescription = item.name + " " + item.description;
         let filteredDescription = eventDescription.toLowerCase();
-        foundMatch = false;
+        numberOfMatches = 0;
+        foundMatch = true;
         searchTerms.forEach(function(word) {
           let searchTerm = word.toLowerCase();
-          if (filteredDescription.includes(searchTerm) === true && foundMatch === false) {
-            filteredEvents.push(item);
-            foundMatch = true;
+          if (filteredDescription.includes(searchTerm) === true && foundMatch === true) {
+            numberOfMatches = numberOfMatches + 1;
+          } else {
+            foundMatch = false;
           }
         });
+        if (numberOfMatches === numberOfTerms) {
+          filteredEvents.push(item);
+        }
       });
     }
     this.setState({

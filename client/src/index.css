@@ -35,7 +35,7 @@ body {
   color: white;
   align-items: center;
   justify-content: center;
-  background-image: url(/images/heroHeader.png);
+  background-image: url(./images/heroHeader.png);
   background-position: center;
   background-size: cover;
 
@@ -69,6 +69,17 @@ hr{
 
 .searchInput::placeholder {
   opacity: .5;
+}
+
+.location-params {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detect-location {
+  display: flex;
+  justify-content: center;
 }
 
 .searchInput{
