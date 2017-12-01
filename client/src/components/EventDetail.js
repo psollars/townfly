@@ -21,7 +21,7 @@ class EventDetail extends Component {
                 <p className="eventDate"><Moment format="dddd, MMMM Do, YYYY">{this.props.event.startTime}</Moment></p>
                 <hr/>
                 <div className="eventTime">
-                  <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <Moment format="LT">{this.props.event.endTime}</Moment> }</p>
+                  <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <span> - <Moment format="LT">{this.props.event.endTime}</Moment></span> }</p>
                   <a href="https://www.facebook.com/events/1733439890286096"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
                   <i className="fa fa-calendar" aria-hidden="true"></i>
                 </div>
@@ -37,7 +37,6 @@ class EventDetail extends Component {
                     <p>I'm the map.</p>
                     <p>Directions</p>
                   </div>
-                  <p>Share - Facebook link</p>
                  
                   <p>I'm the map.</p>
                 </div>
