@@ -27,7 +27,7 @@ class EventSearch extends Component {
         <div className="location-params">
           <input className="searchInput" type="text" placeholder="zip code or city" value={this.state.displayLocation} onChange={this.handleTextLocation} />
           <div>
-            <div className="detect-location" onClick={this.handleGeoLocation}>detect my location <span className="fa "></span></div>
+            <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
           </div>
         </div>
         <hr className = "divider"></hr>
