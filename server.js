@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const errorCallback = console.error.bind(console);
 require('dotenv').config();
-//const moment = require('moment');
 
 app.use(express.static('client/build'));
 
@@ -17,15 +16,35 @@ const locationOptions = {
 };
 const geocoder = NodeGeocoder(locationOptions);
 
+app.get("/api/geolocate/", (req, res) => {
+  if (req.query.lat && req.query.lon) {
+    geocoder.reverse({
+      lat:req.query.lat,
+      lon:req.query.lon
+    }).then(function(geoResponse) {
+      res.send(geoResponse[0]);
+    }).catch(function(error) {
+      console.log(errorCallback);
+    });
+  } else {
+    geocoder.geocode(
+      req.query.text
+    ).then(function(geoResponse) {
+      res.send(geoResponse[0]);
+    }).catch(function (error) {
+      console.log(errorCallback);
+    });
+  }
+});
+
 // event search
 const EventSearch = require("facebook-events-by-location-core");
 const es = new EventSearch();
 
-app.get("/api/", (req, res) => {
-  geocoder.geocode(req.query.location).then(function(geoResponse) {
+app.get("/api/events/", (req, res) => {
     es.search({
-      "lat": geoResponse[0].latitude,
-      "lng": geoResponse[0].longitude,
+      "lat": req.query.location.latitude,
+      "lng": req.query.location.longitude,
       "sort": "time",
       "since": req.query.date[0],
       "until": req.query.date[1],
@@ -37,9 +56,6 @@ app.get("/api/", (req, res) => {
     }).catch(function (error) {
       console.log(errorCallback);
     });
-  }).catch(function (error) {
-    console.log(errorCallback);
-  });
 });
 
 const PORT = process.env.PORT || 5000;
