@@ -17,7 +17,7 @@ class EventDetail extends Component {
                 <p className= "eventTime"><Moment format="LT">{this.props.event.startTime}</Moment></p>
                 <p className= "eventLocation">{this.props.event.place.location.street}{this.props.event.place.location.city}{this.props.event.place.location.state}{this.props.event.place.location.zip}</p>
                 <p className= "eventDescription">{this.props.event.description}</p>
-                {/*<button className ="viewMore">view more</button>*/}
+                <button className ="viewMore">view more</button>
               </div>  
             </div>
             <h6>{this.props.active}/{this.props.length}</h6>
