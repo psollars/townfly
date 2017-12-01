@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEvents } from '../actions';
+import { fetchEvents, loadingToggle } from '../actions';
 import moment from 'moment';
 import $ from "jquery-ajax";
 import _ from 'lodash';
@@ -113,9 +113,7 @@ class EventSearch extends Component {
   };
 
   handleGeoLocation = () => {
-    this.setState({
-      displayLocation: "Detecting..."
-    })
+    this.props.loadingToggle();
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -141,6 +139,7 @@ class EventSearch extends Component {
       }
     }).then(geoResponse => {
       const displayLocation = `${geoResponse.city}, ${geoResponse.administrativeLevels.level1short}`;
+      this.props.loadingToggle();
       this.setState({
           location: geoResponse,
           displayLocation: displayLocation
@@ -185,7 +184,8 @@ class EventSearch extends Component {
 } // end of component
 
 const mapActionsToProps = {
-  fetchEvents
+  fetchEvents,
+  loadingToggle
 };
 
 export default connect(null, mapActionsToProps)(EventSearch);

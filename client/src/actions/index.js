@@ -36,3 +36,9 @@ export function returnToSearch () {
 		type : "RETURN_SEARCH"
 	};
 }
+
+export function loadingToggle () {
+  return {
+    type : "LOADING_TOGGLE"
+  };
+}

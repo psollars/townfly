@@ -20,6 +20,10 @@ export default function(state = INITIAL_STATE, action) {
 			return Object.assign({}, state, {
 			initialSearch: true
 		});
+    case "LOADING_TOGGLE":
+      return Object.assign({}, state, {
+      loading: !state.loading
+    });
     default:
       return state;
   }
