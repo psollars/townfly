@@ -21,7 +21,7 @@ class EventDetail extends Component {
                 <p className="eventDate"><Moment format="dddd, MMMM Do, YYYY">{this.props.event.startTime}</Moment></p>
                 <hr/>
                 <div className="eventTime">
-                  <p><Moment format="LT">{this.props.event.startTime}</Moment>-<Moment format="LT">{this.props.event.endTime}</Moment></p>
+                  <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <Moment format="LT">{this.props.event.endTime}</Moment> }</p>
                   <i className="fa fa-calendar" aria-hidden="true"></i>
                 </div>
                 <p className="eventVenue">{this.props.event.venue.name}</p>
