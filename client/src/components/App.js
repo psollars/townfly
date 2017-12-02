@@ -23,7 +23,7 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     initialSearch: state.initialSearch,
-    loading: state.loading
+    loading: state.loading,
   };
 }
 

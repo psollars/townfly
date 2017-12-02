@@ -1,7 +1,8 @@
 const INITIAL_STATE = {
   loading: false,
 	events: [],
-	initialSearch: true
+  initialSearch: true,
+  location: {}
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -18,8 +19,16 @@ export default function(state = INITIAL_STATE, action) {
 			});
 		case "RETURN_SEARCH":
 			return Object.assign({}, state, {
-			initialSearch: true
-		});
+			  initialSearch: true
+      });
+    case "REQUEST_LOCATION":
+      return Object.assign({}, state, {
+        loading: true
+      });
+    case "SET_LOCATION":
+      return Object.assign({}, state, {
+        location: action.location
+      });
     default:
       return state;
   }

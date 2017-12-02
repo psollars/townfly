@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEvents } from '../actions';
+import { fetchEvents, detectLocation } from '../actions';
 import moment from 'moment';
 import $ from "jquery-ajax";
 import _ from 'lodash';
@@ -12,7 +12,6 @@ class EventSearch extends Component {
     super(props);
     this.state = {
       displayLocation: "",
-      location: {},
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
       categories: []
@@ -113,9 +112,6 @@ class EventSearch extends Component {
   };
 
   handleGeoLocation = () => {
-    this.setState({
-      displayLocation: "Detecting..."
-    })
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -124,57 +120,57 @@ class EventSearch extends Component {
     navigator.geolocation.getCurrentPosition((pos) => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
-      this.detectLocation(lat, lon);
+      this.props.detectLocation(null, lat, lon);
     }, (err) => {
       console.warn(`ERROR(${err.code}): ${err.message}`);
     }, options);
   };
 
-  detectLocation = (lat, lon, text) => {
-    $.ajax({
-      url: "/api/geolocate/",
-      method: "GET",
-      data: {
-        lat: lat,
-        lon: lon,
-        text: text
-      }
-    }).then(geoResponse => {
-      const displayLocation = `${geoResponse.city}, ${geoResponse.administrativeLevels.level1short}`;
-      this.setState({
-          location: geoResponse,
-          displayLocation: displayLocation
-      })
-    });
-  };
+  // detectLocation = (lat, lon, text) => {
+  //   $.ajax({
+  //     url: "/api/geolocate/",
+  //     method: "GET",
+  //     data: {
+  //       lat: lat,
+  //       lon: lon,
+  //       text: text
+  //     }
+  //   }).then(geoResponse => {
+  //     const displayLocation = `${geoResponse.city}, ${geoResponse.administrativeLevels.level1short}`;
+  //     this.setState({
+  //         location: geoResponse,
+  //         displayLocation: displayLocation
+  //     })
+  //   });
+  // };
 
-  detectTextLocation = (text) => {
-    $.ajax({
-      url: "/api/geolocate/",
-      method: "GET",
-      data: { text: text }
-    }).then(geoResponse => {
-      this.setState({ location: geoResponse })
-    }).then(() => {
-      this.props.fetchEvents(
-        this.state.location,
-        this.state.date,
-        this.state.distance,
-        this.state.categories
-      )}
-    )};
+  // detectTextLocation = (text) => {
+  //   $.ajax({
+  //     url: "/api/geolocate/",
+  //     method: "GET",
+  //     data: { text: text }
+  //   }).then(geoResponse => {
+  //     this.setState({ location: geoResponse })
+  //   }).then(() => {
+  //     this.props.fetchEvents(
+  //       this.state.location,
+  //       this.state.date,
+  //       this.state.distance,
+  //       this.state.categories
+  //     )}
+  //   )};
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (!this.state.displayLocation && _.isEmpty(this.state.location)) {
+    if (!this.state.displayLocation && _.isEmpty(this.props.location)) {
        alert("Please enter a city or zipcode.");
     }
-    if (_.isEmpty(this.state.location)) {
+    if (_.isEmpty(this.props.location)) {
       const text = this.state.displayLocation;
       this.detectTextLocation(text)
     } else {
       this.props.fetchEvents(
-        this.state.location,
+        this.props.location,
         this.state.date,
         this.state.distance,
         this.state.categories
@@ -184,8 +180,15 @@ class EventSearch extends Component {
 
 } // end of component
 
+function mapStateToProps(state) {
+  return {
+      location: state.location
+  };
+}
+
 const mapActionsToProps = {
-  fetchEvents
+  fetchEvents,
+  detectLocation
 };
 
-export default connect(null, mapActionsToProps)(EventSearch);
+export default connect(mapStateToProps, mapActionsToProps)(EventSearch);
