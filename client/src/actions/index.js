@@ -39,6 +39,7 @@ export function returnToSearch () {
 
 export function detectLocation (text, lat, lon) {
   return function(dispatch) {
+    dispatch(requestLocation());
     $.ajax({
       url: "/api/geolocate/",
       method: "GET",
@@ -50,6 +51,12 @@ export function detectLocation (text, lat, lon) {
     }).done(function(location) {
       dispatch(setLocation(location));
     });
+  };
+}
+
+function requestLocation() {
+  return {
+    type: "REQUEST_LOCATION"
   };
 }
 
