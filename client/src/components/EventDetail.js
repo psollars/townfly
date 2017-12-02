@@ -41,7 +41,19 @@ class EventDetail extends Component {
                   </div>
                 </div>
                 : null }
-                <button onClick={this.handleExpand} className="viewMore">view more</button>
+                <div className="view-toggle">
+                  {this.state.expanded ? 
+                  <div onClick={this.handleExpand}>
+                    <i className="fa fa-chevron-up" aria-hidden="true"></i>
+                    <p>view less</p>
+                  </div>
+                  : 
+                  <div onClick={this.handleExpand}>
+                    <p>view more</p>
+                    <i className="fa fa-chevron-down" aria-hidden="true"></i>
+                  </div>
+                  }
+                </div>
               </div>  
             </div>
             <h6>{this.props.active}/{this.props.length}</h6>

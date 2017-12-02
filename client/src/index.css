@@ -425,17 +425,26 @@ h6 {
   height: auto;
 }
 
-.viewMore {
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 2.3px;
-    color: #fd6968;
-  }
+.view-toggle {
+  font-size: .8em;
+  font-weight: 900;
+  letter-spacing: 2.3px;
+  color: #fd6968;
+  display: flex;
+  justify-content: center;
+}
+
+.view-toggle div {
+  text-align: center;
+}
+
+.view-toggle p {
+  margin: 0px;
+}
 
 input:focus {
-    outline: none;
-  }
+  outline: none;
+}
 
 .Controls {
   display: flex;
