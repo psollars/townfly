@@ -9,6 +9,7 @@
     "moment-timezone": "^0.5.14",
     "node-geocoder": "^3.21.1",
     "react": "^15.6.1",
+    "react-add-to-calendar": "^0.1.4",
     "react-dom": "^15.6.1",
     "react-moment": "^0.6.8",
     "react-redux": "^5.0.6",

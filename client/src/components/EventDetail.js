@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+import AddToCalendar from 'react-add-to-calendar';
 import 'moment-timezone';
 
 class EventDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      expanded: false
+      expanded: false,
+      calendarEvent: {
+        title: this.props.event.name,
+        description: this.props.event.description,
+        location: this.props.event.place.name,
+        startTime: this.props.event.startTime,
+        endTime: this.props.event.endTime
+      }
     };
   }
 
@@ -25,7 +33,7 @@ class EventDetail extends Component {
                   <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <span> - <Moment format="LT">{this.props.event.endTime}</Moment></span> }</p>
                   <div className="event-sharing">  
                     <a href={`https://www.facebook.com/events/${this.props.event.id}`} target="_blank" rel="nofollow"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
-                    <i className="fa fa-calendar" aria-hidden="true"></i>
+                    <AddToCalendar event={this.state.calendarEvent} buttonLabel="" buttonTemplate={{"calendar" : "left"}}/>              
                   </div>
                 </div>
                 <p className="eventVenue">{this.props.event.venue.name}</p>

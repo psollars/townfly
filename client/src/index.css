@@ -398,7 +398,7 @@ h6 {
 }
 
 .event-sharing {
-
+  display: flex;
 }
 
 .event-sharing a {
@@ -407,6 +407,18 @@ h6 {
 
 .event-sharing i {
   margin-left: 5px;
+}
+
+.react-add-to-calendar {
+  position: relative;
+}
+
+.react-add-to-calendar__dropdown {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 200px;
+  background-color: aliceblue;
 }
 
 .event-description {
