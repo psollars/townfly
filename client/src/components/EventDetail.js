@@ -11,6 +11,7 @@ class EventDetail extends Component {
   }
 
   render() {
+    const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
     return (
       <div className="eventCanvas">
         <div className="EventDetail">
@@ -28,8 +29,8 @@ class EventDetail extends Component {
                   </div>
                 </div>
                 <p className="eventVenue">{this.props.event.venue.name}</p>
-                <a className="eventLocation" href={`https://www.google.com/maps/search/?api=1&query=${this.props.event.place.location.latitude},${this.props.event.place.location.longitude}&query_place_id=${this.props.event.place.id}`} target="_blank" rel="nofollow">
-                  <p>{this.props.event.place.location.street}, {this.props.event.place.location.city}, {this.props.event.place.location.state} {this.props.event.place.location.zip}</p>
+                <a className="eventLocation" href={`https://www.google.com/maps/search/?api=1&query=${encodeURI(fullAddress)}`} target="_blank" rel="nofollow">
+                  <p>{fullAddress}</p>
                   <i className="fa fa-external-link" aria-hidden="true"></i>
                 </a>
                 <p className={this.state.expanded ? `event-description expanded` : `event-description` }>{this.props.event.description}</p>
