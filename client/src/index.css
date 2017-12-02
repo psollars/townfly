@@ -292,7 +292,6 @@ h6 {
 	letter-spacing: 2px;
 	text-align: center;
   color: rgba(88, 88, 88, 0.6);
-  margin: 0 auto;
 }
 
 .Events {
@@ -396,6 +395,18 @@ h6 {
 
 .eventLocation p {
 
+}
+
+.event-sharing {
+
+}
+
+.event-sharing a {
+  color: rgba(88, 88, 88, 0.9);
+}
+
+.event-sharing i {
+  margin-left: 5px;
 }
 
 .event-description {

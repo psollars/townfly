@@ -22,8 +22,10 @@ class EventDetail extends Component {
                 <hr/>
                 <div className="eventTime">
                   <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <span> - <Moment format="LT">{this.props.event.endTime}</Moment></span> }</p>
-                  <a href="https://www.facebook.com/events/1733439890286096"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
-                  <i className="fa fa-calendar" aria-hidden="true"></i>
+                  <div className="event-sharing">  
+                    <a href={`https://www.facebook.com/events/${this.props.event.id}`} target="_blank" rel="nofollow"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <i className="fa fa-calendar" aria-hidden="true"></i>
+                  </div>
                 </div>
                 <p className="eventVenue">{this.props.event.venue.name}</p>
                 <a className="eventLocation" href={`https://www.google.com/maps/search/?api=1&query=${this.props.event.place.location.latitude},${this.props.event.place.location.longitude}&query_place_id=${this.props.event.place.id}`} target="_blank" rel="nofollow">
@@ -37,8 +39,6 @@ class EventDetail extends Component {
                     <p>I'm the map.</p>
                     <p>Directions</p>
                   </div>
-                 
-                  <p>I'm the map.</p>
                 </div>
                 : null }
                 <button onClick={this.handleExpand} className="viewMore">view more</button>
