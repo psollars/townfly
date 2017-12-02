@@ -67,6 +67,12 @@ function setLocation(location) {
   };
 }
 
+export function clearLocation() {
+  return {
+    type: "CLEAR_LOCATION"
+  };
+}
+
 // .then(geoResponse => {
 //     this.setState({ location: geoResponse })
 //   }).then(() => {

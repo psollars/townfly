@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEvents, detectLocation } from '../actions';
+import { fetchEvents, detectLocation, clearLocation } from '../actions';
 import moment from 'moment';
 import $ from "jquery-ajax";
 import _ from 'lodash';
@@ -24,7 +24,7 @@ class EventSearch extends Component {
         <div className="heroHeader">
         </div>
         <div className="location-params">
-          <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} />
+          <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.props.clearLocation} />
           <div>
             <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
           </div>
@@ -189,7 +189,8 @@ function mapStateToProps(state) {
 
 const mapActionsToProps = {
   fetchEvents,
-  detectLocation
+  detectLocation,
+  clearLocation
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(EventSearch);

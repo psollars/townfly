@@ -29,6 +29,10 @@ export default function(state = INITIAL_STATE, action) {
       return Object.assign({}, state, {
         location: action.location
       });
+    case "CLEAR_LOCATION":
+      return Object.assign({}, state, {
+        location: {}
+      });
     default:
       return state;
   }
