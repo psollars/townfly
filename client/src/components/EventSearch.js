@@ -164,10 +164,11 @@ class EventSearch extends Component {
     event.preventDefault();
     if (!this.state.displayLocation && _.isEmpty(this.props.location)) {
        alert("Please enter a city or zipcode.");
+       return;
     }
     if (_.isEmpty(this.props.location)) {
       const text = this.state.displayLocation;
-      this.detectTextLocation(text)
+      this.props.detectLocation(text)
     } else {
       this.props.fetchEvents(
         this.props.location,
