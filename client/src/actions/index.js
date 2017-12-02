@@ -50,6 +50,8 @@ export function detectLocation (text, lat, lon) {
       }
     }).done(function(location) {
       dispatch(setLocation(location));
+    }).done(function(text) {
+      console.log(text)
     });
   };
 }
@@ -72,14 +74,3 @@ export function clearLocation() {
     type: "CLEAR_LOCATION"
   };
 }
-
-// .then(geoResponse => {
-//     this.setState({ location: geoResponse })
-//   }).then(() => {
-//     this.props.fetchEvents(
-//       this.state.location,
-//       this.state.date,
-//       this.state.distance,
-//       this.state.categories
-//     )} 
-//   )};

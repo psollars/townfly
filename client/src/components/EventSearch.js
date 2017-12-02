@@ -5,8 +5,6 @@ import moment from 'moment';
 import $ from "jquery-ajax";
 import _ from 'lodash';
 
-
-
 class EventSearch extends Component {
   constructor(props) {
     super(props);
@@ -30,14 +28,14 @@ class EventSearch extends Component {
           </div>
         </div>
         <hr className = "divider"></hr>
-        <label className= "label">TIME</label>
+        <label className= "label">WHEN</label>
         <div className="date-params">
           <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
           <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
           <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
         </div>
         <hr className ="divider"></hr>
-        <label className= "label">MILES AWAY</label>
+        <label className= "label">WITHIN</label>
         <div className="distance-params"> 
           <div className={ this.state.distance === "1609" ? "radio-button active" : "radio-button"} data-distance="1609" onClick={this.handleDistance}>1 mile</div>
           <div className={ this.state.distance === "8046" ? "radio-button active" : "radio-button"} data-distance="8046" onClick={this.handleDistance}>5 miles</div>
@@ -59,6 +57,12 @@ class EventSearch extends Component {
       </div>
     );
   }
+
+  handleTextLocation = (event) => {
+    this.setState({
+      displayLocation: event.target.value
+    })
+  };
 
   handleDate = (event) => {
     const dateParam = event.target.dataset.dateParam;
@@ -105,12 +109,6 @@ class EventSearch extends Component {
     }
   };
 
-  handleTextLocation = (event) => {
-    this.setState({
-      displayLocation: event.target.value
-    })
-  };
-
   handleGeoLocation = () => {
     const options = {
       enableHighAccuracy: true,
@@ -125,40 +123,6 @@ class EventSearch extends Component {
       console.warn(`ERROR(${err.code}): ${err.message}`);
     }, options);
   };
-
-  // detectLocation = (lat, lon, text) => {
-  //   $.ajax({
-  //     url: "/api/geolocate/",
-  //     method: "GET",
-  //     data: {
-  //       lat: lat,
-  //       lon: lon,
-  //       text: text
-  //     }
-  //   }).then(geoResponse => {
-  //     const displayLocation = `${geoResponse.city}, ${geoResponse.administrativeLevels.level1short}`;
-  //     this.setState({
-  //         location: geoResponse,
-  //         displayLocation: displayLocation
-  //     })
-  //   });
-  // };
-
-  // detectTextLocation = (text) => {
-  //   $.ajax({
-  //     url: "/api/geolocate/",
-  //     method: "GET",
-  //     data: { text: text }
-  //   }).then(geoResponse => {
-  //     this.setState({ location: geoResponse })
-  //   }).then(() => {
-  //     this.props.fetchEvents(
-  //       this.state.location,
-  //       this.state.date,
-  //       this.state.distance,
-  //       this.state.categories
-  //     )}
-  //   )};
 
   handleSubmit = (event) => {
     event.preventDefault();
