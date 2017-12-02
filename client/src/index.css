@@ -25,7 +25,6 @@ body {
   flex-direction: column;
   width: 100%;
 	height: 150px;
-  background-color: white;
   border-bottom: 1px solid rgba(216, 216, 216, 0.6);
   text-align: center;
 	font-size: 16px;
@@ -35,10 +34,8 @@ body {
   color: white;
   align-items: center;
   justify-content: center;
-  background-image: url(./images/heroHeader.png);
-  background-position: center;
-  background-size: cover;
-
+  background: #ED6564 url(./images/heroHeader.png) center no-repeat;
+  background-size: auto 100%;
 }
 
 .headerBar{

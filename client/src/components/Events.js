@@ -12,25 +12,38 @@ class Events extends Component {
       eventsToDisplay: this.props.events,
       searchString: "",
       activeEventIndex: 0,
+      listView: false,
     }
   }
 
   render() {
-    const activeEvent = this.state.eventsToDisplay.map((event, index) => {
-      if (this.state.activeEventIndex === index){
+
+   const showEvents = this.state.eventsToDisplay.map((event, index) => {
+      if (this.state.listView === false) {
+        if (this.state.activeEventIndex === index){
+          return <EventDetail 
+                      listView={this.state.listView}
+                      key={event.id}
+                      event={event}
+                      active={index + 1}
+                      length={this.state.eventsToDisplay.length}
+                  />;
+        }
+      } else {
         return <EventDetail 
-                     key={event.id}
-                     event={event}
-                     active={index + 1}
-                     length={this.state.eventsToDisplay.length} />;
+                      listView={this.state.listView}
+                      key={event.id}
+                      event={event}
+                />;
       }
-    });
+    })
 
     return (
       <div>
         <div className="headerBar">
           <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
           <p>TOWNFLY</p>
+          <div className="viewToggle" onClick={this.listToggleHandle}>Change View</div>
         </div>
         
         <div className="Events">
@@ -41,12 +54,18 @@ class Events extends Component {
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
           }
-          {activeEvent}
-          <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} />
+          {showEvents}
+          { this.state.listView === false ? <Controls /> : null }
         </div>
       </div>
     );
   }
+
+  listToggleHandle = (event) => {
+    this.setState({
+        listView: !this.state.listView
+      })
+  };
 
   eventFilter = (event) => {
     event.preventDefault();
