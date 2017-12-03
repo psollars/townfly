@@ -45,9 +45,7 @@ class Events extends Component {
           <p>TOWNFLY</p>
           <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : ` Card View` }</div>
         </div>
-        
         <div className="Events">
-        
         <div className ="stringSearchBG">
           <input className = "stringSearch" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="Refine Results" />
         </div>
@@ -55,7 +53,7 @@ class Events extends Component {
             <p>Sorry, no events.</p> : null
           }
           {showEvents}
-          { this.state.listView === false ? <Controls /> : null }
+          { this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
         </div>
       </div>
     );
