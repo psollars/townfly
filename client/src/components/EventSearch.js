@@ -135,7 +135,7 @@ class EventSearch extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (!this.state.displayLocation && _.isEmpty(this.props.location)) {
-       alert("Please enter a city or zipcode.");
+       alert("Please enter a zip code or city.");
        return;
     }
     if (_.isEmpty(this.props.location)) {
