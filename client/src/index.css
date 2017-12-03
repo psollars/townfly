@@ -32,7 +32,7 @@ body {
 }
 
 .backToSearch {
-
+  /* Styles associated with the back button (ie an icon) */
 }
 
 .divider {
@@ -73,7 +73,6 @@ body {
   letter-spacing: 2.7px;
   text-align: center;
   color: #585858;
-
 }
 
 .nearMe{
@@ -142,7 +141,6 @@ button:focus {
   color: #ED6564;
 }
 
-
 .btnContain {
   display: flex; 
   justify-content: center;
@@ -165,7 +163,6 @@ button:focus {
   height:40px;
   position: relative;
   padding-left: 10px;
-
 }
 
 .stringSearchBG button{
@@ -178,7 +175,6 @@ button:focus {
   text-align: right;
   color: #fd6968;
   text-transform: capitalize;
-
 }
 
 
@@ -214,7 +210,6 @@ button:focus {
   letter-spacing: 2.7px;
   max-width: 114px;
   max-height:32px;
-
 }
 
 .active {
@@ -228,7 +223,6 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 .category {
@@ -238,9 +232,8 @@ button:focus {
   border: .5px solid rgba(88, 88, 88, 0.1);
   text-align: center;
   opacity: .5;
-
-
 }
+
 .category-active {
   word-wrap: break-word;
   width: 49%;
@@ -251,19 +244,17 @@ button:focus {
   color:#ed6564;
 }
 
-.circle{
+.circle {
   background-color:#ed6564;
   opacity: 1;
   height:48px;
   width:48px;
   border-radius: 100%;
   margin:32px auto 16px auto;
-
 }
 
 .active-circle{
-  /* // add check mark */
-
+  /* add check mark */
 }
 
 h6 {
@@ -272,17 +263,15 @@ h6 {
   line-height: 1.29;
   letter-spacing: 2px;
   text-align: center;
-  color: rgba(88, 88, 88, 0.6);
 }
 
 .Events {
-
+  /* Styles associated with Events container */
 }
 
 .eventCanvas{
   display: flex;
   justify-content: center;
-
 }
 
 .EventDetail{
@@ -300,7 +289,6 @@ h6 {
   background-image: fill;
   height: 220px;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); 
-
 }
 
 .eventInfoContainer {
@@ -375,7 +363,7 @@ h6 {
 }
 
 .eventLocation p {
-
+  /* Styles associated with event location */
 }
 
 .event-sharing {
@@ -484,21 +472,6 @@ input:focus {
   border-bottom:1px solid rgba(216, 216, 216, 0.25);
   background: #fff;
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* loading styles */
 

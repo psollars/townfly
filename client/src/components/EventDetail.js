@@ -47,7 +47,6 @@ class EventDetail extends Component {
                 {this.state.expanded ? 
                 <div className="event-expanded-container">
                   <div className="event-map">
-                    <p>I'm the map.</p>
                     <div className="directions">
                       <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=driving`}  target="_blank" rel="nofollow"><i className="fa fa-car" aria-hidden="true"></i></a>
                       <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=walking`}  target="_blank" rel="nofollow"><i className="fa fa-street-view" aria-hidden="true"></i></a>
@@ -83,6 +82,7 @@ class EventDetail extends Component {
       expanded: !this.state.expanded
     });
   };
+
 }
 
 function mapStateToProps(state) {
