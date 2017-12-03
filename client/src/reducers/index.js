@@ -13,6 +13,7 @@ export default function(state = INITIAL_STATE, action) {
       });
     case "SET_LOCATION":
       return Object.assign({}, state, {
+        loading: false,
         location: action.location
       });
     case "CLEAR_LOCATION":
@@ -31,7 +32,11 @@ export default function(state = INITIAL_STATE, action) {
 			});
 		case "RETURN_SEARCH":
 			return Object.assign({}, state, {
-			  initialSearch: true
+			 initialSearch: true
+		  });
+    case "LOADING_TOGGLE":
+      return Object.assign({}, state, {
+        loading: !state.loading
       });
     default:
       return state;

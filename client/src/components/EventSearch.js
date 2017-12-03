@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEvents, detectLocation, clearLocation } from '../actions';
+import { fetchEvents, loadingToggle, detectLocation, clearLocation } from '../actions';
 import moment from 'moment';
 import $ from "jquery-ajax";
 import _ from 'lodash';
@@ -110,6 +110,7 @@ class EventSearch extends Component {
   };
 
   handleGeoLocation = () => {
+    this.props.loadingToggle();
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -153,6 +154,7 @@ function mapStateToProps(state) {
 
 const mapActionsToProps = {
   fetchEvents,
+  loadingToggle,
   detectLocation,
   clearLocation
 };

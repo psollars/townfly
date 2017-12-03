@@ -12,41 +12,58 @@ class Events extends Component {
       eventsToDisplay: this.props.events,
       searchString: "",
       activeEventIndex: 0,
+      listView: false,
     }
   }
 
   render() {
-    const activeEvent = this.state.eventsToDisplay.map((event, index) => {
-      if (this.state.activeEventIndex === index){
+
+   const showEvents = this.state.eventsToDisplay.map((event, index) => {
+      if (this.state.listView === false) {
+        if (this.state.activeEventIndex === index){
+          return <EventDetail 
+                      listView={this.state.listView}
+                      key={event.id}
+                      event={event}
+                      active={index + 1}
+                      length={this.state.eventsToDisplay.length}
+                  />;
+        }
+      } else {
         return <EventDetail 
-                     key={event.id}
-                     event={event}
-                     active={index + 1}
-                     length={this.state.eventsToDisplay.length} />;
+                      listView={this.state.listView}
+                      key={event.id}
+                      event={event}
+                />;
       }
-    });
+    })
 
     return (
       <div>
-        <div className="headerBar">
+        <div className="header-bar">
           <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
           <p>TOWNFLY</p>
+          <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : ` Card View` }</div>
         </div>
-        
         <div className="Events">
-        
         <div className ="stringSearchBG">
           <input className = "stringSearch" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="Refine Results" />
         </div>
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
           }
-          {activeEvent}
-          <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} />
+          {showEvents}
+          { this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
         </div>
       </div>
     );
   }
+
+  listToggleHandle = (event) => {
+    this.setState({
+        listView: !this.state.listView
+      })
+  };
 
   eventFilter = (event) => {
     event.preventDefault();
