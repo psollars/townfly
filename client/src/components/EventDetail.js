@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import AddToCalendar from 'react-add-to-calendar';
 import 'moment-timezone';
@@ -17,9 +18,10 @@ class EventDetail extends Component {
       }
     };
   }
-
+//`${this.props.location.latitude},${this.props.location.longitude}`
   render() {
     const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
+    const directionParams = `origin=42.9411011,-85.61003869999999&destination=${fullAddress}`;
     return (
       <div className="eventCanvas">
         <div className="EventDetail">
@@ -47,10 +49,10 @@ class EventDetail extends Component {
                   <div className="event-map">
                     <p>I'm the map.</p>
                     <div className="directions">
-                      <i className="fa fa-street-view" aria-hidden="true"></i>
-                      <i className="fa fa-bicycle" aria-hidden="true"></i>
-                      <i className="fa fa-bus" aria-hidden="true"></i>
-                      <i className="fa fa-car" aria-hidden="true"></i>
+                      <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=driving`}  target="_blank" rel="nofollow"><i className="fa fa-car" aria-hidden="true"></i></a>
+                      <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=walking`}  target="_blank" rel="nofollow"><i className="fa fa-street-view" aria-hidden="true"></i></a>
+                      <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=bicycling`}  target="_blank" rel="nofollow"><i className="fa fa-bicycle" aria-hidden="true"></i></a>
+                      <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=transit`}  target="_blank" rel="nofollow"><i className="fa fa-bus" aria-hidden="true"></i></a>
                     </div>
                   </div>
                 </div>
@@ -83,4 +85,10 @@ class EventDetail extends Component {
   };
 }
 
-export default EventDetail;
+function mapStateToProps(state) {
+  return {
+    location: state.location
+  };
+}
+
+export default connect(mapStateToProps)(EventDetail);
