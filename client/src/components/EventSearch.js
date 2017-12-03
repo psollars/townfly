@@ -22,7 +22,7 @@ class EventSearch extends Component {
         <div className="heroHeader">
         </div>
         <div className="location-params">
-          <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.props.clearLocation} />
+          <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.handleClearLocation} />
           <div>
             <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
           </div>
@@ -64,6 +64,13 @@ class EventSearch extends Component {
     })
   };
 
+  handleClearLocation = () => {
+    this.props.clearLocation();
+    this.setState({
+        displayLocation: ""
+    })
+  };
+
   handleDate = (event) => {
     const dateParam = event.target.dataset.dateParam;
     const nowUnix = moment().unix();
@@ -88,7 +95,7 @@ class EventSearch extends Component {
   handleDistance = (event) => {
     this.setState({
         distance: event.target.dataset.distance
-      })
+    })
   };
 
   handleCatChange = (event) => {
