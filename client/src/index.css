@@ -113,6 +113,11 @@ body {
   background-color: #01C69F;
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
   border-radius: 100px;
+  border: none;
+}
+
+button:focus {
+  outline: none;
 }
 
 .previousEventButton{
@@ -306,7 +311,7 @@ h6 {
 
 .eventInfoCard {
   padding: 20px;
-  min-width: 320px;
+  min-width: 280px;
   margin: 0px 60px;
   height: auto;
   border-radius: 4px;
@@ -395,23 +400,24 @@ h6 {
   right: -10px;
   font-size: .8em;
   font-weight: 300;
-  width: 165px;
+  /*width: 165px;*/
   background-color: #efefef;
+  border-radius: 5px;
 }
 
 .react-add-to-calendar__dropdown ul {
   margin: 0px;
-  padding: 8px;
+  padding: 10px 10px 0px 10px;
   list-style: none;
 }
 
 .react-add-to-calendar__dropdown li {
-  margin-bottom: 5px;
-  padding: 2px;
+  margin-bottom: 10px;
+  white-space: nowrap;  
 }
 
-.react-add-to-calendar__dropdown li:hover {
-  background-color: #fff;
+.react-add-to-calendar__dropdown a:hover {
+  color: #01C69F;
 }
 
 .react-add-to-calendar__dropdown a {
