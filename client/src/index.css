@@ -35,8 +35,9 @@ body {
 
 }
 
-hr {
-  border:1px solid rgba(216, 216, 216, 0.25);
+.divider {
+  width: 100%;
+  border: 1px solid rgba(216, 216, 216, 0.25);
 }
 
 .searchInput::placeholder {
@@ -52,6 +53,11 @@ hr {
 .detect-location {
   display: flex;
   justify-content: center;
+  cursor: pointer;
+}
+
+.detect-location .fa-location-arrow {
+  color: #01C69F;
 }
 
 .searchInput{
@@ -94,13 +100,6 @@ hr {
   min-width: 320px;
 }
 
-.Controls{
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  
-}
-
 .searchButton{
   width: 80%;
 	height: 50px;
@@ -114,16 +113,6 @@ hr {
 	background-color: #01C69F;
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
   border-radius: 100px;
-}
-
-.Controls{
-  height:50px;
-  width:100%;
-  bottom:0px;
-  position: absolute;
-  border-bottom:1px solid rgba(216, 216, 216, 0.25);
-  background: #fff;
-  box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
 }
 
 .previousEventButton{
@@ -272,17 +261,13 @@ hr {
   
 }
 
-h6{
-  width: 125px;
-	height: 18px;
-	font-family: Avenir;
+h6 {
 	font-size: 14px;
 	font-weight: 900;
 	line-height: 1.29;
 	letter-spacing: 2px;
 	text-align: center;
   color: rgba(88, 88, 88, 0.6);
-  margin: 0 auto;
 }
 
 .Events {
@@ -301,45 +286,61 @@ h6{
   /* border: 1px solid rgba(128, 128, 128, 0.37); */
 }
 
-
-
 .eventImage{
-      margin:0;
-      display: flex;
-      justify-content: center;
-      width:100%;
-      height:100%;
-      background-image: fill;
-      height: 220px;
-      box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); 
+  margin:0;
+  display: flex;
+  justify-content: center;
+  width:100%;
+  height:100%;
+  background-image: fill;
+  height: 220px;
+  box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); 
       
 }
 
-.eventInfoContainer{
+.eventInfoContainer {
   display: flex;
   justify-content: center;
-  margin: -30px 20px;
+  margin: -20px 0px 0px 0px;
 }
 
-.eventInfoCard{
-  padding:20px;
-  width: 335px;
+.eventInfoCard {
+  padding: 20px;
+  min-width: 320px;
+  margin: 0px 60px;
 	height: auto;
 	border-radius: 4px;
 	background-color: #ffffff;
 	box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
-.eventTitle{
-	font-size: 24px;
-	font-weight: 900;
+
+.eventTitle {
+	font-size: 1.5em;
+	font-weight: 600;
 	letter-spacing: 2px;
 	text-align: center;
   color: rgba(42, 42, 42, 0.9);
-  margin:10px 0;
+  margin: 0px 0px 10px 0px;
+}
+
+.eventTime{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0px;
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: 0.6;
+  letter-spacing: 1.7px;
+  color: rgba(88, 88, 88, 0.9);
+}
+
+.eventTime p {
+  margin: 0px;
 }
 
 .eventDate{
-  margin:0;
+  margin: 0px 0px 20px 0px;
 	font-size: 12px;
 	font-weight: 900;
 	line-height: 1.0;
@@ -349,89 +350,100 @@ h6{
   text-transform: uppercase;
 }
 
-.eventTime{
-    font-family: Avenir;
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 0.6;
-    letter-spacing: 1.7px;
-    text-align: center;
-    color: rgba(88, 88, 88, 0.9);
-  }
+.eventVenue {
+  margin: 0px;
+  font-size: .9em;
+  font-weight: 600;
+  padding: 20px 0px 0px 0px;
+}
 
-.eventLocation{
-    font-family: Avenir;
-    font-size: 12px;
-    font-weight: 900;
-    line-height: 1.5;
-    letter-spacing: 1px;
-    text-align: left;
-    color: #4a90e2;
-    margin: 20px;
-  }
+.eventLocation {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: #4a90e2;
+}
 
-.eventDescription{
-    margin:20px;
-    font-family: Avenir;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: 1px;
-    text-align: left;
-    color: rgba(88, 88, 88, 0.9);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: wrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 295px;
-    max-height: 72px;
-  }
+.eventLocation p {
 
-.viewMore{
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 2.3px;
-    color: #fd6968;
-  }
+}
+
+.event-sharing {
+  display: flex;
+}
+
+.event-sharing a {
+  color: rgba(88, 88, 88, 0.9);
+}
+
+.event-sharing i {
+  margin-left: 5px;
+}
+
+.react-add-to-calendar {
+  position: relative;
+}
+
+.react-add-to-calendar__dropdown {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 200px;
+  background-color: aliceblue;
+}
+
+.event-description {
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: 1px;
+  text-align: left;
+  color: rgba(88, 88, 88, 0.9);
+  overflow: hidden;
+  white-space: pre-line;
+  text-overflow: ellipsis;
+  height: 72px;
+}
+
+.event-description.expanded {
+  overflow: unset;
+  height: auto;
+}
+
+.view-toggle {
+  font-size: .8em;
+  font-weight: 900;
+  letter-spacing: 2.3px;
+  color: #fd6968;
+  display: flex;
+  justify-content: center;
+}
+
+.view-toggle div {
+  text-align: center;
+}
+
+.view-toggle p {
+  margin: 0px;
+}
 
 input:focus {
-    outline: none;
-  }
+  outline: none;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.Controls {
+  display: flex;
+  justify-content: center;
+  height:50px;
+  width:100%;
+  border-bottom:1px solid rgba(216, 216, 216, 0.25);
+  background: #fff;
+  box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
+}
 
 
 

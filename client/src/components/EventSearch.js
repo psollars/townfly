@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEvents, loadingToggle } from '../actions';
+import { fetchEvents, loadingToggle, detectLocation, clearLocation } from '../actions';
 import moment from 'moment';
 import $ from "jquery-ajax";
 import _ from 'lodash';
-
-
 
 class EventSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displayLocation: "",
-      location: {},
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
       categories: []
@@ -25,20 +22,20 @@ class EventSearch extends Component {
         <div className="heroHeader">
         </div>
         <div className="location-params">
-          <input className="searchInput" type="text" placeholder="zip code or city" value={this.state.displayLocation} onChange={this.handleTextLocation} />
+          <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.handleClearLocation} />
           <div>
-            <div className="detect-location" onClick={this.handleGeoLocation}>detect my location <span className="fa "></span></div>
+            <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
           </div>
         </div>
         <hr className = "divider"></hr>
-        <label className= "label">TIME</label>
+        <label className= "label">WHEN</label>
         <div className="date-params">
           <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
           <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
           <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
         </div>
         <hr className ="divider"></hr>
-        <label className= "label">MILES AWAY</label>
+        <label className= "label">WITHIN</label>
         <div className="distance-params"> 
           <div className={ this.state.distance === "1609" ? "radio-button active" : "radio-button"} data-distance="1609" onClick={this.handleDistance}>1 mile</div>
           <div className={ this.state.distance === "8046" ? "radio-button active" : "radio-button"} data-distance="8046" onClick={this.handleDistance}>5 miles</div>
@@ -60,6 +57,19 @@ class EventSearch extends Component {
       </div>
     );
   }
+
+  handleTextLocation = (event) => {
+    this.setState({
+      displayLocation: event.target.value
+    })
+  };
+
+  handleClearLocation = () => {
+    this.props.clearLocation();
+    this.setState({
+        displayLocation: ""
+    })
+  };
 
   handleDate = (event) => {
     const dateParam = event.target.dataset.dateParam;
@@ -85,7 +95,7 @@ class EventSearch extends Component {
   handleDistance = (event) => {
     this.setState({
         distance: event.target.dataset.distance
-      })
+    })
   };
 
   handleCatChange = (event) => {
@@ -106,12 +116,6 @@ class EventSearch extends Component {
     }
   };
 
-  handleTextLocation = (event) => {
-    this.setState({
-      displayLocation: event.target.value
-    })
-  };
-
   handleGeoLocation = () => {
     this.props.loadingToggle();
     const options = {
@@ -122,58 +126,24 @@ class EventSearch extends Component {
     navigator.geolocation.getCurrentPosition((pos) => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
-      this.detectLocation(lat, lon);
+      this.props.detectLocation(null, lat, lon);
     }, (err) => {
       console.warn(`ERROR(${err.code}): ${err.message}`);
     }, options);
   };
 
-  detectLocation = (lat, lon, text) => {
-    $.ajax({
-      url: "/api/geolocate/",
-      method: "GET",
-      data: {
-        lat: lat,
-        lon: lon,
-        text: text
-      }
-    }).then(geoResponse => {
-      const displayLocation = `${geoResponse.city}, ${geoResponse.administrativeLevels.level1short}`;
-      this.props.loadingToggle();
-      this.setState({
-          location: geoResponse,
-          displayLocation: displayLocation
-      })
-    });
-  };
-
-  detectTextLocation = (text) => {
-    $.ajax({
-      url: "/api/geolocate/",
-      method: "GET",
-      data: { text: text }
-    }).then(geoResponse => {
-      this.setState({ location: geoResponse })
-    }).then(() => {
-      this.props.fetchEvents(
-        this.state.location,
-        this.state.date,
-        this.state.distance,
-        this.state.categories
-      )}
-    )};
-
   handleSubmit = (event) => {
     event.preventDefault();
-    if (!this.state.displayLocation && _.isEmpty(this.state.location)) {
-       alert("Please enter a city or zipcode.");
+    if (!this.state.displayLocation && _.isEmpty(this.props.location)) {
+       alert("Please enter a zip code or city.");
+       return;
     }
-    if (_.isEmpty(this.state.location)) {
+    if (_.isEmpty(this.props.location)) {
       const text = this.state.displayLocation;
-      this.detectTextLocation(text)
+      this.props.detectLocation(text)
     } else {
       this.props.fetchEvents(
-        this.state.location,
+        this.props.location,
         this.state.date,
         this.state.distance,
         this.state.categories
@@ -183,9 +153,17 @@ class EventSearch extends Component {
 
 } // end of component
 
+function mapStateToProps(state) {
+  return {
+      location: state.location
+  };
+}
+
 const mapActionsToProps = {
   fetchEvents,
-  loadingToggle
+  loadingToggle,
+  detectLocation,
+  clearLocation
 };
 
-export default connect(null, mapActionsToProps)(EventSearch);
+export default connect(mapStateToProps, mapActionsToProps)(EventSearch);
