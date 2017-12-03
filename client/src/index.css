@@ -269,11 +269,6 @@ h6 {
   /* Styles associated with Events container */
 }
 
-.eventCanvas{
-  display: flex;
-  justify-content: center;
-}
-
 .EventDetail{
   width: 100%;
   scroll-behavior: smooth;
@@ -474,13 +469,18 @@ input:focus {
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
 }
 
-/* loading styles */
+/* EventDetail styles */
+.eventCanvas{
+  display: flex;
+  justify-content: center;
+}
 
+
+/* loading styles */
 @keyframes seq-preloader {
   50% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
