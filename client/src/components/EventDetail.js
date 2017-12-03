@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import AddToCalendar from 'react-add-to-calendar';
 import 'moment-timezone';
@@ -20,6 +21,7 @@ class EventDetail extends Component {
 
   render() {
     const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
+    const directionParams = `origin=${this.props.location.formattedAddress}&destination=${fullAddress}`;
     return (
       <div className="eventCanvas">
         <div className="EventDetail">
@@ -33,7 +35,7 @@ class EventDetail extends Component {
                   <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <span> - <Moment format="LT">{this.props.event.endTime}</Moment></span> }</p>
                   <div className="event-sharing">  
                     <a href={`https://www.facebook.com/events/${this.props.event.id}`} target="_blank" rel="nofollow"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
-                    <AddToCalendar event={this.state.calendarEvent} buttonLabel="" buttonTemplate={{"calendar" : "left"}}/>              
+                    <AddToCalendar event={this.state.calendarEvent} buttonLabel="" buttonTemplate={{"calendar" : "left"}} displayItemIcons={false} listItems={[ { google: 'Google' }, { apple: 'Apple Calendar' }, { outlook: 'Outlook' }, { outlookcom: 'Outlook.com' }, { yahoo: 'Yahoo' } ]} />              
                   </div>
                 </div>
                 <p className="eventVenue">{this.props.event.venue.name}</p>
@@ -45,8 +47,12 @@ class EventDetail extends Component {
                 {this.state.expanded ? 
                 <div className="event-expanded-container">
                   <div className="event-map">
-                    <p>I'm the map.</p>
-                    <p>Directions</p>
+                    <div className="directions">
+                      <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=driving`}  target="_blank" rel="nofollow"><i className="fa fa-car" aria-hidden="true"></i></a>
+                      <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=walking`}  target="_blank" rel="nofollow"><i className="fa fa-street-view" aria-hidden="true"></i></a>
+                      <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=bicycling`}  target="_blank" rel="nofollow"><i className="fa fa-bicycle" aria-hidden="true"></i></a>
+                      <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=transit`}  target="_blank" rel="nofollow"><i className="fa fa-bus" aria-hidden="true"></i></a>
+                    </div>
                   </div>
                 </div>
                 : null }
@@ -76,6 +82,13 @@ class EventDetail extends Component {
       expanded: !this.state.expanded
     });
   };
+
 }
 
-export default EventDetail;
+function mapStateToProps(state) {
+  return {
+    location: state.location
+  };
+}
+
+export default connect(mapStateToProps)(EventDetail);

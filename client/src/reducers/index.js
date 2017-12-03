@@ -27,13 +27,13 @@ export default function(state = INITIAL_STATE, action) {
     case "RECEIVE_EVENTS":
       return Object.assign({}, state, {
         loading: false,
-				events: action.events,
-				initialSearch: false
-			});
-		case "RETURN_SEARCH":
-			return Object.assign({}, state, {
-			 initialSearch: true
-		  });
+        events: action.events,
+        initialSearch: false
+      });
+    case "RETURN_SEARCH":
+      return Object.assign({}, state, {
+       initialSearch: true
+      });
     case "LOADING_TOGGLE":
       return Object.assign({}, state, {
         loading: !state.loading

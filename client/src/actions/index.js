@@ -73,9 +73,9 @@ function receiveEvents(events) {
 
 // navigational & visual actions
 export function returnToSearch () {
-	return {
-		type : "RETURN_SEARCH"
-	};
+  return {
+    type : "RETURN_SEARCH"
+  };
 }
 
 export function loadingToggle () {

@@ -8,13 +8,13 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-	height: 150px;
+  height: 150px;
   border-bottom: 1px solid rgba(216, 216, 216, 0.6);
   text-align: center;
-	font-size: 16px;
-	font-weight: 300;
-	letter-spacing: 2.7px;
-	text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 2.7px;
+  text-align: center;
   color: white;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,7 @@ body {
 }
 
 .backToSearch {
-
+  /* Styles associated with the back button (ie an icon) */
 }
 
 .divider {
@@ -69,18 +69,17 @@ body {
   border-bottom: 2px solid #ed6564;
   padding-bottom: 10px;
   font-size: 2em;
-	font-weight: 600;
-	letter-spacing: 2.7px;
-	text-align: center;
-	color: #585858;
-  
+  font-weight: 600;
+  letter-spacing: 2.7px;
+  text-align: center;
+  color: #585858;
 }
 
 .nearMe{
-	font-size: 18px;
-	font-weight: 900;
-	letter-spacing: 2.7px;
-	text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 2.7px;
+  text-align: center;
   color: #fd6968;
   text-decoration: none;
   margin-bottom: 30px;
@@ -89,9 +88,9 @@ body {
 .label{
   display: flex;
   justify-content: center;
-	font-size: 14px;
-	font-weight: 900;
-	letter-spacing: 2.3px;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 2.3px;
   color: rgba(88, 88, 88, 0.6);
   margin:20px;
 }
@@ -102,41 +101,45 @@ body {
 
 .searchButton{
   width: 80%;
-	height: 50px;
+  height: 50px;
   position: fixed;
   bottom:24px;
-	font-size: 14px;
-	font-weight: 600;
-	letter-spacing: 2px;
-	text-align: center;
-	color:white;
-	background-color: #01C69F;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  color:white;
+  background-color: #01C69F;
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
   border-radius: 100px;
+  border: none;
+}
+
+button:focus {
+  outline: none;
 }
 
 .previousEventButton{
   right:50%;
   width: 50%;
   height: 50px;
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing: 2px;
-	text-align: center;
-	color: #ED6564;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #ED6564;
 }
 
 .nextEventButton{
   left:50%;
   width: 50%;
-	height: 50px;
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing: 2px;
-	text-align: center;
-	color: #ED6564;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #ED6564;
 }
-
 
 .btnContain {
   display: flex; 
@@ -160,7 +163,6 @@ body {
   height:40px;
   position: relative;
   padding-left: 10px;
-
 }
 
 .stringSearchBG button{
@@ -168,12 +170,11 @@ body {
   right:20px;
   top:82px;
   font-size: 16px;
-	font-weight: 900;
-	letter-spacing: 2.7px;
-	text-align: right;
-	color: #fd6968;
+  font-weight: 900;
+  letter-spacing: 2.7px;
+  text-align: right;
+  color: #fd6968;
   text-transform: capitalize;
-
 }
 
 
@@ -209,7 +210,6 @@ body {
   letter-spacing: 2.7px;
   max-width: 114px;
   max-height:32px;
- 
 }
 
 .active {
@@ -220,64 +220,58 @@ body {
 }
 
 .categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .category {
-    word-wrap: break-word;
-    width: 49%;
-    height: 160px;
-    border: .5px solid rgba(88, 88, 88, 0.1);
-    text-align: center;
-    opacity: .5;
-     
-    
-}
-.category-active {
-    word-wrap: break-word;
-    width: 49%;
-    height: 160px;
-    border: .5px solid rgba(88, 88, 88, 0.1);
-    text-align: center;
-    opacity: 1;
-    color:#ed6564;
+  word-wrap: break-word;
+  width: 49%;
+  height: 160px;
+  border: .5px solid rgba(88, 88, 88, 0.1);
+  text-align: center;
+  opacity: .5;
 }
 
-.circle{
+.category-active {
+  word-wrap: break-word;
+  width: 49%;
+  height: 160px;
+  border: .5px solid rgba(88, 88, 88, 0.1);
+  text-align: center;
+  opacity: 1;
+  color:#ed6564;
+}
+
+.circle {
   background-color:#ed6564;
   opacity: 1;
   height:48px;
   width:48px;
   border-radius: 100%;
   margin:32px auto 16px auto;
-
 }
 
 .active-circle{
-  /* // add check mark */
-  
+  /* add check mark */
 }
 
 h6 {
-	font-size: 14px;
-	font-weight: 900;
-	line-height: 1.29;
-	letter-spacing: 2px;
-	text-align: center;
-  color: rgba(88, 88, 88, 0.6);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.29;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
 .Events {
-
+  /* Styles associated with Events container */
 }
 
 .eventCanvas{
   display: flex;
   justify-content: center;
-  
 }
 
 .EventDetail{
@@ -295,7 +289,6 @@ h6 {
   background-image: fill;
   height: 220px;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); 
-      
 }
 
 .eventInfoContainer {
@@ -306,19 +299,19 @@ h6 {
 
 .eventInfoCard {
   padding: 20px;
-  min-width: 320px;
+  min-width: 280px;
   margin: 0px 60px;
-	height: auto;
-	border-radius: 4px;
-	background-color: #ffffff;
-	box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+  height: auto;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
 .eventTitle {
-	font-size: 1.5em;
-	font-weight: 600;
-	letter-spacing: 2px;
-	text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
   color: rgba(42, 42, 42, 0.9);
   margin: 0px 0px 10px 0px;
 }
@@ -341,12 +334,12 @@ h6 {
 
 .eventDate{
   margin: 0px 0px 20px 0px;
-	font-size: 12px;
-	font-weight: 900;
-	line-height: 1.0;
-	letter-spacing: 2px;
-	text-align: center;
-	color: rgba(88, 88, 88, 0.45);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: 2px;
+  text-align: center;
+  color: rgba(88, 88, 88, 0.45);
   text-transform: uppercase;
 }
 
@@ -370,7 +363,7 @@ h6 {
 }
 
 .eventLocation p {
-
+  /* Styles associated with event location */
 }
 
 .event-sharing {
@@ -392,9 +385,31 @@ h6 {
 .react-add-to-calendar__dropdown {
   position: absolute;
   top: 18px;
-  right: 0;
-  width: 200px;
-  background-color: aliceblue;
+  right: -10px;
+  font-size: .8em;
+  font-weight: 300;
+  /*width: 165px;*/
+  background-color: #efefef;
+  border-radius: 5px;
+}
+
+.react-add-to-calendar__dropdown ul {
+  margin: 0px;
+  padding: 10px 10px 0px 10px;
+  list-style: none;
+}
+
+.react-add-to-calendar__dropdown li {
+  margin-bottom: 10px;
+  white-space: nowrap;  
+}
+
+.react-add-to-calendar__dropdown a:hover {
+  color: #01C69F;
+}
+
+.react-add-to-calendar__dropdown a {
+  text-decoration: none;
 }
 
 .event-description {
@@ -435,6 +450,20 @@ input:focus {
   outline: none;
 }
 
+.directions {
+  display: flex;
+  justify-content: center;
+}
+
+.directions a {
+  margin: 0px 5px;
+  color: rgba(88, 88, 88, 0.9);  
+}
+
+.directions a:hover {
+  color: #01C69F;
+}
+
 .Controls {
   display: flex;
   justify-content: center;
@@ -443,99 +472,84 @@ input:focus {
   border-bottom:1px solid rgba(216, 216, 216, 0.25);
   background: #fff;
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* loading styles */
 
-  @keyframes seq-preloader {
-    50% {
-      opacity: 1;
-    }
-    
-    100% {
-      opacity: 0;
-    }
-  }
-  
-  .seq-preloader {
-    background: rgba(255,255,255,.8);
-    visibility: visible;
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  
-  .seq-preloader.seq-preloaded {
-    opacity: 0;
-    visibility: hidden;
-    transition: visibility 0s .5s, opacity .5s;
-  }
-  
-  .seq-preload-indicator {
-    overflow: visible;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .seq-preload-circle {
-    display: inline-block;
-    height: 12px;
-    width: 12px;
-    fill: #ED6564;
-    opacity: 0;
-    animation: seq-preloader 1.25s infinite;
-  }
-  
-  .seq-preload-circle-2 {
-    animation-delay: .15s;
-  }
-  
-  .seq-preload-circle-3 {
-    animation-delay: .3s;
-  }
-  
-  .seq-preload-indicator-fallback {
-    width: 42px;
-    overflow: visible;
-  }
-  
-  .seq-preload-indicator-fallback .seq-preload-circle {
-    width: 8px;
-    height:8px;
-    background-color:#ED6564;
-    border-radius: 100%;
+@keyframes seq-preloader {
+  50% {
     opacity: 1;
-    display: inline-block;
-    vertical-align: middle;
   }
-  
-  .seq-preload-indicator-fallback .seq-preload-circle-2 {
-    margin-left: 3px;
-    margin-right: 3px;
-    width: 12px;
-    height: 12px;
+
+  100% {
+    opacity: 0;
   }
-  
-  .seq-preload-indicator-fallback .seq-preload-circle-3 {
-    width: 16px;
-    height: 16px;
-  }
+}
+
+.seq-preloader {
+  background: rgba(255,255,255,.8);
+  visibility: visible;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.seq-preloader.seq-preloaded {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s .5s, opacity .5s;
+}
+
+.seq-preload-indicator {
+  overflow: visible;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.seq-preload-circle {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  fill: #ED6564;
+  opacity: 0;
+  animation: seq-preloader 1.25s infinite;
+}
+
+.seq-preload-circle-2 {
+  animation-delay: .15s;
+}
+
+.seq-preload-circle-3 {
+  animation-delay: .3s;
+}
+
+.seq-preload-indicator-fallback {
+  width: 42px;
+  overflow: visible;
+}
+
+.seq-preload-indicator-fallback .seq-preload-circle {
+  width: 8px;
+  height:8px;
+  background-color:#ED6564;
+  border-radius: 100%;
+  opacity: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.seq-preload-indicator-fallback .seq-preload-circle-2 {
+  margin-left: 3px;
+  margin-right: 3px;
+  width: 12px;
+  height: 12px;
+}
+
+.seq-preload-indicator-fallback .seq-preload-circle-3 {
+  width: 16px;
+  height: 16px;
+}
