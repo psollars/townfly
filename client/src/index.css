@@ -472,6 +472,7 @@ input:focus {
   border-bottom:1px solid rgba(216, 216, 216, 0.25);
   background: #fff;
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
+}
 
 /* loading styles */
 
