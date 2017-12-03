@@ -480,6 +480,20 @@ input:focus {
   outline: none;
 }
 
+.directions {
+  display: flex;
+  justify-content: center;
+}
+
+.directions a {
+  margin: 0px 5px;
+  color: rgba(88, 88, 88, 0.9);  
+}
+
+.directions a:hover {
+  color: #01C69F;
+}
+
 .Controls {
   display: flex;
   justify-content: center;
