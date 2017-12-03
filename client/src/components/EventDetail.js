@@ -46,7 +46,12 @@ class EventDetail extends Component {
                 <div className="event-expanded-container">
                   <div className="event-map">
                     <p>I'm the map.</p>
-                    <p>Directions</p>
+                    <div className="directions">
+                      <i className="fa fa-street-view" aria-hidden="true"></i>
+                      <i className="fa fa-bicycle" aria-hidden="true"></i>
+                      <i className="fa fa-bus" aria-hidden="true"></i>
+                      <i className="fa fa-car" aria-hidden="true"></i>
+                    </div>
                   </div>
                 </div>
                 : null }

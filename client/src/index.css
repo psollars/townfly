@@ -416,9 +416,30 @@ h6 {
 .react-add-to-calendar__dropdown {
   position: absolute;
   top: 18px;
-  right: 0;
-  width: 200px;
-  background-color: aliceblue;
+  right: -10px;
+  font-size: .8em;
+  font-weight: 300;
+  width: 165px;
+  background-color: #efefef;
+}
+
+.react-add-to-calendar__dropdown ul {
+  margin: 0px;
+  padding: 8px;
+  list-style: none;
+}
+
+.react-add-to-calendar__dropdown li {
+  margin-bottom: 5px;
+  padding: 2px;
+}
+
+.react-add-to-calendar__dropdown li:hover {
+  background-color: #fff;
+}
+
+.react-add-to-calendar__dropdown a {
+  text-decoration: none;
 }
 
 .event-description {
