@@ -18,10 +18,10 @@ class EventDetail extends Component {
       }
     };
   }
-//`${this.props.location.latitude},${this.props.location.longitude}`
+  
   render() {
     const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
-    const directionParams = `origin=42.9411011,-85.61003869999999&destination=${fullAddress}`;
+    const directionParams = `origin=${this.props.location.formattedAddress}&destination=${fullAddress}`;
     return (
       <div className="eventCanvas">
         <div className="EventDetail">
