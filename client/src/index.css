@@ -4,22 +4,6 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
-.headerBar{
-  display: flex;
-  width: 100%;
-	height: 60px;
-  background-color: white;
-  border-bottom: 1px solid rgba(216, 216, 216, 0.6);
-  text-align: center;
-	font-size: 16px;
-	font-weight: 300;
-	letter-spacing: 2.7px;
-	text-align: center;
-  color: #ed6564;
-  align-items: center;
-  justify-content: center;
-}
-
 .heroHeader{
   display: flex;
   flex-direction: column;
@@ -40,27 +24,34 @@ body {
 
 .headerBar{
   display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+/*  height: 60px;*/
+  color: #ed6564;
+  padding: 0px 20px;
+  letter-spacing: 2.7px;
+}
+/*.headerBar{
+  display: flex;
   width: 100%;
-	height: 60px;
+  height: 60px;
   background-color: white;
   border-bottom: 1px solid rgba(216, 216, 216, 0.6);
   text-align: center;
-	font-size: 16px;
-	font-weight: 300;
-	letter-spacing: 2.7px;
-	text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+
+  text-align: center;
   color: #ed6564;
   align-items: center;
   justify-content: center;
+}*/
+
+.backToSearch {
+
 }
 
-.backToSearch{
-  position: absolute;
-  left: 20px;
-  font-size:14px;
-}
-
-hr{
+hr {
   border:1px solid rgba(216, 216, 216, 0.25);
 }
 
