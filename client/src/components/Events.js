@@ -52,7 +52,9 @@ class Events extends Component {
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
           }
-          {showEvents}
+          <div className={this.state.listView === false ? "EventDetail" : "EventDetailGrid"}>
+            {showEvents}
+          </div>
           { this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
         </div>
       </div>
