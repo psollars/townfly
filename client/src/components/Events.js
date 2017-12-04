@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SwipeableViews from 'react-swipeable-views';
 import EventDetail from './EventDetail';
 import Controls from './Controls';
 import { returnToSearch } from '../actions';
@@ -18,24 +19,15 @@ class Events extends Component {
 
   render() {
 
-   const showEvents = this.state.eventsToDisplay.map((event, index) => {
-      if (this.state.listView === false) {
-        if (this.state.activeEventIndex === index){
-          return <EventDetail 
-                      listView={this.state.listView}
-                      key={event.id}
-                      event={event}
-                      active={index + 1}
-                      length={this.state.eventsToDisplay.length}
-                  />;
-        }
-      } else {
-        return <EventDetail 
-                      listView={this.state.listView}
-                      key={event.id}
-                      event={event}
-                />;
-      }
+    const showEvents = this.state.eventsToDisplay.map((event, index) => {
+      return <EventDetail 
+                listView={this.state.listView}
+                style={Object.assign({}, slideStyles.slide)}
+                key={event.id}
+                event={event}
+                active={index + 1}
+                length={this.state.eventsToDisplay.length}
+              />;
     })
 
     return (
@@ -52,7 +44,9 @@ class Events extends Component {
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
           }
-          {showEvents}
+          <SwipeableViews index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
+            {showEvents}
+          </SwipeableViews>
           { this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
         </div>
       </div>
@@ -133,6 +127,20 @@ class Events extends Component {
     }
   }
 
+  handleChangeIndex = (index) => {
+    this.setState({
+      activeEventIndex: index
+    })
+  }
+
+}
+
+const slideStyles = {
+  slide: {
+    padding: 15,
+    minHeight: 100,
+    color: "#fff"
+  }
 }
 
 function sanitizeString(string) {
