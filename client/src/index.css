@@ -529,12 +529,15 @@ input:focus {
 .EventDetailGrid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 20px 0px 20px;
 }
 
 .event-list-item {
   width: 100%;
-  margin: 10px;
+  margin: 20px;
   border-radius: 5px;
+  box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
 .event-list-item .event-time, .event-list-item .event-venue, .event-list-item .event-location, .event-list-item .event-description, .event-list-item .event-item-index {
@@ -542,11 +545,20 @@ input:focus {
 }
 
 .event-list-item .event-image-container {
-  display: block;
+  display: flex;
 }
 
 .event-list-item .event-image-wrapper {
-  /*max-width: 280px;*/
+  border-radius: 5px;
+  height: 120px;
+  overflow: hidden;
+  /*position: relative;*/
+}
+
+.event-list-item .event-image {
+  /*position: absolute;*/
+/*  width: auto;
+  height: 100%;*/
 }
 
 .event-list-item .event-info-container {
@@ -674,12 +686,39 @@ input:focus {
   }
 
 }
+
 @media only screen and (min-width: 768px) {
   /*styles for notebooks*/
+  .EventDetailGrid {
+    padding: 20px 40px 0px 40px;
+  }
+
+  .event-list-item {
+    width: 30%;
+  }
+
 }
+
 @media only screen and (min-width: 992px) {
   /*styles for desktop*/
+  .EventDetailGrid {
+    padding: 20px 80px 0px 80px;
+  }
+
+  .event-list-item {
+    /*width: 21%;*/
+  }
+
 }
+
 @media only screen and (min-width: 1200px) {
   /*styles for large desktop*/
+  .EventDetailGrid {
+    padding: 20px 80px 0px 80px;
+  }
+
+  .event-list-item {
+    width: 21%;
+  }
+
 }

@@ -42,7 +42,7 @@ class Events extends Component {
       <div>
         <div className="header-bar">
           <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
-          <p>TOWNFLY</p>
+          <p onClick={this.props.returnToSearch}>TOWNFLY</p>
           <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : ` Card View` }</div>
         </div>
         <div className="Events">
