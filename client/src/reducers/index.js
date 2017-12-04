@@ -2,11 +2,20 @@ const INITIAL_STATE = {
   loading: false,
   initialSearch: true,
   location: {},
+  date: [],
+  distance: "",
+  categories: [],
   events: []
 };
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case "SET_SEARCH_PARAMS" :
+      return Object.assign({}, state, {
+        date: action.date,
+        distance: action.distance,
+        categories: action.categories
+      });
     case "REQUEST_LOCATION":
       return Object.assign({}, state, {
         loading: true

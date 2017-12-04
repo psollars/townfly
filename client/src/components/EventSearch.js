@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEvents, loadingToggle, detectLocation, clearLocation } from '../actions';
+import { fetchEvents, loadingToggle, detectLocation, clearLocation, setSearchParams } from '../actions';
 import moment from 'moment';
 import $ from "jquery-ajax";
 import _ from 'lodash';
@@ -138,6 +138,11 @@ class EventSearch extends Component {
        alert("Please enter a zip code or city.");
        return;
     }
+    this.props.setSearchParams(
+      this.state.date,
+      this.state.distance,
+      this.state.categories
+    )
     if (_.isEmpty(this.props.location)) {
       const text = this.state.displayLocation;
       this.props.detectLocation(text)
@@ -163,7 +168,8 @@ const mapActionsToProps = {
   fetchEvents,
   loadingToggle,
   detectLocation,
-  clearLocation
+  clearLocation,
+  setSearchParams
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(EventSearch);
