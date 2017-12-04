@@ -44,9 +44,13 @@ class Events extends Component {
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
           }
-          <SwipeableViews index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
-            {showEvents}
-          </SwipeableViews>
+          { this.state.listView === false ?
+            <SwipeableViews className="EventDetail" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
+              {showEvents}
+            </SwipeableViews>
+          :
+            <div className="EventDetailGrid">{showEvents}</div>
+          }
           { this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
         </div>
       </div>
