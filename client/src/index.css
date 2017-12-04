@@ -4,6 +4,19 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
+.header-bar {
+  flex-direction: row;
+  align-items: baseline;
+  color: #ed6564;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #ed6564;
+  text-transform: uppercase;
+  height:60px;
+}
+
 .heroHeader {
   display: flex;
   flex-direction: column;
@@ -22,33 +35,8 @@ body {
   background-size: auto 100%;
 }
 
-.header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  color: #ed6564;
-  padding: 0px 20px;
-  letter-spacing: 2.7px;
-}
-
-/* --------  */
-
-.header-bar {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: baseline;
-  color: #ed6564;
-  padding: 0px 20px;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-align: center;
-  color: #ed6564;
-  text-transform: uppercase;
-}
-
 .header-links{
+  display: block;
   list-style: none;
   text-transform: capitalize;
   font-weight: 300;
@@ -71,7 +59,7 @@ body {
 .header-links span a{
   background: #ED6564;
   color:white;
-  padding: 4px 20px;
+  padding: 4px 60px;
   border-radius: 20px;
 }
 
@@ -93,6 +81,11 @@ body {
   background-size: auto 100%;
 }
 
+.close-menu{
+  position: absolute;
+  top:20px;
+  right:20px;
+}
 /* --------  */
 
 .backToSearch {
@@ -284,7 +277,7 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin:20px auto 40px auto;
+  margin:20px auto 20px auto;
   font-size: 10px;
 }
 
@@ -653,50 +646,11 @@ input:focus {
 
 @media only screen and (min-width: 992px) {
 
-  .header-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-    color: #ed6564;
-    padding: 0px 20px;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-align: left;
-    color: #ed6564;
-    text-transform: uppercase;
-  }
-
-  .header-links{
-    list-style: none;
-    text-transform: capitalize;
-    font-weight: 300;
-    cursor: pointer;
-    width:auto;
-  }
-
-  .header-links li{
-    display: inline;
-    padding-left: 30px;
-  }
-
-  .header-links a {
-    text-decoration: none;
-    color: #ED6564;
-  }
-  .header-links span a{
-    background: #ED6564;
-    color:white;
-    padding: 4px 20px;
-    border-radius: 20px;
-  }
-
   .heroHeader {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 345px;
+    height: 300px;
     border-bottom: 1px solid rgba(216, 216, 216, 0.6);
     text-align: center;
     font-size: 16px;
@@ -713,6 +667,7 @@ input:focus {
   .search-card-container{
     display: flex;
     justify-content: center;
+    margin-bottom: 100px;
   }
 
   .search-card{
@@ -726,13 +681,17 @@ input:focus {
     margin: -20px 20px 0px 20px;
     width: 727px;
   }
+  .close-menu{
+    display: none;
+  }
 
-
-
-
+  .searchButton{
+    width: 20%;
+    position: fixed;
+    bottom:32px;
+  }
 
 }
-
 
 @media only screen and (min-width: 1200px) {
 /*styles for large desktop*/

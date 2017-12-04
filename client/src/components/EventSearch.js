@@ -12,21 +12,14 @@ class EventSearch extends Component {
       displayLocation: "",
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
-      categories: []
+      categories: [],
+      menuToggle: false
     }
   }
 
   render() {
     return (
       <div className="EventSearch">
-        <nav className="header-bar">
-          <div className="logo" onClick={this.props.returnToSearch}>TownFly</div> 
-          <ul className = "header-links" >
-            <li><a href="#searchInput">Events</a></li>
-            <li><a href="#about">About</a></li>
-            <li><span><a href="#contactUs">Contact Us</a></span></li>
-          </ul>
-        </nav>
         <div className="heroHeader">
         <h1>Explore. Experience. TownFly.</h1>
         </div>
@@ -55,7 +48,6 @@ class EventSearch extends Component {
               <hr className ="divider"></hr>
               <label className= "label">SEARCH BY CATEGORIES</label>
               <div className="categories">
-                
                 <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category " : "category-active "} id="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>
                   <div className = "circle">
                     <i className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "fa fa-paint-brush fa-lg" : "fa fa-check fa-lg"}></i>
@@ -84,7 +76,7 @@ class EventSearch extends Component {
                   <div className = "circle">
                     <i className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "fa fa-hotel fa-lg" : "fa fa-check fa-lg"}></i>
                   </div>
-                  <h6>Hotel & Lodging</h6>
+                  <h6>Hotel &<br/> Lodging</h6>
                 </div>
                 <div className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "category" : "category-active"} id="MEDICAL_HEALTH" onClick={this.handleCatChange}>
                   <div className = "circle">
