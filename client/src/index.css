@@ -252,7 +252,7 @@ input:focus {
   /* Styles associated with Events container */
 }
 
-.string-search-container {
+.string-search-background {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -262,19 +262,28 @@ input:focus {
   background: #F1F1F1;
 }
 
-.string-search {
+.string-search-container {
+  position: relative;
   width: 90%;
-  padding: 15px 30px;
-  background: #FFFFFF;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
   border: 1px solid #E7E7E7;
   border-radius: 5px;
-  position: relative;
+}
+
+.string-search {
+  width: 100%;
+  padding: 15px 35px;
+  background: #FFFFFF;
+  border: none;
 }
 
 .string-search-icon {
   position: absolute;
   z-index: 10;
-  left: 15px;
+  top: 14px;
+  left: 10px;
 }
 
 .string-search-results-count {
@@ -282,6 +291,9 @@ input:focus {
   margin: 0px;
   z-index: 10;
   right: 15px;
+  top: 13px;
+  font-size: .8em;
+  color: #ED6564;
 }
 
 /*.stringSearchBG button{

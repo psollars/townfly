@@ -46,10 +46,12 @@ class Events extends Component {
           <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : ` Card View` }</div>
         </div>
         <div className="Events">
-        <div className ="string-search-container">
-          <i className="string-search-icon fa fa-search" aria-hidden="true"></i>
-          <input className = "string-search" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="refine results" />
-          <p className="string-search-results-count" >{this.state.eventsToDisplay.length}</p>
+        <div className ="string-search-background">
+          <div className ="string-search-container">
+            <i className="string-search-icon fa fa-search" aria-hidden="true"></i>
+            <input className = "string-search" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="refine results by keyword" />
+            <p className="string-search-results-count" >{this.state.eventsToDisplay.length} results</p>
+          </div>
         </div>
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
