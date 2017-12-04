@@ -11,7 +11,6 @@ export function setSearchParams(date, distance, categories) {
   };
 }
 
-
 export function detectLocation (text, lat, lon) {
   let queryImmediately = false;
   if (text) {
