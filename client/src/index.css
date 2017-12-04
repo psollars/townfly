@@ -56,10 +56,6 @@ body {
   border: 1px solid #F5F5F5;
 }
 
-.searchInput::placeholder {
-  opacity: .5;
-}
-
 .location-params {
   display: flex;
   flex-direction: column;
@@ -158,38 +154,6 @@ button:focus {
   justify-content: center;
 }
 
-.stringSearchBG{
-  margin:0;
-  width:100%;
-  height:60px;
-  background: #F1F1F1;
-}
-
-.stringSearch{
-  text-align: left;
-  width:95%;
-  background: #FFFFFF;
-  border: 1px solid #E7E7E7;
-  border-radius: 4px;
-  margin:10px;
-  height:40px;
-  position: relative;
-  padding-left: 10px;
-}
-
-.stringSearchBG button{
-  position: absolute;
-  right:20px;
-  top:82px;
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 2.7px;
-  text-align: right;
-  color: #ED6564;
-  text-transform: capitalize;
-}
-
-
 .EventSearch{
   display: flex;
   flex-wrap: wrap;
@@ -287,6 +251,50 @@ input:focus {
 .Events {
   /* Styles associated with Events container */
 }
+
+.string-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  width:100%;
+  height:60px;
+  background: #F1F1F1;
+}
+
+.string-search {
+  width: 90%;
+  padding: 15px 30px;
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  border-radius: 5px;
+  position: relative;
+}
+
+.string-search-icon {
+  position: absolute;
+  z-index: 10;
+  left: 15px;
+}
+
+.string-search-results-count {
+  position: absolute;
+  margin: 0px;
+  z-index: 10;
+  right: 15px;
+}
+
+/*.stringSearchBG button{
+  position: absolute;
+  right:20px;
+  top:82px;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 2.7px;
+  text-align: right;
+  color: #ED6564;
+  text-transform: capitalize;
+}*/
 
 /**********************/
 /* EventDetail styles */
@@ -486,6 +494,7 @@ input:focus {
 .directions {
   display: flex;
   justify-content: center;
+  font-size: 1.5em;
 }
 
 .directions a {
@@ -511,8 +520,9 @@ input:focus {
 }
 
 .event-list-item {
-  width: 45%;
+  width: 100%;
   margin: 10px;
+  border-radius: 5px;
 }
 
 .event-list-item .event-time, .event-list-item .event-venue, .event-list-item .event-location, .event-list-item .event-description, .event-list-item .event-item-index {
@@ -520,24 +530,23 @@ input:focus {
 }
 
 .event-list-item .event-image-container {
-  width: 100%;
-  height: auto;
+  display: block;
 }
 
 .event-list-item .event-image-wrapper {
-  border-radius: 5px;
-  max-width: 280px;
+  /*max-width: 280px;*/
+}
+
+.event-list-item .event-info-container {
+  margin: 0px;
 }
 
 .event-list-item .event-info-card {
   padding: 10px;
   margin: 0px;
-  background-color: #ffffff;
   min-width: 0px;
-  /* border-radius: 4px; */
-
-  /* -webkit-box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); */
-  /* box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25); */
+  box-shadow: none;
+  border-radius: none;
 }
 
 .event-info-card {
@@ -643,4 +652,22 @@ input:focus {
 .seq-preload-indicator-fallback .seq-preload-circle-3 {
   width: 16px;
   height: 16px;
+}
+
+@media only screen and (min-width: 480px) {
+  /*styles for tablet*/
+  .event-list-item {
+    width: 45%;
+    margin: 10px;
+  }
+
+}
+@media only screen and (min-width: 768px) {
+  /*styles for notebooks*/
+}
+@media only screen and (min-width: 992px) {
+  /*styles for desktop*/
+}
+@media only screen and (min-width: 1200px) {
+  /*styles for large desktop*/
 }
