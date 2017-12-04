@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
 import EventDetail from './EventDetail';
-import Controls from './Controls';
 import { returnToSearch } from '../actions';
 
 class Events extends Component {
@@ -35,7 +34,7 @@ class Events extends Component {
         <div className="header-bar">
           <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
           <p>TOWNFLY</p>
-          <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : ` Card View` }</div>
+          <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
         </div>
         <div className="Events">
         <div className ="stringSearchBG">
@@ -44,7 +43,8 @@ class Events extends Component {
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
           }
-          { this.state.eventsToDisplay.length > 0 && this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
+          <button className="previousEventButton" onClick={this.previousEvent}>&lt;</button>
+          <button className="nextEventButton" onClick={this.nextEvent}>&gt;</button>
           { this.state.listView === false ?
             <SwipeableViews className="EventDetail" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
               {showEvents}
@@ -162,3 +162,10 @@ function mapStateToProps(state) {
 const mapActionsToProps={returnToSearch};
 
 export default connect(mapStateToProps, mapActionsToProps)(Events);
+
+/*
+
+import Controls from './Controls';
+
+          { this.state.eventsToDisplay.length > 0 && this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
+*/

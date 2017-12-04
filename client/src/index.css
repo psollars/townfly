@@ -119,28 +119,6 @@ button:focus {
   outline: none;
 }
 
-.previousEventButton{
-  right:50%;
-  width: 50%;
-  height: 50px;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-align: center;
-  color: #ED6564;
-}
-
-.nextEventButton{
-  left:50%;
-  width: 50%;
-  height: 50px;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-align: center;
-  color: #ED6564;
-}
-
 .btnContain {
   display: flex; 
   justify-content: center;
@@ -554,3 +532,51 @@ input:focus {
   width: 16px;
   height: 16px;
 }
+
+/* Sloth's Styles for new nest and previous buttons for swiping cards */
+
+.Controls {
+  z-index: 100;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  height: 500px;
+
+/*
+  border: 0;
+  padding: 0;
+  margin: 0;
+*/
+
+}
+
+.previousEventButton, .nextEventButton {
+  z-index: 100;
+  position: absolute;
+  top: 320px;
+  display: flex;
+  align-items: center;
+  color: lightGray;
+  font-size: 4em;
+  height: 400px;
+  width: 60px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+
+}
+
+.previousEventButton {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.nextEventButton {
+  right: 0;
+  justify-content: flex-end;
+}
+
