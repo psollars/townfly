@@ -48,53 +48,53 @@ class EventSearch extends Component {
               <hr className ="divider"></hr>
               <label className= "label">SEARCH BY CATEGORIES</label>
               <div className="categories">
-                <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category " : "category-active "} id="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>
-                  <div className = "circle">
-                    <i className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "fa fa-paint-brush fa-lg" : "fa fa-check fa-lg"}></i>
+                <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category " : "category-active "} data-cat="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="ARTS_ENTERTAINMENT">
+                    <i className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "fa fa-paint-brush fa-lg" : "fa fa-check fa-lg"} data-cat="ARTS_ENTERTAINMENT"></i>
                   </div>
-                  <h6>Arts & Entertainment</h6>
+                  <h6 data-cat="ARTS_ENTERTAINMENT">Arts & Entertainment</h6>
                 </div>
-                <div className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "category" : "category-active"} id="EDUCATION" onClick={this.handleCatChange}>
-                  <div className = "circle">
-                    <i className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "fa fa-graduation-cap fa-lg" : "fa fa-check fa-lg"}></i>
+                <div className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "category" : "category-active"} data-cat="EDUCATION" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="EDUCATION">
+                    <i className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "fa fa-graduation-cap fa-lg" : "fa fa-check fa-lg"} data-cat="EDUCATION"></i>
                   </div>
-                  <h6>Education</h6>
+                  <h6 data-cat="EDUCATION">Education</h6>
                 </div>
-                <div className={ this.state.categories.findIndex(category => {return category === "FITNESS_RECREATION"}) === -1 ? "category" : "category-active"} id="FITNESS_RECREATION" onClick={this.handleCatChange}>
-                  <div className = "circle">
-                    <i className={ this.state.categories.findIndex(category => {return category === "FITNESS_RECREATION"}) === -1 ? "fa fa-soccer-ball-o fa-lg" : "fa fa-check fa-lg"}></i>
+                <div className={ this.state.categories.findIndex(category => {return category === "FITNESS_RECREATION"}) === -1 ? "category" : "category-active"} data-cat="FITNESS_RECREATION" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="FITNESS_RECREATION">
+                    <i className={ this.state.categories.findIndex(category => {return category === "FITNESS_RECREATION"}) === -1 ? "fa fa-soccer-ball-o fa-lg" : "fa fa-check fa-lg"} data-cat="FITNESS_RECREATION"></i>
                   </div>
-                  <h6>Fitness & Recreation</h6>
+                  <h6 data-cat="FITNESS_RECREATION">Fitness & Recreation</h6>
                 </div>
-                <div className={ this.state.categories.findIndex(category => {return category === "FOOD_BEVERAGE"}) === -1 ? "category" : "category-active"} id="FOOD_BEVERAGE" onClick={this.handleCatChange}>
-                  <div className = "circle">
-                    <i className={ this.state.categories.findIndex(category => {return category === "FOOD_BEVERAGE"}) === -1 ? "fa fa-beer fa-lg" : "fa fa-check fa-lg"}></i>
+                <div className={ this.state.categories.findIndex(category => {return category === "FOOD_BEVERAGE"}) === -1 ? "category" : "category-active"} data-cat="FOOD_BEVERAGE" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="FOOD_BEVERAGE">
+                    <i className={ this.state.categories.findIndex(category => {return category === "FOOD_BEVERAGE"}) === -1 ? "fa fa-beer fa-lg" : "fa fa-check fa-lg"} data-cat="FOOD_BEVERAGE"></i>
                   </div>
-                  <h6>Food & Beverage</h6>
+                  <h6 data-cat="FOOD_BEVERAGE">Food & Beverage</h6>
                 </div>
-                <div className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "category" : "category-active"} id="HOTEL_LODGING" onClick={this.handleCatChange}>
-                  <div className = "circle">
-                    <i className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "fa fa-hotel fa-lg" : "fa fa-check fa-lg"}></i>
+                <div className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "category" : "category-active"} data-cat="HOTEL_LODGING" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="HOTEL_LODGING">
+                    <i className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "fa fa-hotel fa-lg" : "fa fa-check fa-lg"} data-cat="HOTEL_LODGING"></i>
                   </div>
-                  <h6>Hotel &<br/> Lodging</h6>
+                  <h6 data-cat="HOTEL_LODGING">Hotel & Lodging</h6>
                 </div>
-                <div className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "category" : "category-active"} id="MEDICAL_HEALTH" onClick={this.handleCatChange}>
-                  <div className = "circle">
-                  <i className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "fa fa-heartbeat fa-lg" : "fa fa-check fa-lg"}></i>
+                <div className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "category" : "category-active"} data-cat="MEDICAL_HEALTH" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="MEDICAL_HEALTH">
+                  <i className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "fa fa-heartbeat fa-lg" : "fa fa-check fa-lg"} data-cat="MEDICAL_HEALTH"></i>
                   </div>
-                  <h6>Medical & Health</h6>
+                  <h6 data-cat="MEDICAL_HEALTH">Medical & Health</h6>
                 </div>
-                <div className={ this.state.categories.findIndex(category => {return category === "SHOPPING_RETAIL"}) === -1 ? "category" : "category-active"} id="SHOPPING_RETAIL" onClick={this.handleCatChange}>
-                  <div className = "circle">
-                    <i className={ this.state.categories.findIndex(category => {return category === "SHOPPING_RETAIL"}) === -1 ? "fa fa-shopping-bag fa-lg" : "fa fa-check fa-lg"}></i>
+                <div className={ this.state.categories.findIndex(category => {return category === "SHOPPING_RETAIL"}) === -1 ? "category" : "category-active"} data-cat="SHOPPING_RETAIL" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="SHOPPING_RETAIL">
+                    <i className={ this.state.categories.findIndex(category => {return category === "SHOPPING_RETAIL"}) === -1 ? "fa fa-shopping-bag fa-lg" : "fa fa-check fa-lg"} data-cat="SHOPPING_RETAIL"></i>
                   </div>
-                  <h6>Shopping & Retail</h6>
+                  <h6 data-cat="SHOPPING_RETAIL">Shopping & Retail</h6>
                 </div>
-                <div className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "category" : "category-active"} id="TRAVEL_TRANSPORTATION" onClick={this.handleCatChange}>
-                  <div className = "circle">
-                    <i className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "fa fa-car fa-lg" : "fa fa-check fa-lg"}></i>
+                <div className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "category" : "category-active"} data-cat="TRAVEL_TRANSPORTATION" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="TRAVEL_TRANSPORTATION">
+                    <i className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "fa fa-car fa-lg" : "fa fa-check fa-lg"} data-cat="TRAVEL_TRANSPORTATION"></i>
                   </div>
-                  <h6>Travel & Transportation</h6>
+                  <h6 data-cat="TRAVEL_TRANSPORTATION">Travel & Transportation</h6>
                 </div>
               </div>
               <div className="btnContain">
@@ -147,7 +147,7 @@ class EventSearch extends Component {
   };
 
   handleCatChange = (event) => {
-    const clickedCategory = event.target.id;    
+    const clickedCategory = event.target.dataset.cat;    
     const categoryIndex = this.state.categories.findIndex(category => {
         return category === clickedCategory;
     });
