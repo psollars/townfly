@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "font-awesome": "^4.7.0",
+    "google-maps-react": "^1.1.2",
     "jquery-ajax": "^2.1.4",
     "lodash": "^4.17.4",
     "moment-timezone": "^0.5.14",

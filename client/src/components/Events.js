@@ -41,31 +41,37 @@ class Events extends Component {
             <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
           </div>
           <div className="Events">
-            <div className ="stringSearchBG">
-              <input className = "stringSearch" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="Refine Results" />
+            <div className="string-search-background">
+              <div className="string-search-container">
+                <i className="string-search-icon fa fa-search" aria-hidden="true"></i>
+                <input className="string-search" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="refine results by keyword" />
+                <p className="string-search-results-count" >{this.state.eventsToDisplay.length} results</p>
+              </div>
             </div>
           </div>
         </div>
-          { this.state.eventsToDisplay.length <= 0 ?
-            <div className="noEventsFound">
-              <div className="empty-illustration"></div>
-              <h6>No events found!</h6>
-              <p>Please double check your spelling or try our “detect my location” feature.</p>
-              <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
-            </div> : null
-          }
-          <div className ="prev-next-controls">
+        { this.state.eventsToDisplay.length <= 0 ?
+          <div className="noEventsFound">
+            <div className="empty-illustration"></div>
+            <h6>No events found!</h6>
+            <p>Please double check your spelling or try our “detect my location” feature.</p>
+            <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
+          </div> 
+        : 
+          null
+        }
+        <div className ="prev-next-controls">
           <button className="previousEventButton fa fa-arrow-left fa-lg" onClick={this.previousEvent}></button>
           <button className="nextEventButton fa fa-arrow-right fa-lg" onClick={this.nextEvent}></button>
-          </div>
-          { this.state.listView === false ?
-            <SwipeableViews className="EventDetail" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
-              {showEvents}
-            </SwipeableViews>
-          :
-            <div className="EventDetailGrid">{showEvents}</div>
-          }
-          </div>
+        </div>
+        { this.state.listView === false ?
+          <SwipeableViews className="EventDetail" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
+            {showEvents}
+          </SwipeableViews>
+        :
+          <div className="EventDetailGrid">{showEvents}</div>
+        }
+      </div>
     );
   }
 
@@ -174,10 +180,3 @@ function mapStateToProps(state) {
 const mapActionsToProps={returnToSearch};
 
 export default connect(mapStateToProps, mapActionsToProps)(Events);
-
-/*
-
-import Controls from './Controls';
-
-          { this.state.eventsToDisplay.length > 0 && this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
-*/
