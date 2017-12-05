@@ -78,7 +78,7 @@ class EventSearch extends Component {
                   <div className="circle" data-cat="HOTEL_LODGING">
                     <i className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "fa fa-hotel fa-lg" : "fa fa-check fa-lg"} data-cat="HOTEL_LODGING"></i>
                   </div>
-                  <h6 data-cat="HOTEL_LODGING">Hotel & Lodging</h6>
+                  <h6 data-cat="HOTEL_LODGING">Hotel &<br/> Lodging</h6>
                 </div>
                 <div className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "category" : "category-active"} data-cat="MEDICAL_HEALTH" onClick={this.handleCatChange}>
                   <div className="circle" data-cat="MEDICAL_HEALTH">
