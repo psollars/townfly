@@ -12,7 +12,8 @@ class EventSearch extends Component {
       displayLocation: "",
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
-      categories: []
+      categories: [],
+      menuToggle: false
     }
   }
 
@@ -20,40 +21,87 @@ class EventSearch extends Component {
     return (
       <div className="EventSearch">
         <div className="heroHeader">
+        <h1>Explore. Experience. TownFly.</h1>
         </div>
-        <div className="location-params">
-          <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.handleClearLocation} />
-          <div>
-            <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
+          <div className="search-card-container"> 
+            <div className ="search-card" id="searchInput">
+              <div className="location-params">
+                <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.handleClearLocation} />
+                <div>
+                  <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
+                </div>
+              </div>
+              <hr className="divider"></hr>
+              <label className="label">WHEN</label>
+              <div className="date-params">
+                <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
+                <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
+                <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
+              </div>
+              <hr className="divider"></hr>
+              <label className="label">WITHIN</label>
+              <div className="distance-params"> 
+                <div className={ this.state.distance === "1609" ? "radio-button active" : "radio-button"} data-distance="1609" onClick={this.handleDistance}>1 mile</div>
+                <div className={ this.state.distance === "8046" ? "radio-button active" : "radio-button"} data-distance="8046" onClick={this.handleDistance}>5 miles</div>
+                <div className={ this.state.distance === "16093" ? "radio-button active" : "radio-button"} data-distance="16093" onClick={this.handleDistance}>10 miles</div>
+              </div>
+              <hr className="divider"></hr>
+              <label className="label">SEARCH BY CATEGORIES</label>
+              <div className="categories">
+                <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category " : "category-active "} data-cat="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="ARTS_ENTERTAINMENT">
+                    <i className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "fa fa-paint-brush fa-lg" : "fa fa-check fa-lg"} data-cat="ARTS_ENTERTAINMENT"></i>
+                  </div>
+                  <h6 data-cat="ARTS_ENTERTAINMENT">Arts & Entertainment</h6>
+                </div>
+                <div className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "category" : "category-active"} data-cat="EDUCATION" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="EDUCATION">
+                    <i className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "fa fa-graduation-cap fa-lg" : "fa fa-check fa-lg"} data-cat="EDUCATION"></i>
+                  </div>
+                  <h6 data-cat="EDUCATION">Education</h6>
+                </div>
+                <div className={ this.state.categories.findIndex(category => {return category === "FITNESS_RECREATION"}) === -1 ? "category" : "category-active"} data-cat="FITNESS_RECREATION" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="FITNESS_RECREATION">
+                    <i className={ this.state.categories.findIndex(category => {return category === "FITNESS_RECREATION"}) === -1 ? "fa fa-soccer-ball-o fa-lg" : "fa fa-check fa-lg"} data-cat="FITNESS_RECREATION"></i>
+                  </div>
+                  <h6 data-cat="FITNESS_RECREATION">Fitness & Recreation</h6>
+                </div>
+                <div className={ this.state.categories.findIndex(category => {return category === "FOOD_BEVERAGE"}) === -1 ? "category" : "category-active"} data-cat="FOOD_BEVERAGE" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="FOOD_BEVERAGE">
+                    <i className={ this.state.categories.findIndex(category => {return category === "FOOD_BEVERAGE"}) === -1 ? "fa fa-beer fa-lg" : "fa fa-check fa-lg"} data-cat="FOOD_BEVERAGE"></i>
+                  </div>
+                  <h6 data-cat="FOOD_BEVERAGE">Food & Beverage</h6>
+                </div>
+                <div className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "category" : "category-active"} data-cat="HOTEL_LODGING" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="HOTEL_LODGING">
+                    <i className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "fa fa-hotel fa-lg" : "fa fa-check fa-lg"} data-cat="HOTEL_LODGING"></i>
+                  </div>
+                  <h6 data-cat="HOTEL_LODGING">Hotel & Lodging</h6>
+                </div>
+                <div className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "category" : "category-active"} data-cat="MEDICAL_HEALTH" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="MEDICAL_HEALTH">
+                  <i className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "fa fa-heartbeat fa-lg" : "fa fa-check fa-lg"} data-cat="MEDICAL_HEALTH"></i>
+                  </div>
+                  <h6 data-cat="MEDICAL_HEALTH">Medical & Health</h6>
+                </div>
+                <div className={ this.state.categories.findIndex(category => {return category === "SHOPPING_RETAIL"}) === -1 ? "category" : "category-active"} data-cat="SHOPPING_RETAIL" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="SHOPPING_RETAIL">
+                    <i className={ this.state.categories.findIndex(category => {return category === "SHOPPING_RETAIL"}) === -1 ? "fa fa-shopping-bag fa-lg" : "fa fa-check fa-lg"} data-cat="SHOPPING_RETAIL"></i>
+                  </div>
+                  <h6 data-cat="SHOPPING_RETAIL">Shopping & Retail</h6>
+                </div>
+                <div className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "category" : "category-active"} data-cat="TRAVEL_TRANSPORTATION" onClick={this.handleCatChange}>
+                  <div className="circle" data-cat="TRAVEL_TRANSPORTATION">
+                    <i className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "fa fa-car fa-lg" : "fa fa-check fa-lg"} data-cat="TRAVEL_TRANSPORTATION"></i>
+                  </div>
+                  <h6 data-cat="TRAVEL_TRANSPORTATION">Travel & Transportation</h6>
+                </div>
+              </div>
+              <div className="btnContain">
+                <button className="searchButton" onClick={this.handleSubmit}>search events</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <hr className = "divider"></hr>
-        <label className= "label">WHEN</label>
-        <div className="date-params">
-          <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
-          <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
-          <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
-        </div>
-        <hr className ="divider"></hr>
-        <label className= "label">WITHIN</label>
-        <div className="distance-params"> 
-          <div className={ this.state.distance === "1609" ? "radio-button active" : "radio-button"} data-distance="1609" onClick={this.handleDistance}>1 mile</div>
-          <div className={ this.state.distance === "8046" ? "radio-button active" : "radio-button"} data-distance="8046" onClick={this.handleDistance}>5 miles</div>
-          <div className={ this.state.distance === "16093" ? "radio-button active" : "radio-button"} data-distance="16093" onClick={this.handleDistance}>10 miles</div>
-        </div>
-        <div className="categories">
-          <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category" : "category-active"} onClick={this.handleCatChange}><div className = "circle"  id="ARTS_ENTERTAINMENT"></div><h6>Arts & Entertainment</h6></div>
-          <div className={ this.state.categories.findIndex(category => {return category === "EDUCATION"}) === -1 ? "category" : "category-active"}  onClick={this.handleCatChange}><div className = "circle" id="EDUCATION"></div><h6>Education</h6></div>
-          <div className={ this.state.categories.findIndex(category => {return category === "FITNESS_RECREATION"}) === -1 ? "category" : "category-active"} onClick={this.handleCatChange}><div className = "circle" id="FITNESS_RECREATION" ></div><h6>Fitness & Recreation</h6></div>
-          <div className={ this.state.categories.findIndex(category => {return category === "FOOD_BEVERAGE"}) === -1 ? "category" : "category-active"}  onClick={this.handleCatChange}><div className = "circle" id="FOOD_BEVERAGE"></div><h6>Food & Beverage</h6></div>
-          <div className={ this.state.categories.findIndex(category => {return category === "HOTEL_LODGING"}) === -1 ? "category" : "category-active"}  onClick={this.handleCatChange}><div className = "circle" id="HOTEL_LODGING"></div><h6>Hotel & Lodging</h6></div>
-          <div className={ this.state.categories.findIndex(category => {return category === "MEDICAL_HEALTH"}) === -1 ? "category" : "category-active"}  onClick={this.handleCatChange}><div className = "circle" id="MEDICAL_HEALTH"></div><h6>Medical & Health</h6></div>
-          <div className={ this.state.categories.findIndex(category => {return category === "SHOPPING_RETAIL"}) === -1 ? "category" : "category-active"} onClick={this.handleCatChange}><div className = "circle" id="SHOPPING_RETAIL" ></div><h6>Shopping & Retail</h6></div>
-          <div className={ this.state.categories.findIndex(category => {return category === "TRAVEL_TRANSPORTATION"}) === -1 ? "category" : "category-active"} onClick={this.handleCatChange}><div className = "circle" id="TRAVEL_TRANSPORTATION" ></div><h6>Travel & Transportation</h6></div>
-        </div>
-        <div className="btnContain">
-          <button className="searchButton" onClick={this.handleSubmit}>search events</button>
-        </div>
       </div>
     );
   }
@@ -99,7 +147,7 @@ class EventSearch extends Component {
   };
 
   handleCatChange = (event) => {
-    const clickedCategory = event.target.id;    
+    const clickedCategory = event.target.dataset.cat;    
     const categoryIndex = this.state.categories.findIndex(category => {
         return category === clickedCategory;
     });

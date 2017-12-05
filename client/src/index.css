@@ -4,6 +4,19 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
+.header-bar {
+  flex-direction: row;
+  align-items: baseline;
+  color: #ed6564;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #ed6564;
+  text-transform: uppercase;
+  height:60px;
+}
+
 .heroHeader {
   display: flex;
   flex-direction: column;
@@ -18,18 +31,62 @@ body {
   color: white;
   align-items: center;
   justify-content: center;
-  background: #ED6564 url(./images/heroHeader.png) center no-repeat;
+  background: #ED6564 url(./images/heroHeader.svg) center no-repeat;
   background-size: auto 100%;
 }
 
-.header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  color: #ed6564;
-  padding: 0px 20px;
-  letter-spacing: 2.7px;
+.header-links{
+  display: block;
+  list-style: none;
+  text-transform: capitalize;
+  font-weight: 300;
+  cursor: pointer;
+  width:100%;
+  padding:0;
+
 }
+
+.header-links li{
+  display: block;
+  padding-left: 30px;
+  margin:10px auto;
+}
+
+.header-links a {
+  text-decoration: none;
+  color: #ED6564;
+}
+.header-links span a{
+  background: #ED6564;
+  color:white;
+  padding: 4px 60px;
+  border-radius: 20px;
+}
+
+.heroHeader {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 345px;
+  border-bottom: 1px solid rgba(216, 216, 216, 0.6);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 2.7px;
+  text-align: center;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  background: #ED6564 url(./images/heroHeader.svg) center no-repeat;
+  background-size: auto 100%;
+}
+
+.close-menu{
+  position: absolute;
+  top:20px;
+  right:20px;
+}
+/* --------  */
 
 .backToSearch {
   /* Styles associated with the back button (ie an icon) */
@@ -54,6 +111,11 @@ body {
   display: flex;
   justify-content: center;
   cursor: pointer;
+  margin:20px auto;
+  font-family: Avenir-Heavy;
+  font-size: 16px;
+  color: #585858;
+  letter-spacing: 2px;
 }
 
 .detect-location .fa-location-arrow {
@@ -63,7 +125,8 @@ body {
 .searchInput{
   opacity:1;
   margin: 20px auto 10px auto;
-  width:335px;
+  min-width: 260px;
+  width: 90%; /*60% on tablet/desktop*/
   text-align: center;
   border-style: none;
   border-bottom: 2px solid #ed6564;
@@ -73,16 +136,6 @@ body {
   letter-spacing: 2.7px;
   text-align: center;
   color: #585858;
-}
-
-.nearMe{
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: 2.7px;
-  text-align: center;
-  color: #fd6968;
-  text-decoration: none;
-  margin-bottom: 30px;
 }
 
 .label{
@@ -186,6 +239,7 @@ button:focus {
   border: 1px solid #ed6564;
   border-radius: 20px;
   letter-spacing: 2.7px;
+  width:114px;
   max-width: 114px;
   max-height:32px;
 }
@@ -201,34 +255,53 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin:20px auto 20px auto;
+  font-size: 10px;
 }
 
 .category {
   word-wrap: break-word;
-  width: 49%;
-  height: 160px;
+  width: 125px;
+  height: 125px;
   border: .5px solid rgba(88, 88, 88, 0.1);
   text-align: center;
-  opacity: .5;
+  opacity: .75;
+  color:#585858;
+}
+
+.category h6,.category-active h6 {
+  font-size:12px;
 }
 
 .category-active {
   word-wrap: break-word;
-  width: 49%;
-  height: 160px;
+  width: 125px;
+  height: 125px;
   border: .5px solid rgba(88, 88, 88, 0.1);
   text-align: center;
   opacity: 1;
   color:#ed6564;
 }
 
+.category-active i {
+  /* background: url(./images/heroHeader.svg) center no-repeat; */
+}
+
 .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color:#ed6564;
   opacity: 1;
   height:48px;
   width:48px;
   border-radius: 100%;
-  margin:32px auto 16px auto;
+  margin:16px auto 12px auto;
+}
+
+.circle i {
+  color: white;
+ 
 }
 
 .active-circle{
@@ -237,10 +310,11 @@ button:focus {
 
 h6 {
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.29;
   letter-spacing: 2px;
   text-align: center;
+  margin:0;
 }
 
 .Events {
@@ -578,4 +652,72 @@ input:focus {
 .nextEventButton {
   right: 0;
   justify-content: flex-end;
+}
+
+@media only screen and (min-width: 480px) {
+  /*styles for tablet*/
+}
+
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+/*styles for notebooks*/
+}
+
+
+
+@media only screen and (min-width: 992px) {
+
+  .heroHeader {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    border-bottom: 1px solid rgba(216, 216, 216, 0.6);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 2.7px;
+    text-align: center;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background: #ED6564 url(./images/heroHeader.svg) center no-repeat;
+    background-size: auto 100%;
+  }
+
+  .search-card-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+
+  .search-card{
+    padding: 20px;
+    min-width: 280px;
+    margin: 0px 60px;
+    height: auto;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+    margin: -20px 20px 0px 20px;
+    width: 727px;
+  }
+  .close-menu{
+    display: none;
+  }
+
+  .searchButton{
+    width: 20%;
+    position: fixed;
+    bottom:32px;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+/*styles for large desktop*/
 }
