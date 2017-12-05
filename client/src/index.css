@@ -538,21 +538,34 @@ input:focus {
 .event-map {
   position: relative;
   height: 480px;
-  margin: 0px -20px;
+  margin: 0px -20px 20px -20px;
 }
 
 .directions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.directions p {
+  margin: 0px;
+  color: #686868;
+  font-size: .8em;
+  text-align: center;
+}
+
+.direction-icons {
   display: flex;
   justify-content: center;
   font-size: 1.5em;
 }
 
-.directions a {
+.direction-icons a {
   margin: 0px 5px;
   color: #686868;  
 }
 
-.directions a:hover {
+.direction-icons a:hover {
   color: #01C69F;
 }
 

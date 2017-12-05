@@ -55,12 +55,16 @@ class EventDetail extends Component {
                   <EventMap lat={this.props.event.place.location.latitude} lng={this.props.event.place.location.longitude} />
                 </div>
                 <div className="directions">
-                  <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=driving`}  target="_blank" rel="nofollow"><i className="fa fa-car" aria-hidden="true"></i></a>
-                  <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=walking`}  target="_blank" rel="nofollow"><i className="fa fa-street-view" aria-hidden="true"></i></a>
-                  <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=bicycling`}  target="_blank" rel="nofollow"><i className="fa fa-bicycle" aria-hidden="true"></i></a>
-                  <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=transit`}  target="_blank" rel="nofollow"><i className="fa fa-bus" aria-hidden="true"></i></a>
+                  <p>directions</p>
+                  <div className="direction-icons">
+                    <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=driving`}  target="_blank" rel="nofollow"><i className="fa fa-car" aria-hidden="true"></i></a>
+                    <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=walking`}  target="_blank" rel="nofollow"><i className="fa fa-street-view" aria-hidden="true"></i></a>
+                    <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=bicycling`}  target="_blank" rel="nofollow"><i className="fa fa-bicycle" aria-hidden="true"></i></a>
+                    <a href={`https://www.google.com/maps/dir/?api=1&${directionParams}&travelmode=transit`}  target="_blank" rel="nofollow"><i className="fa fa-bus" aria-hidden="true"></i></a>
+                  </div>
                 </div>
               </div>
+              <hr className="divider" />
             </div>
             : null }
             <div className="view-toggle">
