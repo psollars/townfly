@@ -41,10 +41,15 @@ class Events extends Component {
           <input className = "stringSearch" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="Refine Results" />
         </div>
           { this.state.eventsToDisplay.length <= 0 ?
-            <p>Sorry, no events.</p> : null
+            <div className="noEventsFound">
+              <div className="empty-illustration"></div>
+              <h6>No events found!</h6>
+              <p>Please double check your spelling or try our “detect my location” feature.</p>
+              <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
+            </div> : null
           }
-          <button className="previousEventButton" onClick={this.previousEvent}>&lt;</button>
-          <button className="nextEventButton" onClick={this.nextEvent}>&gt;</button>
+          <button className="previousEventButton fa fa-arrow-left" onClick={this.previousEvent}></button>
+          <button className="nextEventButton fa fa-arrow-right" onClick={this.nextEvent}></button>
           { this.state.listView === false ?
             <SwipeableViews className="EventDetail" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
               {showEvents}

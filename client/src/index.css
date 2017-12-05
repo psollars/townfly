@@ -130,6 +130,7 @@ body {
   text-align: center;
   border-style: none;
   border-bottom: 2px solid #ed6564;
+  border-radius: none;
   padding-bottom: 10px;
   font-size: 2em;
   font-weight: 600;
@@ -214,7 +215,6 @@ button:focus {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
 }
 
 .date-params {
@@ -321,6 +321,54 @@ h6 {
   /* Styles associated with Events container */
 }
 
+.noEventsFound{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-size: auto 100%;
+  margin:40px auto;
+}
+
+.empty-illustration{
+  background: #fff url(./images/empty_state.svg) center no-repeat;
+  width:209px;
+  height: 229px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:40px;
+  
+}
+
+.noEventsFound p{
+  text-align: center;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+  margin:20px 20px;
+  color:#585858;
+}
+
+.backToSearchButton{
+  display: flex;
+  width: 237px;
+  height: 50px;
+  position: fixed;
+  bottom:24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  background-color: #9F71E7;
+  box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
+  border-radius: 100px;
+  border: none;
+}
+
 .eventCanvas{
   display: flex;
   justify-content: center;
@@ -375,7 +423,7 @@ h6 {
   padding: 10px 0px;
   font-size: 1.1em;
   font-weight: 600;
-  line-height: 0.6;
+  line-height: auto;
   letter-spacing: 1.7px;
   color: rgba(88, 88, 88, 0.9);
 }
@@ -619,11 +667,6 @@ input:focus {
   box-shadow: none;
   height: 500px;
 
-/*
-  border: 0;
-  padding: 0;
-  margin: 0;
-*/
 
 }
 
@@ -634,34 +677,32 @@ input:focus {
   display: flex;
   align-items: center;
   color: lightGray;
-  font-size: 4em;
+  font-size: 2em;
   height: 400px;
-  width: 60px;
+  width: 40px;
   border: 0;
   background: transparent;
   padding: 0;
   margin: 0;
+  color: #ED6564;
 
 }
 
 .previousEventButton {
   left: 0;
   justify-content: flex-start;
+  
 }
 
 .nextEventButton {
   right: 0;
   justify-content: flex-end;
+  
 }
 
 @media only screen and (min-width: 480px) {
   /*styles for tablet*/
 }
-
-
-
-
-
 
 @media only screen and (min-width: 768px) {
 /*styles for notebooks*/
