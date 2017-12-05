@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import AddToCalendar from 'react-add-to-calendar';
 import 'moment-timezone';
 
-class EventDetail extends Component {
+class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +23,7 @@ class EventDetail extends Component {
     const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
     const directionParams = `origin=${this.props.location.formattedAddress}&destination=${fullAddress}`;
     return (
-      <div className={this.props.listView === false ? "event-card" : "event-list-item"}>
+      <div className="Card">
         <div className="event-image-container">
           <div className="event-image-wrapper">
             <img className="event-image" src={this.props.event.coverPicture}/>
@@ -95,4 +95,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(EventDetail);
+export default connect(mapStateToProps)(Card);
