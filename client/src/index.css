@@ -695,7 +695,7 @@ input:focus {
 
 } */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 864px) {
 
 /* ---EVENT SEARCH--- */
 
@@ -763,7 +763,7 @@ input:focus {
 
   .search-controls{
     margin: -30px auto 0px auto;
-    width: 60%;
+    width: 75%;
     min-width: 280px;
     height: auto;
     border-radius: 4px;
@@ -775,7 +775,7 @@ input:focus {
     margin: 0px auto;
     display: flex;
     justify-content: center;
-    width:60%;
+    width:75%;
     height:100%;
     background-image: fill;
     height: 220px;
@@ -789,7 +789,7 @@ input:focus {
 
   .eventInfoCard {
     padding: 20px;
-    width:60%;
+    width:75%;
     min-width: 280px;
     margin: 0;
     height: auto;
