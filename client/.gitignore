@@ -5,7 +5,7 @@
 
 # testing
 /coverage
-/src/images
+/images/Thumbs.db
 
 # production
 /build

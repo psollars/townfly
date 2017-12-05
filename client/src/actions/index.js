@@ -1,7 +1,21 @@
+import store from "../index"
 import $ from "jquery-ajax";
 
 // location actions
+export function setSearchParams(date, distance, categories) {
+  return {
+    type: "SET_SEARCH_PARAMS",
+    date,
+    distance,
+    categories
+  };
+}
+
 export function detectLocation (text, lat, lon) {
+  let queryImmediately = false;
+  if (text) {
+    queryImmediately = true;
+  }
   return function(dispatch) {
     dispatch(requestLocation());
     $.ajax({
@@ -14,8 +28,16 @@ export function detectLocation (text, lat, lon) {
       }
     }).done(function(location) {
       dispatch(setLocation(location));
-    }).done(function(text) {
-      console.log(text);
+      if (queryImmediately) {
+        const reduxState = store.getState();
+        console.log(reduxState);
+        dispatch(fetchEvents(
+          reduxState.location,
+          reduxState.date,
+          reduxState.distance,
+          reduxState.categories
+        ));
+      }
     });
   };
 }

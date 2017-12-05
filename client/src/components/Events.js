@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SwipeableViews from 'react-swipeable-views';
 import EventDetail from './EventDetail';
-import Controls from './Controls';
 import { returnToSearch } from '../actions';
 
 class Events extends Component {
@@ -18,24 +18,15 @@ class Events extends Component {
 
   render() {
 
-   const showEvents = this.state.eventsToDisplay.map((event, index) => {
-      if (this.state.listView === false) {
-        if (this.state.activeEventIndex === index){
-          return <EventDetail 
-                      listView={this.state.listView}
-                      key={event.id}
-                      event={event}
-                      active={index + 1}
-                      length={this.state.eventsToDisplay.length}
-                  />;
-        }
-      } else {
-        return <EventDetail 
-                      listView={this.state.listView}
-                      key={event.id}
-                      event={event}
-                />;
-      }
+    const showEvents = this.state.eventsToDisplay.map((event, index) => {
+      return <EventDetail 
+                listView={this.state.listView}
+                style={Object.assign({}, slideStyles.slide)}
+                key={event.id}
+                event={event}
+                active={index + 1}
+                length={this.state.eventsToDisplay.length}
+              />;
     })
 
     return (
@@ -43,23 +34,28 @@ class Events extends Component {
         <div className="header-bar">
           <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
           <p onClick={this.props.returnToSearch}>TOWNFLY</p>
-          <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : ` Card View` }</div>
+          <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
         </div>
         <div className="Events">
-        <div className ="string-search-background">
-          <div className ="string-search-container">
-            <i className="string-search-icon fa fa-search" aria-hidden="true"></i>
-            <input className = "string-search" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="refine results by keyword" />
-            <p className="string-search-results-count" >{this.state.eventsToDisplay.length} results</p>
+          <div className="string-search-background">
+            <div className="string-search-container">
+              <i className="string-search-icon fa fa-search" aria-hidden="true"></i>
+              <input className="string-search" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="refine results by keyword" />
+              <p className="string-search-results-count" >{this.state.eventsToDisplay.length} results</p>
+            </div>
           </div>
-        </div>
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
           }
-          <div className={this.state.listView === false ? "EventDetail" : "EventDetailGrid"}>
-            {showEvents}
-          </div>
-          { this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
+          <button className="previousEventButton" onClick={this.previousEvent}>&lt;</button>
+          <button className="nextEventButton" onClick={this.nextEvent}>&gt;</button>
+          { this.state.listView === false ?
+            <SwipeableViews className="EventDetail" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
+              {showEvents}
+            </SwipeableViews>
+          :
+            <div className="EventDetailGrid">{showEvents}</div>
+          }
         </div>
       </div>
     );
@@ -139,6 +135,20 @@ class Events extends Component {
     }
   }
 
+  handleChangeIndex = (index) => {
+    this.setState({
+      activeEventIndex: index
+    })
+  }
+
+}
+
+const slideStyles = {
+  slide: {
+    padding: 15,
+    minHeight: 100,
+    color: "#fff"
+  }
 }
 
 function sanitizeString(string) {
