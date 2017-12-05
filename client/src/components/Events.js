@@ -31,14 +31,20 @@ class Events extends Component {
 
     return (
       <div>
-        <div className="header-bar">
-          <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
-          <p>TOWNFLY</p>
-          <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
+        <div className="heroHeader2">
+          <h1>Explore. Experience. TownFly.</h1>
         </div>
-        <div className="Events">
-        <div className ="stringSearchBG">
-          <input className = "stringSearch" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="Refine Results" />
+        <div className ="search-controls">
+          <div className="header-bar">
+            <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
+            <p>TOWNFLY</p>
+            <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
+          </div>
+          <div className="Events">
+            <div className ="stringSearchBG">
+              <input className = "stringSearch" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="Refine Results" />
+            </div>
+          </div>
         </div>
           { this.state.eventsToDisplay.length <= 0 ?
             <div className="noEventsFound">
@@ -57,8 +63,7 @@ class Events extends Component {
           :
             <div className="EventDetailGrid">{showEvents}</div>
           }
-        </div>
-      </div>
+          </div>
     );
   }
 

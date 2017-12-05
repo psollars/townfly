@@ -71,7 +71,7 @@ class EventDetail extends Component {
                 </div>
               </div>  
             </div>
-            <h6>{this.props.active}/{this.props.length}</h6>
+            <h6 className="event-index">{this.props.active} of {this.props.length}</h6>
          </div>
       </div>
     );

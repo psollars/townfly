@@ -5,7 +5,9 @@ body {
 }
 
 .header-bar {
+  display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: baseline;
   color: #ed6564;
   font-size: 16px;
@@ -15,6 +17,7 @@ body {
   color: #ed6564;
   text-transform: uppercase;
   height:60px;
+  margin:10px 20px;
 }
 
 .heroHeader {
@@ -33,6 +36,10 @@ body {
   justify-content: center;
   background: #ED6564 url(./images/heroHeader.svg) center no-repeat;
   background-size: auto 100%;
+}
+
+.heroHeader2{
+  display: none;
 }
 
 .header-links{
@@ -89,7 +96,7 @@ body {
 /* --------  */
 
 .backToSearch {
-  /* Styles associated with the back button (ie an icon) */
+  cursor:pointer;
 }
 
 .divider {
@@ -367,6 +374,7 @@ h6 {
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
   border-radius: 100px;
   border: none;
+  cursor:pointer;
 }
 
 .eventCanvas{
@@ -574,6 +582,14 @@ input:focus {
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
 }
 
+.event-index{
+  font-weight: 400;
+  margin:24px auto;
+  color: #585858;
+
+}
+
+
 /* loading styles */
 
 @keyframes seq-preloader {
@@ -712,11 +728,13 @@ input:focus {
 
 @media only screen and (min-width: 992px) {
 
-  .heroHeader {
+/* ---EVENT SEARCH--- */
+
+  .heroHeader2 {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 300px;
+    height: 345px;
     border-bottom: 1px solid rgba(216, 216, 216, 0.6);
     text-align: center;
     font-size: 16px;
@@ -747,14 +765,53 @@ input:focus {
     margin: -20px 20px 0px 20px;
     width: 727px;
   }
-  .close-menu{
-    display: none;
-  }
 
   .searchButton{
     width: 20%;
     position: fixed;
     bottom:32px;
+  }
+
+  /* ---EVENTS--- */
+
+  .header-bar{
+    
+  }
+  .search-controls{
+    margin: -30px auto 0px auto;
+    width: 60%;
+    min-width: 280px;
+    height: auto;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+  }
+    
+  .eventImage{
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    width:60%;
+    height:100%;
+    background-image: fill;
+    height: 220px;
+    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .eventInfoContainer{
+    margin:-20px 60px 0px 60px;
+  }
+
+  .eventInfoCard {
+    padding: 20px;
+    width:60%;
+    min-width: 280px;
+    margin: 0;
+    height: auto;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
   }
 
 }
