@@ -415,7 +415,7 @@ input:focus {
   padding: 10px 0px;
   font-size: 1.1em;
   font-weight: 600;
-  line-height: 0.6;
+  line-height: auto;
   letter-spacing: 1.7px;
   color: #686868;
 }
@@ -562,7 +562,7 @@ input:focus {
   color: #686868;
 }
 
-.EventDetailGrid {
+.EventGrid {
   column-count: 1;
   column-gap: 20px;
   padding: 10px 20px 0px 20px;
@@ -743,7 +743,7 @@ input:focus {
 /**********************/
 @media only screen and (min-width: 480px) {
   /*styles for tablet*/
-  .EventDetailGrid {
+  .EventGrid {
     column-count: 2;
   }
 
@@ -756,7 +756,7 @@ input:focus {
 
 @media only screen and (min-width: 768px) {
   /*styles for notebooks*/
-  .EventDetailGrid {
+  .EventGrid {
     column-count: 3;
     padding: 20px 40px 0px 40px;
   }
@@ -769,7 +769,7 @@ input:focus {
 
 @media only screen and (min-width: 992px) {
   /*styles for desktop*/
-  .EventDetailGrid {
+  .EventGrid {
     column-count: 4;
     padding: 20px 80px 0px 80px;
   }
@@ -828,7 +828,7 @@ input:focus {
 
 @media only screen and (min-width: 1200px) {
   /*styles for large desktop*/
-  .EventDetailGrid {
+  .EventGrid {
     padding: 20px 80px 0px 80px;
   }
 
