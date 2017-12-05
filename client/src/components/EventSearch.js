@@ -13,7 +13,8 @@ class EventSearch extends Component {
       date: [moment().unix(), moment().add(7, 'days').unix(), 3],
       distance: "1609",
       categories: [],
-      menuToggle: false
+      menuToggle: false,
+      invalidSearch: false
     }
   }
 
@@ -29,6 +30,7 @@ class EventSearch extends Component {
                 <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.handleClearLocation} />
                 <div>
                   <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
+                  { this.state.invalidSearch ? <p className="error-message">*Woops, don't forget to enter or detect your location above!</p> : null }
                 </div>
               </div>
               <hr className="divider"></hr>
@@ -183,9 +185,12 @@ class EventSearch extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (!this.state.displayLocation && _.isEmpty(this.props.location)) {
-       alert("Please enter a zip code or city.");
-       return;
-    }
+      this.setState({
+        invalidSearch: true
+      })
+      return;
+    } 
+  
     this.props.setSearchParams(
       this.state.date,
       this.state.distance,

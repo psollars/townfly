@@ -114,6 +114,19 @@ body {
   letter-spacing: 2px;
 }
 
+.error-message{
+  text-align: center;
+  background-color: #CFB8F3;
+  border: 1px solid #9F71E7;
+  color: white;
+  padding: 10px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  margin: 0px 40px 20px 40px;
+  border-radius: 5px;
+  font-size: .8em;
+}
+
 .detect-location .fa-location-arrow {
   color: #01C69F;
 }
