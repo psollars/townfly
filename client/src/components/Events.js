@@ -54,8 +54,10 @@ class Events extends Component {
               <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
             </div> : null
           }
-          <button className="previousEventButton fa fa-arrow-left" onClick={this.previousEvent}></button>
-          <button className="nextEventButton fa fa-arrow-right" onClick={this.nextEvent}></button>
+          <div className ="prev-next-controls">
+          <button className="previousEventButton fa fa-arrow-left fa-lg" onClick={this.previousEvent}></button>
+          <button className="nextEventButton fa fa-arrow-right fa-lg" onClick={this.nextEvent}></button>
+          </div>
           { this.state.listView === false ?
             <SwipeableViews className="EventDetail" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
               {showEvents}
