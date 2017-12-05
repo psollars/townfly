@@ -33,13 +33,17 @@ class Events extends Component {
       <div>
         <div className="header-bar">
           <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
-          <p>TOWNFLY</p>
+          <p onClick={this.props.returnToSearch}>TOWNFLY</p>
           <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
         </div>
         <div className="Events">
-        <div className ="stringSearchBG">
-          <input className = "stringSearch" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="Refine Results" />
-        </div>
+          <div className="string-search-background">
+            <div className="string-search-container">
+              <i className="string-search-icon fa fa-search" aria-hidden="true"></i>
+              <input className="string-search" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="refine results by keyword" />
+              <p className="string-search-results-count" >{this.state.eventsToDisplay.length} results</p>
+            </div>
+          </div>
           { this.state.eventsToDisplay.length <= 0 ?
             <p>Sorry, no events.</p> : null
           }
@@ -162,10 +166,3 @@ function mapStateToProps(state) {
 const mapActionsToProps={returnToSearch};
 
 export default connect(mapStateToProps, mapActionsToProps)(Events);
-
-/*
-
-import Controls from './Controls';
-
-          { this.state.eventsToDisplay.length > 0 && this.state.listView === false ? <Controls nextEvent={this.nextEvent} previousEvent={this.previousEvent} /> : null }
-*/
