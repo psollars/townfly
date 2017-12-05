@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import AddToCalendar from 'react-add-to-calendar';
+import { showEventDetails } from '../actions';
 import 'moment-timezone';
 
 class GridItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentKey: this.props.event.id,
       expanded: false,
       calendarEvent: {
         title: this.props.event.name,
@@ -23,7 +25,7 @@ class GridItem extends Component {
     const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
     const directionParams = `origin=${this.props.location.formattedAddress}&destination=${fullAddress}`;
     return (
-      <div className="event-list-item">
+      <div className="event-grid-item" id={this.props.key}>
         <div className="event-image-container">
           <div className="event-image-wrapper">
             <img className="event-image" src={this.props.event.coverPicture}/>
@@ -63,12 +65,12 @@ class GridItem extends Component {
             : null }
             <div className="view-toggle">
             {this.state.expanded ? 
-              <div onClick={this.handleExpand}>
+              <div>
                 <i className="fa fa-chevron-up" aria-hidden="true"></i>
                 <p>view less</p>
               </div>
               : 
-              <div onClick={this.handleExpand}>
+              <div onClick={this.handleViewMore}>
                 <p>view more</p>
                 <i className="fa fa-chevron-down" aria-hidden="true"></i>
               </div>
@@ -86,7 +88,17 @@ class GridItem extends Component {
     });
   };
 
+  handleViewMore = () => {
+    console.log(this.state.currentKey);
+    console.log("yo!");
+    this.props.showEventDetails(this.state.currentKey);
+  };
+
 }
+
+const mapActionsToProps = {
+  showEventDetails
+};
 
 function mapStateToProps(state) {
   return {
@@ -94,4 +106,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(GridItem);
+export default connect(mapStateToProps, mapActionsToProps)(GridItem);

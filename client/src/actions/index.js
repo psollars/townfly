@@ -105,3 +105,16 @@ export function loadingToggle () {
     type : "LOADING_TOGGLE"
   };
 }
+
+export function showEventDetails(eventId) {
+  return {
+    type : "SHOW_EVENT_DETAILS",
+    eventId
+  };
+}
+
+export function hideEventDetails () {
+  return {
+    type : "HIDE_EVENT_DETAILS",
+  };
+}

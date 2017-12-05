@@ -8,6 +8,7 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentKey: this.props.key,
       expanded: false,
       calendarEvent: {
         title: this.props.event.name,
@@ -23,7 +24,7 @@ class Card extends Component {
     const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
     const directionParams = `origin=${this.props.location.formattedAddress}&destination=${fullAddress}`;
     return (
-      <div className="Card">
+      <div className="event-card" id={this.props.key}>
         <div className="event-image-container">
           <div className="event-image-wrapper">
             <img className="event-image" src={this.props.event.coverPicture}/>
@@ -76,7 +77,9 @@ class Card extends Component {
             </div>
           </div>  
         </div>
-        <p className="event-item-index">{this.props.active}/{this.props.length}</p>
+
+        {this.props.showDetails === true ? null : <p className="event-item-index">{this.props.active}/{this.props.length}</p>}
+
       </div>
     );
   }
@@ -91,7 +94,8 @@ class Card extends Component {
 
 function mapStateToProps(state) {
   return {
-    location: state.location
+    location: state.location,
+    showDetails: state.showDetails
   };
 }
 

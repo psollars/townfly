@@ -23,8 +23,8 @@ class EventCards extends Component {
     })
     return (
       <div className="EventCards">
-          <button className="previousEventButton" onClick={this.previousEvent}>&lt;</button>
-          <button className="nextEventButton" onClick={this.nextEvent}>&gt;</button>
+          {this.props.events.length > 1 ? <button className="previousEventButton" onClick={this.previousEvent}>&lt;</button> : null}
+          {this.props.events.length > 1 ? <button className="nextEventButton" onClick={this.nextEvent}>&gt;</button> : null}
           <SwipeableViews className="swipeable-views" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
             {showEvents}
           </SwipeableViews>
