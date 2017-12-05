@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEvents, loadingToggle, detectLocation, clearLocation } from '../actions';
+import { fetchEvents, loadingToggle, detectLocation, clearLocation, setSearchParams } from '../actions';
 import moment from 'moment';
 import $ from "jquery-ajax";
 import _ from 'lodash';
@@ -31,22 +31,22 @@ class EventSearch extends Component {
                   <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
                 </div>
               </div>
-              <hr className = "divider"></hr>
-              <label className= "label">WHEN</label>
+              <hr className="divider"></hr>
+              <label className="label">WHEN</label>
               <div className="date-params">
                 <div className={ this.state.date[2] === 1 ? "radio-button active" : "radio-button"} data-date-param="1" onClick={this.handleDate}>today</div>
                 <div className={ this.state.date[2] === 2 ? "radio-button active" : "radio-button"} data-date-param="2" onClick={this.handleDate}>tomorrow</div>
                 <div className={ this.state.date[2] === 3 ? "radio-button active" : "radio-button"} data-date-param="3" onClick={this.handleDate}>this week</div>
               </div>
-              <hr className ="divider"></hr>
-              <label className= "label">WITHIN</label>
+              <hr className="divider"></hr>
+              <label className="label">WITHIN</label>
               <div className="distance-params"> 
                 <div className={ this.state.distance === "1609" ? "radio-button active" : "radio-button"} data-distance="1609" onClick={this.handleDistance}>1 mile</div>
                 <div className={ this.state.distance === "8046" ? "radio-button active" : "radio-button"} data-distance="8046" onClick={this.handleDistance}>5 miles</div>
                 <div className={ this.state.distance === "16093" ? "radio-button active" : "radio-button"} data-distance="16093" onClick={this.handleDistance}>10 miles</div>
               </div>
-              <hr className ="divider"></hr>
-              <label className= "label">SEARCH BY CATEGORIES</label>
+              <hr className="divider"></hr>
+              <label className="label">SEARCH BY CATEGORIES</label>
               <div className="categories">
                 <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category " : "category-active "} data-cat="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>
                   <div className="circle" data-cat="ARTS_ENTERTAINMENT">
@@ -186,6 +186,11 @@ class EventSearch extends Component {
        alert("Please enter a zip code or city.");
        return;
     }
+    this.props.setSearchParams(
+      this.state.date,
+      this.state.distance,
+      this.state.categories
+    )
     if (_.isEmpty(this.props.location)) {
       const text = this.state.displayLocation;
       this.props.detectLocation(text)
@@ -211,7 +216,8 @@ const mapActionsToProps = {
   fetchEvents,
   loadingToggle,
   detectLocation,
-  clearLocation
+  clearLocation,
+  setSearchParams
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(EventSearch);
