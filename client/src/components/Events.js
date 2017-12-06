@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SwipeableViews from 'react-swipeable-views';
-import EventDetail from './EventDetail';
+import EventCards from './EventCards';
+import EventGrid from './EventGrid';
 import { returnToSearch } from '../actions';
 
 class Events extends Component {
@@ -17,17 +17,6 @@ class Events extends Component {
   }
 
   render() {
-
-    const showEvents = this.state.eventsToDisplay.map((event, index) => {
-      return <EventDetail 
-                listView={this.state.listView}
-                style={Object.assign({}, slideStyles.slide)}
-                key={event.id}
-                event={event}
-                active={index + 1}
-                length={this.state.eventsToDisplay.length}
-              />;
-    })
 
     return (
       <div>
@@ -60,20 +49,14 @@ class Events extends Component {
         : 
           null
         }
-        <div className ="prev-next-controls">
-          <button className="previousEventButton fa fa-arrow-left fa-lg" onClick={this.previousEvent}></button>
-          <button className="nextEventButton fa fa-arrow-right fa-lg" onClick={this.nextEvent}></button>
-        </div>
-        { this.state.listView === false ?
-          <SwipeableViews className="EventDetail" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
-            {showEvents}
-          </SwipeableViews>
-        :
-          <div className="EventDetailGrid">{showEvents}</div>
-        }
+          { this.state.listView === false ?
+            <EventCards events={this.state.eventsToDisplay}/>
+          :
+            <EventGrid events={this.state.eventsToDisplay}/>
+          }
       </div>
     );
-  }
+  } 
 
   listToggleHandle = (event) => {
     this.setState({
@@ -125,44 +108,12 @@ class Events extends Component {
     })
   }
 
-  nextEvent = (event) => {
-    event.preventDefault();
-    if (this.state.activeEventIndex === this.state.eventsToDisplay.length - 1) {
-      return;
-    } else {
-      let newIndex = this.state.activeEventIndex + 1;
-      this.setState({
-        activeEventIndex: newIndex
-      })
-    }
-  }
-
-  previousEvent = (event) => {
-    event.preventDefault();
-    if (this.state.activeEventIndex === 0) {
-      return;
-    } else {
-      let newIndex = this.state.activeEventIndex - 1;
-      this.setState({
-        activeEventIndex: newIndex
-      })
-    }
-  }
-
   handleChangeIndex = (index) => {
     this.setState({
       activeEventIndex: index
     })
   }
 
-}
-
-const slideStyles = {
-  slide: {
-    padding: 15,
-    minHeight: 100,
-    color: "#fff"
-  }
 }
 
 function sanitizeString(string) {
@@ -177,6 +128,8 @@ function mapStateToProps(state) {
   };
 }
 
-const mapActionsToProps={returnToSearch};
+const mapActionsToProps = { 
+  returnToSearch
+};
 
 export default connect(mapStateToProps, mapActionsToProps)(Events);

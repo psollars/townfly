@@ -401,7 +401,7 @@ input:focus {
   width: 100%;
 }
 
-.event-list-item {
+.event-grid-item {
 
 }
 
@@ -454,7 +454,7 @@ input:focus {
   padding: 10px 0px;
   font-size: 1.1em;
   font-weight: 600;
-  line-height: 0.6;
+  line-height: auto;
   letter-spacing: 1.7px;
   color: #686868;
 }
@@ -617,13 +617,13 @@ input:focus {
   color: #686868;
 }
 
-.EventDetailGrid {
+.EventGrid {
   column-count: 1;
   column-gap: 20px;
   padding: 10px 20px 0px 20px;
 }
 
-.event-list-item {
+.event-grid-item {
   page-break-inside: avoid;
   -webkit-column-break-inside: avoid;
   break-inside: avoid;
@@ -640,11 +640,11 @@ input:focus {
   display: block;
 }
 
-.event-list-item .event-image-container {
+.event-grid-item .event-image-container {
   display: flex;
 }
 
-.event-list-item .event-image-wrapper {
+.event-grid-item .event-image-wrapper {
   border-radius: 5px;
   height: 120px;
   overflow: hidden;
@@ -652,15 +652,15 @@ input:focus {
   box-shadow: none;
 }
 
-.event-list-item .event-image {
+.event-grid-item .event-image {
 
 }
 
-.event-list-item .event-info-container {
+.event-grid-item .event-info-container {
   margin: 0px;
 }
 
-.event-list-item .event-info-card {
+.event-grid-item .event-info-card {
   padding: 10px;
   margin: 0px;
   min-width: 0px;
@@ -840,11 +840,11 @@ input:focus {
 /* ---EVENT SEARCH--- */
 
   /*styles for tablet*/
-  .EventDetailGrid {
+  .EventGrid {
     column-count: 2;
   }
 
-  .event-list-item {
+  .event-grid-item {
 /*    width: 45%;
     margin: 10px;*/
   }
@@ -853,12 +853,12 @@ input:focus {
 
 @media only screen and (min-width: 768px) {
   /*styles for notebooks*/
-  .EventDetailGrid {
+  .EventGrid {
     column-count: 3;
     padding: 20px 40px 0px 40px;
   }
 
-  .event-list-item {
+  .event-grid-item {
    /* width: 30%;*/
   }
 
@@ -868,12 +868,12 @@ input:focus {
 
   /*styles for desktop*/
 
-  .EventDetailGrid {
+  .EventGrid {
     column-count: 4;
     padding: 20px 80px 0px 80px;
   }
 
-  .event-list-item {
+  .event-grid-item {
     /*width: 21%;*/
   }
 
@@ -1011,11 +1011,11 @@ input:focus {
 @media only screen and (min-width: 1200px) {
 
   /*styles for large desktop*/
-  .EventDetailGrid {
+  .EventGrid {
     padding: 20px 80px 0px 80px;
   }
 
-  .event-list-item {
+  .event-grid-item {
 /*    width: 21%;*/
   }
 

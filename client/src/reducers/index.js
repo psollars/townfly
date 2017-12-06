@@ -5,7 +5,9 @@ const INITIAL_STATE = {
   date: [],
   distance: "",
   categories: [],
-  events: []
+  events: [],
+  eventToShow: {},
+  showDetails: false
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -43,6 +45,13 @@ export default function(state = INITIAL_STATE, action) {
       return Object.assign({}, state, {
         loading: !state.loading
       });
+    case "SHOW_EVENT_DETAILS":
+      return showEventDetails(state, action.eventId);
+    case "HIDE_EVENT_DETAILS":
+      return Object.assign({}, state, {
+        eventToShow: {},
+        showDetails: false
+      });
     default:
       return state;
   }
@@ -64,3 +73,18 @@ function filterEvents(state, events) {
     initialSearch: false
   });
 }
+
+function showEventDetails(state, id) {
+  let events = state.events;
+  let eventId = id;
+  let foundEvent;
+  events.forEach(function(event) {
+    if (eventId === event.id) {
+      foundEvent = event;
+    }
+  });
+  return Object.assign({}, state, {
+    eventToShow: foundEvent,
+    showDetails: true
+  });
+};
