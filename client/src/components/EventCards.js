@@ -32,9 +32,8 @@ class EventCards extends Component {
     );
   }
 
-  nextEvent = (event) => {
-    event.preventDefault();
-    if (this.state.activeEventIndex === this.state.eventsToDisplay.length - 1) {
+  nextEvent = () => {
+    if (this.state.activeEventIndex === this.props.events.length - 1) {
       return;
     } else {
       let newIndex = this.state.activeEventIndex + 1;
@@ -44,8 +43,7 @@ class EventCards extends Component {
     }
   }
 
-  previousEvent = (event) => {
-    event.preventDefault();
+  previousEvent = () => {
     if (this.state.activeEventIndex === 0) {
       return;
     } else {

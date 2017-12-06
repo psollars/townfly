@@ -1,4 +1,4 @@
-import store from "../index"
+import store from "../index";
 import $ from "jquery-ajax";
 
 // location actions
@@ -30,7 +30,6 @@ export function detectLocation (text, lat, lon) {
       dispatch(setLocation(location));
       if (queryImmediately) {
         const reduxState = store.getState();
-        console.log(reduxState);
         dispatch(fetchEvents(
           reduxState.location,
           reduxState.date,

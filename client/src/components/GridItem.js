@@ -89,8 +89,6 @@ class GridItem extends Component {
   };
 
   handleViewMore = () => {
-    console.log(this.state.currentKey);
-    console.log("yo!");
     this.props.showEventDetails(this.state.currentKey);
   };
 

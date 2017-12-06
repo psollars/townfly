@@ -20,28 +20,40 @@ class Events extends Component {
 
     return (
       <div>
-        <div className="header-bar">
-          <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
-          <p onClick={this.props.returnToSearch}>TOWNFLY</p>
-          <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
+        <div className="heroHeader2">
+          <h1>Explore. Experience. TownFly.</h1>
         </div>
-        <div className="Events">
-          <div className="string-search-background">
-            <div className="string-search-container">
-              <i className="string-search-icon fa fa-search" aria-hidden="true"></i>
-              <input className="string-search" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="refine results by keyword" />
-              <p className="string-search-results-count" >{this.state.eventsToDisplay.length} results</p>
+        <div className ="search-controls">
+          <div className="header-bar">
+            <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
+            <p>TOWNFLY</p>
+            <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
+          </div>
+          <div className="Events">
+            <div className="string-search-background">
+              <div className="string-search-container">
+                <i className="string-search-icon fa fa-search" aria-hidden="true"></i>
+                <input className="string-search" type="text" id="eventFilter" onChange={this.eventFilter} placeholder="refine results by keyword" />
+                <p className="string-search-results-count" >{this.state.eventsToDisplay.length} results</p>
+              </div>
             </div>
           </div>
-          { this.state.eventsToDisplay.length <= 0 ?
-            <p className="noEventsFound">Sorry, no events.</p> : null
-          }
+        </div>
+        { this.state.eventsToDisplay.length <= 0 ?
+          <div className="noEventsFound">
+            <div className="empty-illustration"></div>
+            <h6>No events found!</h6>
+            <p>Please double check your spelling or try our “detect my location” feature.</p>
+            <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
+          </div> 
+        : 
+          null
+        }
           { this.state.listView === false ?
             <EventCards events={this.state.eventsToDisplay}/>
           :
             <EventGrid events={this.state.eventsToDisplay}/>
           }
-        </div>
       </div>
     );
   } 
@@ -116,6 +128,8 @@ function mapStateToProps(state) {
   };
 }
 
-const mapActionsToProps={returnToSearch};
+const mapActionsToProps = { 
+  returnToSearch
+};
 
 export default connect(mapStateToProps, mapActionsToProps)(Events);

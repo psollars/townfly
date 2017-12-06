@@ -22,10 +22,8 @@ body {
 
 .header-bar {
   display: flex;
-  padding: 0px 20px;
-  justify-content: space-between;
   flex-direction: row;
-  -ms-flex-align: baseline;
+  justify-content: space-between;
   align-items: baseline;
   color: #ed6564;
   font-size: 16px;
@@ -34,6 +32,8 @@ body {
   text-align: center;
   color: #ed6564;
   text-transform: uppercase;
+  height:60px;
+  margin:10px 20px;
 }
 
 .heroHeader {
@@ -43,7 +43,7 @@ body {
   height: 150px;
   border-bottom: 1px solid rgba(216, 216, 216, 0.6);
   text-align: center;
-  font-size: 16px;
+  font-size: .8em;
   font-weight: 300;
   letter-spacing: 2.7px;
   text-align: center;
@@ -54,42 +54,28 @@ body {
   background-size: auto 100%;
 }
 
-.header-links{
-  display: block;
-  list-style: none;
-  text-transform: capitalize;
-  font-weight: 300;
-  cursor: pointer;
-  width:100%;
-  padding:0;
-}
-
-.header-links li {
-  display: block;
-  padding-left: 30px;
-  margin:10px auto;
-}
-
-.header-links a {
-  text-decoration: none;
-  color: #ED6564;
-}
-
-.header-links span a {
-  background: #ED6564;
-  color:white;
-  padding: 4px 60px;
-  border-radius: 20px;
-}
-
-.close-menu{
-  position: absolute;
-  top:20px;
-  right:20px;
+.heroHeader2{
+  display: none;
 }
 
 .backToSearch {
-  /* Styles associated with the back button (ie an icon) */
+  cursor:pointer;
+}
+
+.search-card-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.search-card{
+  margin:-20px auto 0px auto;
+  height: auto;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+  width: 100%;
+  justify-content: center;
 }
 
 .divider {
@@ -108,10 +94,23 @@ body {
   justify-content: center;
   cursor: pointer;
   margin:20px auto;
-  font-family: Avenir-Heavy;
+  font-weight: 600;
   font-size: 16px;
   color: #585858;
   letter-spacing: 2px;
+}
+
+.error-message{
+  text-align: center;
+  background-color: #CFB8F3;
+  border: 1px solid #9F71E7;
+  color: white;
+  padding: 10px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  margin: 0px 40px 20px 40px;
+  border-radius: 5px;
+  font-size: .8em;
 }
 
 .detect-location .fa-location-arrow {
@@ -125,7 +124,8 @@ body {
   width: 90%; /*60% on tablet/desktop*/
   text-align: center;
   border-style: none;
-  border-bottom: 2px solid #ED6564;
+  border-bottom: 2px solid #ed6564;
+  border-radius: none;
   padding-bottom: 10px;
   font-size: 2em;
   font-weight: 600;
@@ -174,7 +174,6 @@ button:focus {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
 }
 
 .date-params {
@@ -212,11 +211,13 @@ button:focus {
 }
 
 .categories {
+  
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin:20px auto 20px auto;
   font-size: 10px;
+  
 }
 
 .category {
@@ -286,6 +287,55 @@ input:focus {
 /*****************/
 .Events {
   /* Styles associated with Events container */
+}
+
+.noEventsFound{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-size: auto 100%;
+  margin:40px auto;
+}
+
+.empty-illustration{
+  background: #fff url(./images/empty_state.svg) center no-repeat;
+  width:209px;
+  height: 229px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:40px;
+  
+}
+
+.noEventsFound p{
+  text-align: center;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+  margin:20px 20px;
+  color:#585858;
+}
+
+.backToSearchButton{
+  display: flex;
+  width: 237px;
+  height: 50px;
+  position: fixed;
+  bottom:24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  background-color: #9F71E7;
+  box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
+  border-radius: 100px;
+  border: none;
+  cursor:pointer;
 }
 
 .string-search-background {
@@ -397,17 +447,6 @@ input:focus {
   margin: 0px 0px 10px 0px;
 }
 
-.event-date {
-  margin: 0px 0px 20px 0px;
-  font-size: 12px;
-  font-weight: 900;
-  line-height: 1.0;
-  letter-spacing: 2px;
-  text-align: center;
-  color: rgba(88, 88, 88, 0.45);
-  text-transform: uppercase;
-}
-
 .event-time {
   display: flex;
   justify-content: space-between;
@@ -517,6 +556,7 @@ input:focus {
   color: #ED6564;
   display: flex;
   justify-content: center;
+  cursor:pointer;
 }
 
 .view-toggle div {
@@ -536,21 +576,36 @@ input:focus {
 }
 
 .event-map {
-
+  position: relative;
+  height: 480px;
+  margin: 0px -20px 20px -20px;
 }
 
 .directions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.directions p {
+  margin: 0px;
+  color: #686868;
+  font-size: .8em;
+  text-align: center;
+}
+
+.direction-icons {
   display: flex;
   justify-content: center;
   font-size: 1.5em;
 }
 
-.directions a {
+.direction-icons a {
   margin: 0px 5px;
   color: #686868;  
 }
 
-.directions a:hover {
+.direction-icons a:hover {
   color: #01C69F;
 }
 
@@ -643,17 +698,12 @@ input:focus {
   background: transparent;
   padding: 0;
   margin: 0;
-
 }
 
-.previousEventButton {
-  left: 0;
-  justify-content: flex-start;
-}
-
-.nextEventButton {
-  right: 0;
-  justify-content: flex-end;
+.event-index {
+  font-weight: 400;
+  margin:24px auto;
+  color: #585858;
 }
 
 /*****************/
@@ -737,11 +787,58 @@ input:focus {
   height: 16px;
 }
 
+/* Sloth's Styles for new nest and previous buttons for swiping cards */
+
+.previousEventButton, .nextEventButton {
+  z-index: 100;
+  position: absolute;
+  top: 320px;
+  display: flex;
+  align-items: center;
+  color: lightGray;
+  font-size: 2em;
+  height: 400px;
+  width: 40px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  color: #ED6564;
+
+}
+
+.prev-next-controls{
+  display: none;
+}
+
+.previousEventButton  {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.nextEventButton {
+  right: 0;
+  justify-content: flex-end;
+}
 
 /**********************/
 /* media query styles */
 /**********************/
+
 @media only screen and (min-width: 480px) {
+  .prev-next-controls{
+    display: block;
+  }
+}
+/* 
+@media only screen and (min-width: 768px) {
+
+} */
+
+@media only screen and (min-width: 864px) {
+
+/* ---EVENT SEARCH--- */
+
   /*styles for tablet*/
   .EventGrid {
     column-count: 2;
@@ -768,7 +865,9 @@ input:focus {
 }
 
 @media only screen and (min-width: 992px) {
+
   /*styles for desktop*/
+
   .EventGrid {
     column-count: 4;
     padding: 20px 80px 0px 80px;
@@ -782,11 +881,11 @@ input:focus {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 300px;
+    height: 345px;
     border-bottom: 1px solid rgba(216, 216, 216, 0.6);
     text-align: center;
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 1.5em;
+    font-weight: 700;
     letter-spacing: 2.7px;
     text-align: center;
     color: white;
@@ -796,10 +895,26 @@ input:focus {
     background-size: auto 100%;
   }
 
-  .search-card-container{
+  .heroHeader2 {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 345px;
+    border-bottom: 1px solid rgba(216, 216, 216, 0.6);
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 2.7px;
+    text-align: center;
+    color: white;
+    align-items: center;
     justify-content: center;
-    margin-bottom: 100px;
+    background: #ED6564 url(./images/heroHeader.svg) center no-repeat;
+    background-size: auto 100%;
+  }
+
+  .searchInput{
+    width: 60%;
   }
 
   .search-card{
@@ -822,11 +937,79 @@ input:focus {
     width: 20%;
     position: fixed;
     bottom:32px;
+    cursor:pointer;
+  }
+
+  /* ---EVENTS DESKTOP--- */
+
+  .search-controls{
+    margin: -30px auto 0px auto;
+    width: 75%;
+    min-width: 280px;
+    height: auto;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+  }
+    
+  .eventImage{
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    width:75%;
+    height:100%;
+    background-image: fill;
+    height: 220px;
+    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .eventInfoContainer{
+    margin:-20px 60px 0px 60px;
+  }
+
+  .eventInfoCard {
+    padding: 20px;
+    width:75%;
+    min-width: 280px;
+    margin: 0;
+    height: auto;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+  }
+  
+  .previousEventButton, .nextEventButton {
+    z-index: 100;
+    position: absolute;
+    top: 400px;
+    display: flex;
+    align-items: center;
+    color: lightGray;
+    font-size: 2em;
+    height: 400px;
+    width: 40px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    color: #ED6564;
+  }
+  
+  .previousEventButton {
+    left: 5%;
+    justify-content: flex-start;
+  }
+  
+  .nextEventButton {
+    right: 5%;
+    justify-content: flex-end;
   }
 
 }
 
 @media only screen and (min-width: 1200px) {
+
   /*styles for large desktop*/
   .EventGrid {
     padding: 20px 80px 0px 80px;
@@ -837,3 +1020,4 @@ input:focus {
   }
 
 }
+
