@@ -102,9 +102,9 @@ body {
 
 .error-message{
   text-align: center;
-  background-color: #CFB8F3;
+  background-color: #F5F1FD;
   border: 1px solid #9F71E7;
-  color: white;
+  color: #9F71E7;
   padding: 10px;
   letter-spacing: 2px;
   font-weight: 300;
