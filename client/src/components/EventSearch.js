@@ -30,7 +30,7 @@ class EventSearch extends Component {
                 <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.handleClearLocation} />
                 <div>
                   <div className="detect-location" onClick={this.handleGeoLocation}>detect my location&nbsp;<i className="fa fa-location-arrow" aria-hidden="true"></i></div>
-                  { this.state.invalidSearch ? <p className="error-message">Woops, don't forget to enter or detect your location above!</p> : null }
+                  { this.state.invalidSearch ? <p className="error-message" onClick={this.handleClearLocation} >Please enter a location to begin.</p> : null }
                 </div>
               </div>
               <hr className="divider"></hr>
@@ -117,7 +117,8 @@ class EventSearch extends Component {
   handleClearLocation = () => {
     this.props.clearLocation();
     this.setState({
-        displayLocation: ""
+        displayLocation: "",
+        invalidSearch: false
     })
   };
 
