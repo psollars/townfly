@@ -10,6 +10,9 @@
 
 *********************/
 
+/*****************/
+/* Global styles */
+/*****************/
 body {
   margin: 0;
   padding: 0;
@@ -36,30 +39,32 @@ body {
   margin:10px 20px;
 }
 
-.heroHeader {
-  display: flex;
-  flex-direction: column;
+.divider {
   width: 100%;
-  height: 150px;
-  border-bottom: 1px solid rgba(216, 216, 216, 0.6);
-  text-align: center;
-  font-size: .8em;
-  font-weight: 300;
-  letter-spacing: 2.7px;
-  text-align: center;
-  color: white;
+  border: 1px solid #F5F5F5;
+}
+
+/**********************/
+/* EventSearch styles */
+/**********************/
+.hero-header {
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: #ED6564 url(./images/heroHeader.svg) center no-repeat;
+  padding: 0px 10px 20px 10px;
+  height: 180px;
+  background: #ED6564 url(/static/media/heroHeader.33e49ea8.svg) center no-repeat;
   background-size: auto 100%;
+  background-position-y: -12px;
 }
 
-.heroHeader2{
-  display: none;
-}
-
-.backToSearch {
-  cursor:pointer;
+.hero-header h1 {
+  margin: 0px;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 2.7px;
 }
 
 .search-card-container{
@@ -76,11 +81,6 @@ body {
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
   width: 100%;
   justify-content: center;
-}
-
-.divider {
-  width: 100%;
-  border: 1px solid #F5F5F5;
 }
 
 .location-params {
@@ -287,6 +287,14 @@ input:focus {
 /*****************/
 .Events {
   /* Styles associated with Events container */
+}
+
+.heroHeader2{
+  display: none;
+}
+
+.backToSearch {
+  cursor:pointer;
 }
 
 .noEventsFound{

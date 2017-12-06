@@ -21,11 +21,12 @@ class EventSearch extends Component {
   render() {
     return (
       <div className="EventSearch">
-        <div className="heroHeader">
-        <h1>Explore. Experience. TownFly.</h1>
+        <div className="hero-header">
+          <h1>Explore. Experience. TownFly.</h1>
         </div>
           <div className="search-card-container"> 
-            <div className ="search-card" id="searchInput">
+            <div className="search-card">
+              <label className="label">PLEASE ENTER A LOCATION TO BEGIN</label>
               <div className="location-params">
                 <input className="searchInput" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.handleClearLocation} />
                 <div>
