@@ -20,6 +20,10 @@ body {
   min-width: 320px;
 }
 
+.hidden {
+  display: none;
+}
+
 .header-bar {
   display: flex;
   flex-direction: row;

@@ -28,7 +28,7 @@ class Card extends Component {
       <div className="event-card" id={this.props.key}>
         <div className="event-image-container">
           <div className="event-image-wrapper">
-            <img className="event-image" src={this.props.event.coverPicture}/>
+            <img className="event-image" alt={this.props.event.name} src={this.props.event.coverPicture}/>
           </div>
         </div>
         <div className="event-info-container">
@@ -39,7 +39,7 @@ class Card extends Component {
             <div className="event-time">
               <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <span> - <Moment format="LT">{this.props.event.endTime}</Moment></span> }</p>
               <div className="event-sharing">  
-                <a href={`https://www.facebook.com/events/${this.props.event.id}`} target="_blank" rel="nofollow"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href={`https://www.facebook.com/events/${this.props.event.id}`} target="_blank" rel="nofollow" ><i className="fa fa-facebook-square" aria-hidden="true"></i><span className="hidden" aria-label="View this event on Facebook">View this event on Facebook</span></a>
                 <AddToCalendar event={this.state.calendarEvent} buttonLabel="" buttonTemplate={{"calendar" : "left"}} displayItemIcons={false} listItems={[ { google: 'Google' }, { apple: 'Apple Calendar' }, { outlook: 'Outlook' }, { outlookcom: 'Outlook.com' }, { yahoo: 'Yahoo' } ]} />              
               </div>
             </div>
