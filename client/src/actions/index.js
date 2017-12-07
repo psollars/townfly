@@ -60,9 +60,10 @@ export function clearLocation() {
   };
 }
 
-// events actions
+// events actions goes to our API and stores information
 export function fetchEvents(location, date, distance, categories) {
   return function(dispatch) {
+  
     dispatch(requestEvents());
     $.ajax({
       url: "/api/events/",
@@ -111,7 +112,7 @@ export function showEventDetails(eventId) {
     eventId
   };
 }
-
+//to hide the modal
 export function hideEventDetails () {
   return {
     type : "HIDE_EVENT_DETAILS",

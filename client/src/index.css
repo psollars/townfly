@@ -282,6 +282,11 @@ input:focus {
   outline: none;
 }
 
+
+.searchInput::placeholder {
+  opacity: .25;
+}
+
 /*****************/
 /* Events styles */
 /*****************/
@@ -296,7 +301,7 @@ input:focus {
   align-items: center;
   justify-content: center;
   background-size: auto 100%;
-  margin:40px auto;
+  margin:40px auto 100px auto;
 }
 
 .empty-illustration{
@@ -549,13 +554,7 @@ input:focus {
   height: auto;
 }
 
-.view-toggle {
-  font-size: .8em;
-  font-weight: 900;
-  letter-spacing: 2.3px;
-  color: #ED6564;
-  display: flex;
-  justify-content: center;
+.viewToggle {
   cursor:pointer;
 }
 

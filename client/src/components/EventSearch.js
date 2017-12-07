@@ -167,7 +167,7 @@ class EventSearch extends Component {
   };
 
   handleGeoLocation = () => {
-    this.props.loadingToggle();
+    this.props.loadingToggle(); // loader
     const options = {
       enableHighAccuracy: true,
       timeout: 30000,

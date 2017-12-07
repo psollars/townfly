@@ -12,6 +12,7 @@ class EventCards extends Component {
   }
 
   render() {
+    /// map through events and displays them on card format
     const showEvents = this.props.events.map((event, index) => {
       return <Card
                 style={Object.assign({}, slideStyles.slide)}
