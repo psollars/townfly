@@ -8,7 +8,7 @@ import 'font-awesome/css/font-awesome.min.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" id="page-top">
         <Loader loading={this.props.loading} />
         { this.props.initialSearch ? 
           <EventSearch /> :

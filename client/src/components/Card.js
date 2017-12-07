@@ -25,7 +25,7 @@ class Card extends Component {
     const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
     const directionParams = `origin=${this.props.location.formattedAddress}&destination=${fullAddress}`;
     return (
-      <div className="event-card" id={this.props.key}>
+      <div className="event-card" id= {this.props.key} >
         <div className="event-image-container">
           <div className="event-image-wrapper">
             <img className="event-image" src={this.props.event.coverPicture}/>
@@ -70,7 +70,7 @@ class Card extends Component {
             : null }
             <div className="view-toggle">
             {this.state.expanded ? 
-              <div onClick={this.handleExpand}>
+              <div onClick={this.handleExpand} href="#CardModal">
                 <i className="fa fa-chevron-up" aria-hidden="true"></i>
                 <p>view less</p>
               </div>
