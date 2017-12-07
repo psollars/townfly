@@ -16,6 +16,23 @@ class Events extends Component {
     }
   }
 
+  componentDidMount() {
+
+    let widthOfWindow = Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.documentElement.clientWidth
+    );
+
+    if (widthOfWindow >= 768) {
+      this.setState({
+        listView: true,
+      })
+    }
+  }
+
   render() {
 
     return (
@@ -43,7 +60,7 @@ class Events extends Component {
           <div className="noEventsFound">
             <div className="empty-illustration"></div>
             <h6>No events found!</h6>
-            <p>Please double check your spelling or try our “detect my location” feature.</p>
+            <p>Please double check your spelling or verify your location.</p>
             <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
           </div> 
         : 
@@ -105,12 +122,6 @@ class Events extends Component {
       searchString: event.target.value,
       eventsToDisplay: filteredEvents,
       activeEventIndex: 0
-    })
-  }
-
-  handleChangeIndex = (index) => {
-    this.setState({
-      activeEventIndex: index
     })
   }
 
