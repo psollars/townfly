@@ -7,6 +7,7 @@
 #F5F5F5 lightest gray
 #EEEEEE light gray
 #686868 dark gray
+rgba(148, 148, 148, 0.25) box shadow
 
 *********************/
 
@@ -67,20 +68,37 @@ body {
   letter-spacing: 2.7px;
 }
 
-.search-card-container{
+.search-card-container {
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
 }
 
-.search-card{
-  margin:-20px auto 0px auto;
-  height: auto;
+.search-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;  
+  margin: -20px auto 0px auto;
+  min-width: 320px;  
   border-radius: 8px;
   background-color: #ffffff;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
-  width: 100%;
-  justify-content: center;
+}
+
+.search-input {
+  margin: 0px auto 10px auto;
+  min-width: 320px;
+  width: 90%;
+  border-style: none;
+  border-bottom: 2px solid #ED6564;
+  border-radius: unset;
+  padding-bottom: 10px;
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 2.7px;
+  text-align: center;
+  color: #585858;
 }
 
 .location-params {
@@ -93,11 +111,11 @@ body {
   display: flex;
   justify-content: center;
   cursor: pointer;
-  margin:20px auto;
+  margin: 20px auto;
   font-weight: 600;
-  font-size: 16px;
-  color: #585858;
+  font-size: 1em;
   letter-spacing: 2px;
+  color: #585858;
 }
 
 .error-message{
@@ -115,23 +133,6 @@ body {
 
 .detect-location .fa-location-arrow {
   color: #01C69F;
-}
-
-.searchInput{
-  opacity:1;
-  margin: 20px auto 10px auto;
-  min-width: 260px;
-  width: 90%; /*60% on tablet/desktop*/
-  text-align: center;
-  border-style: none;
-  border-bottom: 2px solid #ed6564;
-  border-radius: none;
-  padding-bottom: 10px;
-  font-size: 2em;
-  font-weight: 600;
-  letter-spacing: 2.7px;
-  text-align: center;
-  color: #585858;
 }
 
 .label{
