@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import HeroHeader from './HeroHeader';
 import EventCards from './EventCards';
 import EventGrid from './EventGrid';
 import { returnToSearch } from '../actions';
@@ -16,13 +17,26 @@ class Events extends Component {
     }
   }
 
+  componentDidMount() {
+    let widthOfWindow = Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.documentElement.clientWidth
+    );
+    if (widthOfWindow >= 768) {
+      this.setState({
+        listView: true,
+      })
+    }
+  }
+
   render() {
 
     return (
       <div>
-        <div className="heroHeader2">
-          <h1>Explore. Experience. TownFly.</h1>
-        </div>
+        <HeroHeader />
         <div className ="search-controls">
           <div className="header-bar">
             <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 

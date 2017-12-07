@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HeroHeader from './HeroHeader';
 import { connect } from 'react-redux';
 import { fetchEvents, loadingToggle, detectLocation, clearLocation, setSearchParams } from '../actions';
 import moment from 'moment';
@@ -21,9 +22,7 @@ class EventSearch extends Component {
   render() {
     return (
       <div className="EventSearch">
-        <div className="hero-header">
-          <h1>Explore. Experience. TownFly.</h1>
-        </div>
+        <HeroHeader />
           <div className="search-card-container"> 
             <div className="search-card">
               <p className="instruction">Please enter a location to begin:</p>
