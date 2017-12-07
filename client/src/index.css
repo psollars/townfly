@@ -4,6 +4,8 @@
 
 #ED6564 coral
 #01C69F green
+#9F71E7 error purple
+#F5F1FD error purple light
 #F5F5F5 lightest gray
 #EEEEEE light gray
 #686868 dark gray
@@ -48,6 +50,13 @@ body {
 /**********************/
 /* EventSearch styles */
 /**********************/
+.EventSearch {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .hero-header {
   display: flex;
   align-items: center;
@@ -118,7 +127,8 @@ body {
   color: #585858;
 }
 
-.error-message{
+.error-message {
+  position: relative;
   text-align: center;
   background-color: #F5F1FD;
   border: 1px solid #9F71E7;
@@ -129,6 +139,16 @@ body {
   margin: 0px 40px 20px 40px;
   border-radius: 5px;
   font-size: .8em;
+}
+
+.error-message i {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+.error-message p {
+  margin: 0px;
 }
 
 .detect-location .fa-location-arrow {
@@ -167,13 +187,6 @@ button:focus {
 
 .btnContain {
   display: flex; 
-  justify-content: center;
-}
-
-.EventSearch{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   justify-content: center;
 }
 
