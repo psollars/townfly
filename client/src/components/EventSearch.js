@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchEvents, loadingToggle, detectLocation, clearLocation, setSearchParams } from '../actions';
 import moment from 'moment';
-import $ from "jquery-ajax";
 import _ from 'lodash';
 
 class EventSearch extends Component {
@@ -177,17 +176,19 @@ class EventSearch extends Component {
 
   handleGeoLocation = () => {
     this.props.loadingToggle();
-    if (navigator.geolocation) {
+    if (window.navigator.geolocation) {
       const options = {
         enableHighAccuracy: true,
-        timeout: 30000,
+        timeout: 10000,
         maximumAge: 1800000
       };
-      navigator.geolocation.getCurrentPosition((pos) => {
+      window.navigator.geolocation.getCurrentPosition((pos) => {
         const lat = pos.coords.latitude;
         const lon = pos.coords.longitude;
         this.props.detectLocation(null, lat, lon);
       }, (err) => {
+        this.props.loadingToggle();
+        alert("Sorry, your location could not be detected.\nPlease enter a zip code or city to begin.");
         console.warn(`ERROR(${err.code}): ${err.message}`);
       }, options);
       this.setState({
@@ -195,7 +196,7 @@ class EventSearch extends Component {
       })
     } else {
       this.props.loadingToggle();
-      alert("Sorry, Geolocation is not supported on your device. \n Please enter a zip code or city to begin.");
+      alert("Sorry, Geolocation is not supported on your device.\nPlease enter a zip code or city to begin.");
     }
   };
 
