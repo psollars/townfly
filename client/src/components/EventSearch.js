@@ -3,7 +3,6 @@ import HeroHeader from './HeroHeader';
 import { connect } from 'react-redux';
 import { fetchEvents, loadingToggle, detectLocation, clearLocation, setSearchParams } from '../actions';
 import moment from 'moment';
-import $ from "jquery-ajax";
 import _ from 'lodash';
 
 class EventSearch extends Component {
@@ -11,8 +10,8 @@ class EventSearch extends Component {
     super(props);
     this.state = {
       displayLocation: "",
-      date: [moment().unix(), moment().add(7, 'days').unix(), 3],
-      distance: "1609",
+      date: [moment().unix(), moment().endOf("day").unix(), 1],
+      distance: "8046",
       categories: [],
       menuToggle: false,
       invalidSearch: false
@@ -53,7 +52,7 @@ class EventSearch extends Component {
                 <div className={ this.state.distance === "16093" ? "radio-button active" : "radio-button"} data-distance="16093" onClick={this.handleDistance}>10 miles</div>
               </div>
               <hr className="divider"></hr>
-              <label className="label">FILTER BY CATEGORIES</label>
+              <label className="label">SEARCH BY CATEGORIES</label>
               <div className="categories">
                 <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category" : "category-active"}>
                   <div className="circle" data-cat="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>
@@ -176,17 +175,19 @@ class EventSearch extends Component {
 
   handleGeoLocation = () => {
     this.props.loadingToggle();
-    if (navigator.geolocation) {
+    if (window.navigator.geolocation) {
       const options = {
         enableHighAccuracy: true,
-        timeout: 30000,
+        timeout: 10000,
         maximumAge: 1800000
       };
-      navigator.geolocation.getCurrentPosition((pos) => {
+      window.navigator.geolocation.getCurrentPosition((pos) => {
         const lat = pos.coords.latitude;
         const lon = pos.coords.longitude;
         this.props.detectLocation(null, lat, lon);
       }, (err) => {
+        this.props.loadingToggle();
+        alert("Sorry, your location could not be detected.\nPlease enter a zip code or city to begin.");
         console.warn(`ERROR(${err.code}): ${err.message}`);
       }, options);
       this.setState({
@@ -194,7 +195,7 @@ class EventSearch extends Component {
       })
     } else {
       this.props.loadingToggle();
-      alert("Sorry, Geolocation is not supported on your device. \n Please enter a zip code or city to begin.");
+      alert("Sorry, Geolocation is not supported on your device.\nPlease enter a zip code or city to begin.");
     }
   };
 

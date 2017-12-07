@@ -58,7 +58,6 @@ body {
   margin:20px;
 }
 
-
 .instruction {
   display: flex;
   justify-content: center;
@@ -327,6 +326,10 @@ h6 {
 }
 
 .backToSearch {
+  cursor:pointer;
+}
+
+.viewToggle {
   cursor:pointer;
 }
 

@@ -57,7 +57,7 @@ class Events extends Component {
           <div className="noEventsFound">
             <div className="empty-illustration"></div>
             <h6>No events found!</h6>
-            <p>Please double check your spelling or try our “detect my location” feature.</p>
+            <p>Please double check your spelling or verify your location.</p>
             <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
           </div> 
         : 
@@ -119,12 +119,6 @@ class Events extends Component {
       searchString: event.target.value,
       eventsToDisplay: filteredEvents,
       activeEventIndex: 0
-    })
-  }
-
-  handleChangeIndex = (index) => {
-    this.setState({
-      activeEventIndex: index
     })
   }
 
