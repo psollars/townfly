@@ -105,8 +105,10 @@ class EventSearch extends Component {
                   <p className="category-title">Travel & Transportation</p>
                 </div>
               </div>
-              <div className="btnContain">
-                <button className="searchButton" onClick={this.handleSubmit}>search events</button>
+              <div className="button-container">
+                <div className="button-wrapper">
+                  <div className="search-button" onClick={this.handleSubmit}>search events</div>
+                </div>
               </div>
             </div>
           </div>
