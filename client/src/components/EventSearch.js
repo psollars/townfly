@@ -9,8 +9,8 @@ class EventSearch extends Component {
     super(props);
     this.state = {
       displayLocation: "",
-      date: [moment().unix(), moment().add(7, 'days').unix(), 3],
-      distance: "1609",
+      date: [moment().unix(), moment().endOf("day").unix(), 1],
+      distance: "8046",
       categories: [],
       menuToggle: false,
       invalidSearch: false
@@ -53,7 +53,7 @@ class EventSearch extends Component {
                 <div className={ this.state.distance === "16093" ? "radio-button active" : "radio-button"} data-distance="16093" onClick={this.handleDistance}>10 miles</div>
               </div>
               <hr className="divider"></hr>
-              <label className="label">FILTER BY CATEGORIES</label>
+              <label className="label">SEARCH BY CATEGORIES</label>
               <div className="categories">
                 <div className={ this.state.categories.findIndex(category => {return category === "ARTS_ENTERTAINMENT"}) === -1 ? "category" : "category-active"}>
                   <div className="circle" data-cat="ARTS_ENTERTAINMENT" onClick={this.handleCatChange}>

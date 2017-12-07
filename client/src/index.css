@@ -317,6 +317,10 @@ h6 {
   cursor:pointer;
 }
 
+.viewToggle {
+  cursor:pointer;
+}
+
 .noEventsFound{
   display: flex;
   flex-direction: column;

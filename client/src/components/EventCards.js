@@ -14,7 +14,6 @@ class EventCards extends Component {
   render() {
     const showEvents = this.props.events.map((event, index) => {
       return <Card
-                style={Object.assign({}, slideStyles.slide)}
                 key={event.id}
                 event={event}
                 active={index + 1}
@@ -23,8 +22,8 @@ class EventCards extends Component {
     })
     return (
       <div className="EventCards">
-          {this.props.events.length > 1 ? <button className="previousEventButton" onClick={this.previousEvent}>&lt;</button> : null}
-          {this.props.events.length > 1 ? <button className="nextEventButton" onClick={this.nextEvent}>&gt;</button> : null}
+          {this.props.events.length > 1 ? <div className="previousEventButton" onClick={this.previousEvent}>&lt;</div> : null}
+          {this.props.events.length > 1 ? <div className="nextEventButton" onClick={this.nextEvent}>&gt;</div> : null}
           <SwipeableViews className="swipeable-views" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
             {showEvents}
           </SwipeableViews>
@@ -54,14 +53,6 @@ class EventCards extends Component {
     }
   }
 
-}
-
-const slideStyles = {
-  slide: {
-    padding: 15,
-    minHeight: 100,
-    color: "#fff"
-  }
 }
 
 export default EventCards;
