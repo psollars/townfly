@@ -278,6 +278,8 @@ h6 {
   background: rgba(245, 245, 245, .8);
   position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   height: 100px;
 }
@@ -849,6 +851,13 @@ h6 {
 /**********************/
 
 @media only screen and (min-width: 480px) {
+/*styles for mobile*/
+
+  /* EventSearch styles */
+  .search-input {
+    width: 70%;
+  }
+
   .radio-button {
     width: 120px;
   }
@@ -861,33 +870,43 @@ h6 {
     width: 33%;
   }
 
+
+
+
+
   .prev-next-controls{
     display: block;
   }
 }
-/* 
-@media only screen and (min-width: 768px) {
-
-} */
-
-@media only screen and (min-width: 864px) {
-
-/* ---EVENT SEARCH--- */
-
-  /*styles for tablet*/
-  .EventGrid {
-    column-count: 2;
-  }
-
-  .event-grid-item {
-/*    width: 45%;
-    margin: 10px;*/
-  }
-
-}
 
 @media only screen and (min-width: 768px) {
-  /*styles for notebooks*/
+/*styles for tablet*/
+
+  /* EventSearch styles */
+  .search-card {
+    padding: 20px;
+    margin: -20px 20px 0px 20px;
+  }
+
+  .search-input {
+    width: 60%;
+  }
+
+  .search-button {
+
+  }
+
+  .category {
+    width: 25%;
+  }
+
+  .category-active {
+    width: 25%;
+  }
+
+
+
+
   .EventGrid {
     column-count: 3;
     padding: 20px 40px 0px 40px;
@@ -899,9 +918,52 @@ h6 {
 
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 864px) {
+/*styles for notebooks*/
+  
+  /* EventSearch styles */
+  .hero-header {
+    height: 345px;
+    font-size: 1.5em;
+  }
 
-  /*styles for desktop*/
+  .search-card {
+    margin: -20px 80px 0px 80px;
+  }
+
+  .search-input {
+    width: 50%;
+  }
+
+
+
+
+/* ---EVENT SEARCH--- */
+  .EventGrid {
+    column-count: 2;
+  }
+
+  .event-grid-item {
+/*    width: 45%;
+    margin: 10px;*/
+  }
+
+}
+
+@media only screen and (min-width: 992px) {
+/*styles for desktop*/
+
+  /* EventSearch styles */
+  .search-card {
+    margin: -20px 100px 0px 100px;
+  }
+
+  .categories {
+    padding: 0px 80px;
+  }
+
+
+
 
   .EventGrid {
     column-count: 4;
@@ -910,24 +972,6 @@ h6 {
 
   .event-grid-item {
     /*width: 21%;*/
-  }
-
-  .heroHeader {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 345px;
-    border-bottom: 1px solid rgba(216, 216, 216, 0.6);
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: 700;
-    letter-spacing: 2.7px;
-    text-align: center;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    background: #ED6564 url(./images/heroHeader.svg) center no-repeat;
-    background-size: auto 100%;
   }
 
   .heroHeader2 {
@@ -948,31 +992,8 @@ h6 {
     background-size: auto 100%;
   }
 
-  .searchInput{
-    width: 60%;
-  }
-
-  .search-card{
-    padding: 20px;
-    min-width: 280px;
-    margin: 0px 60px;
-    height: auto;
-    border-radius: 4px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
-    margin: -20px 20px 0px 20px;
-    width: 727px;
-  }
-
   .close-menu{
     display: none;
-  }
-
-  .searchButton{
-    width: 20%;
-    position: fixed;
-    bottom:32px;
-    cursor:pointer;
   }
 
   /* ---EVENTS DESKTOP--- */
@@ -1044,8 +1065,18 @@ h6 {
 }
 
 @media only screen and (min-width: 1200px) {
+/*styles for large desktop*/
 
-  /*styles for large desktop*/
+  /* EventSearch styles */
+  .search-card {
+    margin: -20px 180px 0px 180px;
+  }
+
+
+
+
+
+
   .EventGrid {
     padding: 20px 80px 0px 80px;
   }
