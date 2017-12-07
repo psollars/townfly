@@ -177,21 +177,26 @@ class EventSearch extends Component {
 
   handleGeoLocation = () => {
     this.props.loadingToggle();
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 30000,
-      maximumAge: 1800000
-    };
-    navigator.geolocation.getCurrentPosition((pos) => {
-      const lat = pos.coords.latitude;
-      const lon = pos.coords.longitude;
-      this.props.detectLocation(null, lat, lon);
-    }, (err) => {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    }, options);
-    this.setState({
-      invalidSearch: false
-    })
+    if (navigator.geolocation) {
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 30000,
+        maximumAge: 1800000
+      };
+      navigator.geolocation.getCurrentPosition((pos) => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        this.props.detectLocation(null, lat, lon);
+      }, (err) => {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      }, options);
+      this.setState({
+        invalidSearch: false
+      })
+    } else {
+      this.props.loadingToggle();
+      alert("Sorry, Geolocation is not supported on your device. \n Please enter a zip code or city to begin.");
+    }
   };
 
   handleSubmit = (event) => {
