@@ -64,7 +64,7 @@ class Events extends Component {
           null
         }
           { this.state.listView === false ?
-            <EventCards events={this.state.eventsToDisplay}/>
+            <EventCards events={this.state.eventsToDisplay} activeEventIndex={this.state.activeEventIndex} handleChangeIndex={this.handleChangeIndex} nextEvent={this.nextEvent} previousEvent={this.previousEvent}/>
           :
             <EventGrid events={this.state.eventsToDisplay}/>
           }
@@ -76,6 +76,34 @@ class Events extends Component {
     this.setState({
         listView: !this.state.listView
       })
+  };
+
+  nextEvent = () => {
+    if (this.state.activeEventIndex === this.state.eventsToDisplay.length - 1) {
+      return;
+    } else {
+      let newIndex = this.state.activeEventIndex + 1;
+      this.setState({
+        activeEventIndex: newIndex
+      })
+    }
+  }
+
+  previousEvent = () => {
+    if (this.state.activeEventIndex === 0) {
+      return;
+    } else {
+      let newIndex = this.state.activeEventIndex - 1;
+      this.setState({
+        activeEventIndex: newIndex
+      })
+    }
+  }
+
+  handleChangeIndex = (index) => {
+    this.setState({
+      activeEventIndex: index
+    });
   };
 
   eventFilter = (event) => {

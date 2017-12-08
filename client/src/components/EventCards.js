@@ -4,12 +4,6 @@ import SwipeableViews from 'react-swipeable-views';
 import Card from './Card';
 
 class EventCards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeEventIndex: 0,
-    };
-  }
 
   render() {
     /// map through events and displays them on card format
@@ -20,38 +14,16 @@ class EventCards extends Component {
                 active={index + 1}
                 length={this.props.events.length}
               />;
-    })
+    });
     return (
       <div className="EventCards">
           {this.props.events.length > 1 ? <div className="previousEventButton" onClick={this.previousEvent}><i className="fa fa-chevron-left" aria-hidden="true"></i></div> : null}
           {this.props.events.length > 1 ? <div className="nextEventButton" onClick={this.nextEvent}><i className="fa fa-chevron-right" aria-hidden="true"></i></div> : null}
-          <SwipeableViews className="swipeable-views" index={this.state.activeEventIndex} onChangeIndex={this.handleChangeIndex}>
+          <SwipeableViews className="swipeable-views" index={this.props.activeEventIndex} onChangeIndex={this.props.handleChangeIndex}>
             {showEvents}
           </SwipeableViews>
       </div>
     );
-  }
-
-  nextEvent = () => {
-    if (this.state.activeEventIndex === this.props.events.length - 1) {
-      return;
-    } else {
-      let newIndex = this.state.activeEventIndex + 1;
-      this.setState({
-        activeEventIndex: newIndex
-      })
-    }
-  }
-
-  previousEvent = () => {
-    if (this.state.activeEventIndex === 0) {
-      return;
-    } else {
-      let newIndex = this.state.activeEventIndex - 1;
-      this.setState({
-        activeEventIndex: newIndex
-      })
-    }
   }
 
 }
