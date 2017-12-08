@@ -24,8 +24,8 @@ class GridItem extends Component {
         <div className="event-info-container">
           <div className="event-info-card">
             <p className="event-title">{this.props.event.name}</p>
-            <p className="event-date"><Moment format="dddd, MMMM Do, YYYY">{this.props.event.startTime}</Moment></p>
-            <p onClick={this.handleViewMore}>view more</p>
+            <p className="event-date"><Moment format="dddd">{this.props.event.startTime}</Moment> at <Moment format="LT">{this.props.event.startTime}</Moment></p>
+            <p className="view-more" onClick={this.handleViewMore}>view more</p>
           </div>  
         </div>
       </div>
@@ -34,6 +34,7 @@ class GridItem extends Component {
 
   handleViewMore = () => {
     this.props.showEventDetails(this.state.currentKey);
+    window.scrollTo(0,0);
   };
 
 }

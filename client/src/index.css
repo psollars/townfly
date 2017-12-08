@@ -508,6 +508,11 @@ h6 {
   margin: 0px;
 }
 
+.view-more {
+  text-align: center;
+  color: #ED6564;
+}
+
 .event-sharing {
   display: flex;
 }
@@ -875,7 +880,9 @@ h6 {
 .closeCardModal{
   display: flex;
   justify-content: center;
-
+  position: absolute;
+  top: -24px;
+  left: -24px;
 }
 
 .circle-close{
@@ -888,6 +895,7 @@ h6 {
   align-items: center;
   color:#ED6564;
   margin-bottom: 20px;
+  box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
 .CardModal img{
@@ -947,6 +955,12 @@ h6 {
   }
 }
 
+@media only screen and (min-width: 628px) {
+  .EventGrid {
+    column-count: 2;
+  }
+}
+
 @media only screen and (min-width: 768px) {
 /*styles for tablet*/
 
@@ -976,12 +990,6 @@ h6 {
     width: 14%;
   }
 
-
-  .EventGrid {
-    column-count: 3;
-    padding: 20px 40px 0px 40px;
-  }
-
   .event-grid-item {
    /* width: 30%;*/
   }
@@ -997,6 +1005,11 @@ h6 {
     font-size: 1.5em;
   }
 
+  .EventGrid {
+    column-count: 3;
+    padding: 20px 40px 0px 40px;
+  }
+
   .search-card {
     margin: -20px 80px 0px 80px;
   }
@@ -1005,13 +1018,7 @@ h6 {
     width: 50%;
   }
 
-
-
-
 /* ---EVENT SEARCH--- */
-  .EventGrid {
-    column-count: 2;
-  }
 
   .event-grid-item {
 /*    width: 45%;
@@ -1032,11 +1039,8 @@ h6 {
     padding: 0px 80px;
   }
 
-
-
-
   .EventGrid {
-    column-count: 4;
+    column-count: 3;
     padding: 20px 80px 0px 80px;
   }
 
@@ -1114,12 +1118,8 @@ h6 {
     margin: -20px 180px 0px 180px;
   }
 
-
-
-
-
-
   .EventGrid {
+    column-count: 4;
     padding: 20px 80px 0px 80px;
   }
 
