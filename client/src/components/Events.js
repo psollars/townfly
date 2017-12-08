@@ -37,7 +37,7 @@ class Events extends Component {
     return (
       <div>
         <HeroHeader />
-        <div className ="search-controls">
+        <div className="header-bar-container">
           <div className="header-bar">
             <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
             <p>TOWNFLY</p>

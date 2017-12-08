@@ -27,22 +27,6 @@ body {
   min-width: 320px;
 }
 
-.header-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-  color: #ed6564;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-align: center;
-  color: #ed6564;
-  text-transform: uppercase;
-  height:60px;
-  margin:10px 20px;
-}
-
 .divider {
   width: 100%;
   border: 1px solid #F5F5F5;
@@ -65,9 +49,8 @@ body {
   font-weight: 500;
   letter-spacing: 2.3px;
   color: #585858;
-  margin:20px;
+  margin: 20px;
 }
-
 
 input:focus {
   outline: none;
@@ -325,6 +308,25 @@ h6 {
   /* Styles associated with Events container */
 }
 
+.header-bar-container {
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: -20px auto 0px auto;
+  color: #ED6564;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0px 20px;
+}
+
 .backToSearch {
   cursor:pointer;
 }
@@ -427,18 +429,6 @@ h6 {
   color: #ED6564;
 }
 
-/*.stringSearchBG button{
-  position: absolute;
-  right:20px;
-  top:82px;
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 2.7px;
-  text-align: right;
-  color: #ED6564;
-  text-transform: capitalize;
-}*/
-
 /**********************/
 /* EventDetail styles */
 /**********************/
@@ -492,7 +482,7 @@ h6 {
   margin: 0px 0px 10px 0px;
 }
 
-.event-date{
+.event-date {
   font-size: 1em;
 	font-weight: 900;
 	line-height: 1.0;
@@ -735,18 +725,28 @@ h6 {
 
 .previousEventButton, .nextEventButton {
   z-index: 100;
-  position: absolute;
-  top: 320px;
-  display: flex;
+  position: fixed;
+  top: 294px;
+  display: none;
   align-items: center;
-  color: lightGray;
-  font-size: 4em;
-  height: 400px;
-  width: 60px;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
+  justify-content: center;
+  font-size: 2em;
+  height: 63vh;
+  width: 40px;
+  padding: 0px 10px;
+  color: #ED6564;
+}
+
+.previousEventButton {
+  left: 0;
+}
+
+.nextEventButton {
+  right: 0;
+}
+
+.prev-next-controls{
+  display: none;
 }
 
 .event-index {
@@ -836,45 +836,9 @@ h6 {
   height: 16px;
 }
 
-/* Sloth's Styles for new nest and previous buttons for swiping cards */
-
-.previousEventButton, .nextEventButton {
-  z-index: 100;
-  position: absolute;
-  top: 320px;
-  display: flex;
-  align-items: center;
-  color: lightGray;
-  font-size: 2em;
-  height: 400px;
-  width: 40px;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  color: #ED6564;
-
-}
-
-.prev-next-controls{
-  display: none;
-}
-
-.previousEventButton  {
-  left: 0;
-  justify-content: flex-start;
-}
-
-.nextEventButton {
-  right: 0;
-  justify-content: flex-end;
-}
-
-
 /**********************/
 /* MODAL STYLES */
 /**********************/
-
 .modal-bg{
   background-color: rgba(88, 88, 88, 0.6);
   height: 100vh;
@@ -901,7 +865,6 @@ h6 {
 }
 
 .cardModalWrapper{
-
   justify-content: center;
   align-items: center;
   width:100%;
@@ -941,23 +904,15 @@ h6 {
 }
 
 .CardModal .event-card{
-  width:100%;
-  max-width:727px;
+  width: 100%;
+  max-width: 727px;
   margin: 0 auto;
 }
 
 .CardModal .event-info-card{
   margin: 0;
-  width:100%;
+  width: 100%;
 }
-
-/* <div className="event-image-container">
-          <div className="event-image-wrapper">
-            <img className="event-image" src={this.props.event.coverPicture}/>
-          </div>
-        </div> */
-
-
 
 /**********************/
 /* media query styles */
@@ -983,9 +938,9 @@ h6 {
     width: 33%;
   }
 
-
-
-
+  .previousEventButton, .nextEventButton {
+    display: flex;
+  }
 
   .prev-next-controls{
     display: block;
@@ -1017,7 +972,9 @@ h6 {
     width: 25%;
   }
 
-
+  .previousEventButton, .nextEventButton {
+    width: 14%;
+  }
 
 
   .EventGrid {
@@ -1092,16 +1049,6 @@ h6 {
   }
 
   /* ---EVENTS DESKTOP--- */
-
-  .search-controls{
-    margin: -30px auto 0px auto;
-    width: 75%;
-    min-width: 280px;
-    height: auto;
-    border-radius: 4px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
-  }
     
   .eventImage{
     margin: 0px auto;
