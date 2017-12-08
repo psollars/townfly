@@ -6,7 +6,7 @@ require('dotenv').config();
 
 app.use(express.static('client/build'));
 
-// geocoder
+// geocoder configuration settings
 const NodeGeocoder = require('node-geocoder');
 const locationOptions = {
   provider: 'google',
@@ -14,11 +14,12 @@ const locationOptions = {
   apiKey: process.env.GOOGLE_API_KEY,
   formatter: null
 };
+
 const geocoder = NodeGeocoder(locationOptions);
 
 app.get("/api/geolocate/", (req, res) => {
   if (req.query.lat && req.query.lon) {
-    geocoder.reverse({
+    geocoder.reverse({ // Reverse brings back the lat & lon
       lat:req.query.lat,
       lon:req.query.lon
     }).then(function(geoResponse) {
@@ -29,6 +30,7 @@ app.get("/api/geolocate/", (req, res) => {
   } else {
     geocoder.geocode(
       req.query.text
+      // using Promise
     ).then(function(geoResponse) {
       res.send(geoResponse[0]);
     }).catch(function (error) {

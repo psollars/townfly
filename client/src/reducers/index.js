@@ -33,10 +33,11 @@ export default function(state = INITIAL_STATE, action) {
       });
     case "REQUEST_EVENTS":
       return Object.assign({}, state, {
-        loading: true
+        loading: true 
       });
     case "RECEIVE_EVENTS":
       return filterEvents(state, action.events);
+      
     case "RETURN_SEARCH":
       return Object.assign({}, state, {
        initialSearch: true
@@ -56,7 +57,7 @@ export default function(state = INITIAL_STATE, action) {
       return state;
   }
 }
-
+// makes sure there are no duplicates
 function filterEvents(state, events) {
   const receivedEvents = events;
   const eventIdentifiers = [];
@@ -74,6 +75,7 @@ function filterEvents(state, events) {
   });
 }
 
+// running a forEach to figure out which event details to show
 function showEventDetails(state, id) {
   let events = state.events;
   let eventId = id;

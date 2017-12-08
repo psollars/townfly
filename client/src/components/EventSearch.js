@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HeroHeader from './HeroHeader';
 import { connect } from 'react-redux';
 import { fetchEvents, loadingToggle, detectLocation, clearLocation, setSearchParams } from '../actions';
 import moment from 'moment';
@@ -20,12 +21,10 @@ class EventSearch extends Component {
   render() {
     return (
       <div className="EventSearch">
-        <div className="hero-header">
-          <h1>Explore. Experience. TownFly.</h1>
-        </div>
+        <HeroHeader />
           <div className="search-card-container"> 
             <div className="search-card">
-              <label className="label">PLEASE ENTER A LOCATION TO BEGIN</label>
+              <p className="instruction">Please enter a location to begin:</p>
               <div className="location-params">
                 <input className="search-input" type="text" placeholder="zip code or city" value={ _.isEmpty(this.props.location) ? this.state.displayLocation : `${this.props.location.city}, ${this.props.location.administrativeLevels.level1short}`} onChange={this.handleTextLocation} onClick={this.handleClearLocation} />
                 <div>
