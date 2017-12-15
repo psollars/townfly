@@ -44,10 +44,10 @@ class Card extends Component {
               </div>
             </div>
             <p className="event-venue">{this.props.event.venue.name}</p>
-            <a className="event-location" href={`https://www.google.com/maps/search/?api=1&query=${encodeURI(fullAddress)}`} target="_blank" rel="nofollow">
-              <p>{fullAddress}</p>
+            <p><a className="event-location" href={`https://www.google.com/maps/search/?api=1&query=${encodeURI(fullAddress)}`} target="_blank" rel="nofollow">
+              {fullAddress}
               <i className="fa fa-external-link" aria-hidden="true"></i>
-            </a>
+            </a></p>
             <p className={this.state.expanded ? `event-description expanded` : `event-description` }>{this.props.event.description}</p>
             {this.state.expanded ? 
             <div className="event-expanded-container">

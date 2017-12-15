@@ -352,7 +352,7 @@ input:focus {
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 0px 20px;
+  padding: 20px;
 }
 
 .backToSearch {
@@ -363,7 +363,7 @@ input:focus {
   cursor: pointer;
 }
 
-.noEventsFound {
+.no-events-found {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -371,6 +371,7 @@ input:focus {
   justify-content: center;
   background-size: auto 100%;
   margin: 0 auto 100px auto;
+  padding-top: 10px;
 }
 
 .empty-illustration {
@@ -379,21 +380,20 @@ input:focus {
   height: 229px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
-  
+  margin-bottom: 20px;
 }
 
-.noEventsFound p {
+.no-events-found p {
   text-align: center;
   font-size: 1em;
-  font-weight: 300;
+  font-weight: 900;
   letter-spacing: 1px;
   text-align: center;
-  margin: 20px 20px;
+  margin-bottom: 20px;
   color: #585858;
 }
 
-.backToSearchButton{
+.back-to-search-button {
   display: flex;
   width: 237px;
   height: 50px;
@@ -507,7 +507,7 @@ input:focus {
   letter-spacing: 2px;
   text-align: center;
   color: rgba(42, 42, 42, 0.9);
-  margin: 0px 0px 10px 0px;
+  margin-bottom: 10px;
 }
 
 .event-date {
@@ -518,22 +518,19 @@ input:focus {
 	text-align: center;
   color: rgba(88, 88, 88, 0.45);
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .event-time {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 10px 0px;
   font-size: 1.1em;
   font-weight: 600;
   line-height: auto;
   letter-spacing: 1.7px;
   color: #686868;
-}
-
-.event-time p {
-  margin: 0px;
+  margin-bottom: 10px;
 }
 
 .view-more {
@@ -555,6 +552,7 @@ input:focus {
 
 .react-add-to-calendar {
   position: relative;
+  cursor: pointer;
 }
 
 .react-add-to-calendar__dropdown {
@@ -588,10 +586,9 @@ input:focus {
 }
 
 .event-venue {
-  margin: 0px;
+  margin-bottom: 3px;
   font-size: .9em;
   font-weight: 600;
-  padding: 20px 0px 0px 0px;
 }
 
 .event-location {
@@ -599,15 +596,12 @@ input:focus {
   justify-content: space-between;
   align-items: baseline;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   line-height: 1.5;
   letter-spacing: 1px;
   color: #4a90e2;
-}
-
-.event-location p {
-  /* Styles associated with event location */
+  margin-bottom: 10px;
 }
 
 .event-description {
@@ -620,6 +614,7 @@ input:focus {
   white-space: pre-line;
   text-overflow: ellipsis;
   height: 72px;
+  margin-bottom: 10px;
 }
 
 .event-description.expanded {
@@ -636,15 +631,7 @@ input:focus {
 }
 
 .view-toggle p {
-  margin: 0px;
-}
-
-.event-expanded-container {
-
-}
-
-.event-map-container {
-
+  cursor: pointer;
 }
 
 .event-map {
@@ -687,6 +674,7 @@ input:focus {
   letter-spacing: 2px;
   text-align: center;
   color: #686868;
+  padding: 20px;
 }
 
 .EventGrid {
