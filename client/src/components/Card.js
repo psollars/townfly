@@ -25,7 +25,7 @@ class Card extends Component {
     const fullAddress = `${this.props.event.place.location.street}, ${this.props.event.place.location.city}, ${this.props.event.place.location.state} ${this.props.event.place.location.zip}`;
     const directionParams = `origin=${this.props.location.formattedAddress}&destination=${fullAddress}`;
     return (
-      <div className="event-card" id= {this.props.key} >
+      <div className="event-card" id={this.props.key} >
         <div className="event-image-container">
           <div className="event-image-wrapper">
             <img className="event-image" src={this.props.event.coverPicture}/>
@@ -39,15 +39,15 @@ class Card extends Component {
             <div className="event-time">
               <p><Moment format="LT">{this.props.event.startTime}</Moment>{this.props.event.endTime === null ? null : <span> - <Moment format="LT">{this.props.event.endTime}</Moment></span> }</p>
               <div className="event-sharing">  
-                <a href={`https://www.facebook.com/events/${this.props.event.id}`} target="_blank" rel="nofollow"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a className="facebook-link" href={`https://www.facebook.com/events/${this.props.event.id}`} target="_blank" rel="nofollow"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
                 <AddToCalendar event={this.state.calendarEvent} buttonLabel="" buttonTemplate={{"calendar" : "left"}} displayItemIcons={false} listItems={[ { google: 'Google' }, { apple: 'Apple Calendar' }, { outlook: 'Outlook' }, { outlookcom: 'Outlook.com' }, { yahoo: 'Yahoo' } ]} />              
               </div>
             </div>
             <p className="event-venue">{this.props.event.venue.name}</p>
-            <a className="event-location" href={`https://www.google.com/maps/search/?api=1&query=${encodeURI(fullAddress)}`} target="_blank" rel="nofollow">
-              <p>{fullAddress}</p>
+            <p><a className="event-location" href={`https://www.google.com/maps/search/?api=1&query=${encodeURI(fullAddress)}`} target="_blank" rel="nofollow">
+              {fullAddress}
               <i className="fa fa-external-link" aria-hidden="true"></i>
-            </a>
+            </a></p>
             <p className={this.state.expanded ? `event-description expanded` : `event-description` }>{this.props.event.description}</p>
             {this.state.expanded ? 
             <div className="event-expanded-container">

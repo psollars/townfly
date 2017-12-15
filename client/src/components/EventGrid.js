@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SwipeableViews from 'react-swipeable-views';
 import GridItem from './GridItem';
 import CardModal from './CardModal';
 

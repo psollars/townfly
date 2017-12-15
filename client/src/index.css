@@ -1,6 +1,6 @@
 /********************/
 /* App Color Scheme */
-/*********************
+/********************
 
 #ED6564 coral
 #01C69F green
@@ -12,24 +12,49 @@
 #686868 dark gray
 rgba(148, 148, 148, 0.25) box shadow
 
-*********************/
+********************/
+
+/****************/
+/* Breakpoints  */
+/****************
+
+Minimum app width: 320px
+Mobile width: 480px min
+Tablet width: 768px min
+Notebook width: 864px min
+Notebook width: 992px min
+
+****************/
 
 /*****************/
 /* Global styles */
 /*****************/
+
+@font-face {
+ font-family: Avenir;
+ src: url("./fonts/AvenirLTStd-Roman.otf");
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
+input, button, p, div {
+  box-sizing: border-box; /* Ensures padding is not included for width calculations */
+  margin: 0; /* Kill default values defined by the browser */
+  padding: 0; /* Kill default values defined by the browser */
+}
+
 .App {
-  min-width: 320px;
+  min-width: 320px; /* Minimum width of app */
 }
 
 .divider {
   width: 100%;
   border: 1px solid #F5F5F5;
+  margin-bottom: 20px;
 }
 
 .label {
@@ -39,7 +64,7 @@ body {
   font-weight: 900;
   letter-spacing: 2.3px;
   color: #9A9A9A;
-  margin:20px;
+  margin-bottom: 20px;
 }
 
 .instruction {
@@ -49,25 +74,17 @@ body {
   font-weight: 500;
   letter-spacing: 2.3px;
   color: #585858;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 input:focus {
   outline: none;
 }
 
-h6 {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.29;
-  letter-spacing: 2px;
-  text-align: center;
-  margin:0;
-}
-
 /*********************/
 /* HeroHeader styles */
 /*********************/
+
 .hero-header {
   display: flex;
   align-items: center;
@@ -80,9 +97,9 @@ h6 {
 }
 
 .hero-header h1 {
-  margin: 0px;
+  margin: 0;
   text-align: center;
-  color: white;
+  color: #FFFFFF;
   font-size: 2em;
   font-weight: 700;
   letter-spacing: 2.7px;
@@ -91,6 +108,7 @@ h6 {
 /**********************/
 /* EventSearch styles */
 /**********************/
+
 .EventSearch {
   display: flex;
   flex-wrap: wrap;
@@ -108,11 +126,12 @@ h6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;  
+  text-align: center;
+  padding-top: 20px;
   margin: -20px auto 0px auto;
   min-width: 320px;  
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
@@ -140,8 +159,8 @@ h6 {
 .detect-location {
   display: flex;
   justify-content: center;
-  cursor: pointer;
-  margin: 20px auto;
+  cursor: default;
+  margin: 0px auto 20px auto;
   font-weight: 600;
   font-size: 1em;
   letter-spacing: 2px;
@@ -154,6 +173,7 @@ h6 {
 
 .error-message {
   position: relative;
+  width: 95%;
   text-align: center;
   background-color: #F5F1FD;
   border: 1px solid #9F71E7;
@@ -161,7 +181,7 @@ h6 {
   padding: 10px;
   letter-spacing: 2px;
   font-weight: 300;
-  margin: 0px 40px 20px 40px;
+  margin: 0px auto 20px auto;
   border-radius: 5px;
   font-size: .8em;
 }
@@ -197,10 +217,11 @@ h6 {
   border: 1px solid #ED6564;
   border-radius: 20px;
   letter-spacing: 2.7px;
+  cursor: default;
 }
 
 .active {
-  color: #fff;
+  color: #FFFFFF;
   background-color: #ED6564;
   font-weight: 600;
   flex-direction: column;
@@ -212,7 +233,6 @@ h6 {
   justify-content: center;
   margin: 0px auto 20px auto;
   padding: 0px 20px;
-  font-size: 10px;
 }
 
 .category {
@@ -223,7 +243,7 @@ h6 {
   width: 45%;
   height: 120px;
   word-wrap: break-word;
-  color: #9A9A9A;;
+  color: #9A9A9A;
 }
 
 .circle {
@@ -235,6 +255,7 @@ h6 {
   height: 50px;
   width: 50px;
   border-radius: 100%;
+  margin-bottom: 10px;
 }
 
 .category i {
@@ -261,10 +282,10 @@ h6 {
 }
 
 .category-title {
-  font-size: .75rem;
+  font-size: .75em;
   font-weight: 600;
   letter-spacing: 2px;
-  margin: 10px 0px 0px 0px;
+  margin: 0;
 }
 
 .button-container {
@@ -282,7 +303,7 @@ h6 {
 }
 
 .button-wrapper {
-
+  /* Wraps the Search Events button */
 }
 
 .search-button {
@@ -290,27 +311,19 @@ h6 {
   font-weight: 600;
   letter-spacing: 2px;
   text-align: center;
-  color: white;
+  color: #FFFFFF;
   background-color: #01C69F;
   border-radius: 100px;
-  cursor:pointer;
-}
-
-
-.searchInput::placeholder {
-  opacity: .25;
+  cursor: default;
 }
 
 /*****************/
 /* Events styles */
 /*****************/
-.Events {
-  /* Styles associated with Events container */
-}
 
 .header-bar-container {
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
@@ -324,81 +337,86 @@ h6 {
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 0px 20px;
+  padding: 20px;
 }
 
-.backToSearch {
-  cursor:pointer;
+.back-to-search, .event-style-toggle {
+  cursor: default;
 }
 
-.viewToggle {
-  cursor:pointer;
-}
-
-.noEventsFound{
+.no-events-found {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
   background-size: auto 100%;
-  margin:40px auto 100px auto;
+  margin: 0 auto 100px auto;
+  padding-top: 20px;
 }
 
-.empty-illustration{
-  background: #fff url(./images/empty_state.svg) center no-repeat;
-  width:209px;
+.empty-illustration {
+  background: #FFFFFF url(./images/empty_state.svg) center no-repeat;
+  width: 209px;
   height: 229px;
   align-items: center;
   justify-content: center;
-  margin-bottom:40px;
-  
+  margin-bottom: 20px;
 }
 
-.noEventsFound p{
+.no-events-found p {
   text-align: center;
   font-size: 1em;
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
-  margin:20px 20px;
-  color:#585858;
+  margin-bottom: 20px;
+  color: #585858;
 }
 
-.backToSearchButton{
+.no-events-found-header {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0;
+}
+
+.back-to-search-button {
   display: flex;
   width: 237px;
   height: 50px;
   position: fixed;
-  bottom:24px;
+  bottom: 24px;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
   justify-content: center;
   align-items: center;
-  color:white;
+  color: #FFFFFF;
   background-color: #9F71E7;
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
   border-radius: 100px;
   border: none;
-  cursor:pointer;
+  cursor: default;
 }
 
 .string-search-background {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:0;
-  width:100%;
-  height:60px;
+  margin: 0;
+  width: 100%;
+  height: 60px;
   background: #F1F1F1;
 }
 
 .string-search-container {
   position: relative;
   width: 90%;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   border: 1px solid #E7E7E7;
   border-radius: 5px;
@@ -432,12 +450,9 @@ h6 {
 /**********************/
 /* EventDetail styles */
 /**********************/
+
 .event-card {
   width: 100%;
-}
-
-.event-grid-item {
-
 }
 
 .event-image-container {
@@ -465,11 +480,11 @@ h6 {
 
 .event-info-card {
   padding: 20px;
-  min-width: 280px;
-  margin: 0px 60px;
+  min-width: 320px;
+  margin: 0 60px;
   height: auto;
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
@@ -479,7 +494,7 @@ h6 {
   letter-spacing: 2px;
   text-align: center;
   color: rgba(42, 42, 42, 0.9);
-  margin: 0px 0px 10px 0px;
+  margin-bottom: 10px;
 }
 
 .event-date {
@@ -490,22 +505,19 @@ h6 {
 	text-align: center;
   color: rgba(88, 88, 88, 0.45);
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .event-time {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 10px 0px;
   font-size: 1.1em;
   font-weight: 600;
   line-height: auto;
   letter-spacing: 1.7px;
   color: #686868;
-}
-
-.event-time p {
-  margin: 0px;
+  margin-bottom: 10px;
 }
 
 .view-more {
@@ -527,6 +539,7 @@ h6 {
 
 .react-add-to-calendar {
   position: relative;
+  cursor: default;
 }
 
 .react-add-to-calendar__dropdown {
@@ -536,7 +549,7 @@ h6 {
   font-size: .8em;
   font-weight: 300;
   /*width: 165px;*/
-  background-color: #efefef;
+  background-color: #EFEFEF;
   border-radius: 5px;
 }
 
@@ -560,10 +573,9 @@ h6 {
 }
 
 .event-venue {
-  margin: 0px;
+  margin-bottom: 3px;
   font-size: .9em;
   font-weight: 600;
-  padding: 20px 0px 0px 0px;
 }
 
 .event-location {
@@ -571,15 +583,12 @@ h6 {
   justify-content: space-between;
   align-items: baseline;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   line-height: 1.5;
   letter-spacing: 1px;
   color: #4a90e2;
-}
-
-.event-location p {
-  /* Styles associated with event location */
+  margin-bottom: 10px;
 }
 
 .event-description {
@@ -592,6 +601,7 @@ h6 {
   white-space: pre-line;
   text-overflow: ellipsis;
   height: 72px;
+  margin-bottom: 10px;
 }
 
 .event-description.expanded {
@@ -599,24 +609,17 @@ h6 {
   height: auto;
 }
 
-.viewToggle {
-  cursor:pointer;
-}
-
-.view-toggle div {
+.view-toggle {
   text-align: center;
+  color: #ED6564;
 }
 
-.view-toggle p {
-  margin: 0px;
+.view-toggle:hover {
+  cursor: default;
 }
 
-.event-expanded-container {
-
-}
-
-.event-map-container {
-
+.facebook-link:hover {
+  color: #01C69F;
 }
 
 .event-map {
@@ -659,6 +662,7 @@ h6 {
   letter-spacing: 2px;
   text-align: center;
   color: #686868;
+  padding: 20px;
 }
 
 .EventGrid {
@@ -667,13 +671,21 @@ h6 {
   padding: 10px 20px 0px 20px;
 }
 
-.event-grid-item {
+.event-grid-item-container {
   page-break-inside: avoid;
   -webkit-column-break-inside: avoid;
   break-inside: avoid;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
+  overflow: visible;
+}
+
+.event-grid-item {
   border-radius: 5px;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+}
+
+.event-grid-item:hover {
+  cursor: default;
 }
 
 .hide-event-extra-details .event-time, .hide-event-extra-details .event-venue, .hide-event-extra-details .event-location, .hide-event-extra-details .event-description, .hide-event-extra-details .event-item-index {
@@ -696,10 +708,6 @@ h6 {
   box-shadow: none;
 }
 
-.event-grid-item .event-image {
-
-}
-
 .event-grid-item .event-info-container {
   margin: 0px;
 }
@@ -716,53 +724,34 @@ h6 {
 /* Controls styles */
 /*******************/
 
-/* Sloth's Styles for new nest and previous buttons for swiping cards */
-.Controls {
-  z-index: 100;
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  height: 500px;
-}
-
-.previousEventButton, .nextEventButton {
+.previous-event-button, .next-event-button {
   z-index: 100;
   position: fixed;
-  top: 294px;
-  display: none;
+  top: 350px;
+  display: none; /* Controls are invisible by default at 320px; appear at 480px */
   align-items: center;
   justify-content: center;
   font-size: 2em;
-  height: 63vh;
+  height: 60vh;
   width: 40px;
   padding: 0px 10px;
   color: #ED6564;
+  cursor: default;
+  background: transparent;
 }
 
-.previousEventButton {
+.previous-event-button {
   left: 0;
 }
 
-.nextEventButton {
+.next-event-button {
   right: 0;
-}
-
-.prev-next-controls{
-  display: none;
-}
-
-.event-index {
-  font-weight: 400;
-  margin:24px auto;
-  color: #585858;
 }
 
 /*****************/
 /* Loader styles */
 /*****************/
+
 @keyframes seq-preloader {
   50% {
     opacity: 1;
@@ -844,6 +833,7 @@ h6 {
 /**********************/
 /* MODAL STYLES */
 /**********************/
+
 .modal-bg{
   background-color: rgba(88, 88, 88, 0.6);
   height: 100vh;
@@ -858,55 +848,55 @@ h6 {
 .CardModal{
   display: flex;
   justify-content: center;
-  top:10%; 
-  left:10vw;
-  right:10vw; 
+  top: 10%; 
+  left: 10vw;
+  right: 10vw; 
   position: absolute;
   z-index: 9999;
-  margin:0;
-  -webkit-transition: opacity 400ms ease-in;
+  margin: 0;
+ /* -webkit-transition: opacity 400ms ease-in;
 	-moz-transition: opacity 400ms ease-in;
-	transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;*/
 }
 
-.cardModalWrapper{
+.card-modal-wrapper {
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   max-width: 727px;
-  
 }
 
-.closeCardModal{
+.close-card-modal {
   display: flex;
   justify-content: center;
   position: absolute;
+  width: 100%;
+  max-width: 727px;
   top: -24px;
-  left: -24px;
 }
 
-.circle-close{
+.circle-close {
   display: flex;
-  background-color: #fff;
-  width:48px;
-  height:48px;
+  background-color: #FFFFFF;
+  width: 48px;
+  height: 48px;
   border-radius: 40px;
   justify-content: center;
   align-items: center;
-  color:#ED6564;
+  color: #ED6564;
   margin-bottom: 20px;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
-.CardModal img{
+.CardModal img {
   border-radius: 4px;
   /* width:100%;*/
 }
 
 .CardModal .event-image-wrapper{
   box-shadow: none;
-  width:100%;
-  max-width:727px;
+  width: 100%;
+  max-width: 727px;
   justify-content: center;
   text-align: center;
 }
@@ -927,10 +917,9 @@ h6 {
 /**********************/
 
 @media only screen and (min-width: 480px) {
-/*styles for mobile*/
+/* Styles for mobile */
 
-  /* EventSearch styles */
-  .search-input {
+  .search-input, .error-message {
     width: 70%;
   }
 
@@ -946,13 +935,10 @@ h6 {
     width: 33%;
   }
 
-  .previousEventButton, .nextEventButton {
+  .previous-event-button, .next-event-button {
     display: flex;
   }
 
-  .prev-next-controls{
-    display: block;
-  }
 }
 
 @media only screen and (min-width: 628px) {
@@ -962,15 +948,14 @@ h6 {
 }
 
 @media only screen and (min-width: 768px) {
-/*styles for tablet*/
+/* Styles for Tablet */
 
-  /* EventSearch styles */
   .search-card {
     padding: 20px;
     margin: -20px 20px 0px 20px;
   }
 
-  .search-input {
+  .search-input, .error-message {
     width: 60%;
   }
 
@@ -986,20 +971,11 @@ h6 {
     width: 25%;
   }
 
-  .previousEventButton, .nextEventButton {
-    width: 14%;
-  }
-
-  .event-grid-item {
-   /* width: 30%;*/
-  }
-
 }
 
 @media only screen and (min-width: 864px) {
-/*styles for notebooks*/
+/* Styles for Notebooks */
   
-  /* EventSearch styles */
   .hero-header {
     height: 345px;
     font-size: 1.5em;
@@ -1014,23 +990,19 @@ h6 {
     margin: -20px 80px 0px 80px;
   }
 
-  .search-input {
+  .search-input, .error-message {
     width: 50%;
   }
 
-/* ---EVENT SEARCH--- */
-
-  .event-grid-item {
-/*    width: 45%;
-    margin: 10px;*/
+  .previous-event-button, .next-event-button {
+    top: 294px;
   }
 
 }
 
 @media only screen and (min-width: 992px) {
-/*styles for desktop*/
+/* Styles for Desktop */
 
-  /* EventSearch styles */
   .search-card {
     margin: -20px 100px 0px 100px;
   }
@@ -1044,15 +1016,9 @@ h6 {
     padding: 20px 80px 0px 80px;
   }
 
-  .event-grid-item {
-    /*width: 21%;*/
-  }
-
   .close-menu{
     display: none;
   }
-
-  /* ---EVENTS DESKTOP--- */
     
   .eventImage{
     margin: 0px auto;
@@ -1080,40 +1046,12 @@ h6 {
     background-color: #ffffff;
     box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
   }
-  
-  .previousEventButton, .nextEventButton {
-    z-index: 100;
-    position: absolute;
-    top: 400px;
-    display: flex;
-    align-items: center;
-    color: lightGray;
-    font-size: 2em;
-    height: 400px;
-    width: 40px;
-    border: 0;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    color: #ED6564;
-  }
-  
-  .previousEventButton {
-    left: 5%;
-    justify-content: flex-start;
-  }
-  
-  .nextEventButton {
-    right: 5%;
-    justify-content: flex-end;
-  }
 
 }
 
 @media only screen and (min-width: 1200px) {
-/*styles for large desktop*/
+/* Styles for Large Desktop */
 
-  /* EventSearch styles */
   .search-card {
     margin: -20px 180px 0px 180px;
   }
@@ -1121,10 +1059,6 @@ h6 {
   .EventGrid {
     column-count: 4;
     padding: 20px 80px 0px 80px;
-  }
-
-  .event-grid-item {
-/*    width: 21%;*/
   }
 
 }

@@ -39,9 +39,9 @@ class Events extends Component {
         <HeroHeader />
         <div className="header-bar-container">
           <div className="header-bar">
-            <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
+            <div className="back-to-search" onClick={this.props.returnToSearch}>Back</div> 
             <p>TOWNFLY</p>
-            <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
+            <div className="event-style-toggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
           </div>
           <div className="Events">
             <div className="string-search-background">
@@ -54,11 +54,11 @@ class Events extends Component {
           </div>
         </div>
         { this.state.eventsToDisplay.length <= 0 ?
-          <div className="noEventsFound">
+          <div className="no-events-found">
             <div className="empty-illustration"></div>
-            <h6>No events found!</h6>
+            <p className="no-events-found-header">No events found!</p>
             <p>Please double check your spelling or verify your location.</p>
-            <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
+            <div className="back-to-search-button" onClick={this.props.returnToSearch}>search again</div>
           </div> 
         : 
           null

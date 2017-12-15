@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
 import Card from './Card';
 
@@ -17,8 +16,8 @@ class EventCards extends Component {
     });
     return (
       <div className="EventCards">
-          {this.props.events.length > 1 ? <div className="previousEventButton" onClick={this.props.previousEvent}><i className="fa fa-chevron-left" aria-hidden="true"></i></div> : null}
-          {this.props.events.length > 1 ? <div className="nextEventButton" onClick={this.props.nextEvent}><i className="fa fa-chevron-right" aria-hidden="true"></i></div> : null}
+          {this.props.events.length > 1 ? <div className="previous-event-button" onClick={this.props.previousEvent}><i className="fa fa-chevron-left" aria-hidden="true"></i></div> : null}
+          {this.props.events.length > 1 ? <div className="next-event-button" onClick={this.props.nextEvent}><i className="fa fa-chevron-right" aria-hidden="true"></i></div> : null}
           <SwipeableViews className="swipeable-views" index={this.props.activeEventIndex} onChangeIndex={this.props.handleChangeIndex}>
             {showEvents}
           </SwipeableViews>
