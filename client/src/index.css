@@ -480,8 +480,8 @@ input:focus {
 
 .event-info-card {
   padding: 20px;
-  min-width: 280px;
-  margin: 0px 60px;
+  min-width: 320px;
+  margin: 0 60px;
   height: auto;
   border-radius: 4px;
   background-color: #FFFFFF;
@@ -618,6 +618,10 @@ input:focus {
   cursor: default;
 }
 
+.facebook-link:hover {
+  color: #01C69F;
+}
+
 .event-map {
   position: relative;
   height: 480px;
@@ -720,30 +724,20 @@ input:focus {
 /* Controls styles */
 /*******************/
 
-.Controls {
-  z-index: 100;
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  height: 500px;
-}
-
 .previousEventButton, .nextEventButton {
   z-index: 100;
   position: fixed;
-  top: 294px;
-  display: none;
+  top: 350px;
+  display: none; /* Controls are invisible by default at 320px; appear at 480px */
   align-items: center;
   justify-content: center;
   font-size: 2em;
-  height: 63vh;
+  height: 60vh;
   width: 40px;
   padding: 0px 10px;
   color: #ED6564;
   cursor: default;
+  background: transparent;
 }
 
 .previousEventButton {
@@ -752,16 +746,6 @@ input:focus {
 
 .nextEventButton {
   right: 0;
-}
-
-.prev-next-controls{
-  display: none;
-}
-
-.event-index {
-  font-weight: 400;
-  margin:24px auto;
-  color: #585858;
 }
 
 /*****************/
@@ -870,9 +854,9 @@ input:focus {
   position: absolute;
   z-index: 9999;
   margin: 0;
-  -webkit-transition: opacity 400ms ease-in;
+ /* -webkit-transition: opacity 400ms ease-in;
 	-moz-transition: opacity 400ms ease-in;
-	transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;*/
 }
 
 .cardModalWrapper{
@@ -893,18 +877,18 @@ input:focus {
 
 .circle-close {
   display: flex;
-  background-color: #fff;
-  width:48px;
-  height:48px;
+  background-color: #FFFFFF;
+  width: 48px;
+  height: 48px;
   border-radius: 40px;
   justify-content: center;
   align-items: center;
-  color:#ED6564;
+  color: #ED6564;
   margin-bottom: 20px;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
-.CardModal img{
+.CardModal img {
   border-radius: 4px;
   /* width:100%;*/
 }
@@ -933,9 +917,8 @@ input:focus {
 /**********************/
 
 @media only screen and (min-width: 480px) {
-/*styles for mobile*/
+/* Styles for mobile */
 
-  /* EventSearch styles */
   .search-input, .error-message {
     width: 70%;
   }
@@ -956,9 +939,6 @@ input:focus {
     display: flex;
   }
 
-  .prev-next-controls{
-    display: block;
-  }
 }
 
 @media only screen and (min-width: 628px) {
@@ -968,9 +948,8 @@ input:focus {
 }
 
 @media only screen and (min-width: 768px) {
-/*styles for tablet*/
+/* Styles for Tablet */
 
-  /* EventSearch styles */
   .search-card {
     padding: 20px;
     margin: -20px 20px 0px 20px;
@@ -992,20 +971,11 @@ input:focus {
     width: 25%;
   }
 
-  .previousEventButton, .nextEventButton {
-    width: 14%;
-  }
-
-  .event-grid-item {
-   /* width: 30%;*/
-  }
-
 }
 
 @media only screen and (min-width: 864px) {
-/*styles for notebooks*/
+/* Styles for Notebooks */
   
-  /* EventSearch styles */
   .hero-header {
     height: 345px;
     font-size: 1.5em;
@@ -1024,19 +994,15 @@ input:focus {
     width: 50%;
   }
 
-/* ---EVENT SEARCH--- */
-
-  .event-grid-item {
-/*    width: 45%;
-    margin: 10px;*/
+  .previousEventButton, .nextEventButton {
+    top: 294px;
   }
 
 }
 
 @media only screen and (min-width: 992px) {
-/*styles for desktop*/
+/* Styles for Desktop */
 
-  /* EventSearch styles */
   .search-card {
     margin: -20px 100px 0px 100px;
   }
@@ -1050,15 +1016,9 @@ input:focus {
     padding: 20px 80px 0px 80px;
   }
 
-  .event-grid-item {
-    /*width: 21%;*/
-  }
-
   .close-menu{
     display: none;
   }
-
-  /* ---EVENTS DESKTOP--- */
     
   .eventImage{
     margin: 0px auto;
@@ -1086,40 +1046,12 @@ input:focus {
     background-color: #ffffff;
     box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
   }
-  
-  .previousEventButton, .nextEventButton {
-    z-index: 100;
-    position: absolute;
-    top: 400px;
-    display: flex;
-    align-items: center;
-    color: lightGray;
-    font-size: 2em;
-    height: 400px;
-    width: 40px;
-    border: 0;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    color: #ED6564;
-  }
-  
-  .previousEventButton {
-    left: 5%;
-    justify-content: flex-start;
-  }
-  
-  .nextEventButton {
-    right: 5%;
-    justify-content: flex-end;
-  }
 
 }
 
 @media only screen and (min-width: 1200px) {
-/*styles for large desktop*/
+/* Styles for Large Desktop */
 
-  /* EventSearch styles */
   .search-card {
     margin: -20px 180px 0px 180px;
   }
@@ -1127,10 +1059,6 @@ input:focus {
   .EventGrid {
     column-count: 4;
     padding: 20px 80px 0px 80px;
-  }
-
-  .event-grid-item {
-/*    width: 21%;*/
   }
 
 }
