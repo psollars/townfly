@@ -56,7 +56,7 @@ class Events extends Component {
         { this.state.eventsToDisplay.length <= 0 ?
           <div className="noEventsFound">
             <div className="empty-illustration"></div>
-            <h6>No events found!</h6>
+            <p className="no-events-found-header">No events found!</p>
             <p>Please double check your spelling or verify your location.</p>
             <div className="backToSearchButton" onClick={this.props.returnToSearch}>search again</div>
           </div> 

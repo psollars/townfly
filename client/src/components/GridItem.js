@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import AddToCalendar from 'react-add-to-calendar';
 import { showEventDetails } from '../actions';
 import 'moment-timezone';
 
