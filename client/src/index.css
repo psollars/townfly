@@ -24,7 +24,6 @@ Tablet width: 768px min
 Notebook width: 864px min
 Notebook width: 992px min
 
-
 ****************/
 
 /*****************/
@@ -80,15 +79,6 @@ input, button, p, div {
 
 input:focus {
   outline: none;
-}
-
-.no-events-found-header {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.29;
-  letter-spacing: 2px;
-  text-align: center;
-  margin: 0;
 }
 
 /*********************/
@@ -169,7 +159,7 @@ input:focus {
 .detect-location {
   display: flex;
   justify-content: center;
-  cursor: pointer;
+  cursor: default;
   margin: 0px auto 20px auto;
   font-weight: 600;
   font-size: 1em;
@@ -227,7 +217,7 @@ input:focus {
   border: 1px solid #ED6564;
   border-radius: 20px;
   letter-spacing: 2.7px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .active {
@@ -265,7 +255,6 @@ input:focus {
   height: 50px;
   width: 50px;
   border-radius: 100%;
-  cursor: pointer;
   margin-bottom: 10px;
 }
 
@@ -325,16 +314,12 @@ input:focus {
   color: #FFFFFF;
   background-color: #01C69F;
   border-radius: 100px;
-  cursor: pointer;
+  cursor: default;
 }
 
 /*****************/
 /* Events styles */
 /*****************/
-
-.Events {
-  /* Styles associated with Events container */
-}
 
 .header-bar-container {
   border-radius: 4px;
@@ -355,12 +340,8 @@ input:focus {
   padding: 20px;
 }
 
-.backToSearch {
-  cursor: pointer;
-}
-
-.viewToggle {
-  cursor: pointer;
+.back-to-search, .event-style-toggle {
+  cursor: default;
 }
 
 .no-events-found {
@@ -371,7 +352,7 @@ input:focus {
   justify-content: center;
   background-size: auto 100%;
   margin: 0 auto 100px auto;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .empty-illustration {
@@ -386,11 +367,20 @@ input:focus {
 .no-events-found p {
   text-align: center;
   font-size: 1em;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
   margin-bottom: 20px;
   color: #585858;
+}
+
+.no-events-found-header {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0;
 }
 
 .back-to-search-button {
@@ -409,7 +399,7 @@ input:focus {
   box-shadow: 0 1px 8px 0 rgba(86, 86, 86, 0.5);
   border-radius: 100px;
   border: none;
-  cursor: pointer;
+  cursor: default;
 }
 
 .string-search-background {
@@ -460,12 +450,9 @@ input:focus {
 /**********************/
 /* EventDetail styles */
 /**********************/
+
 .event-card {
   width: 100%;
-}
-
-.event-grid-item {
-
 }
 
 .event-image-container {
@@ -497,7 +484,7 @@ input:focus {
   margin: 0px 60px;
   height: auto;
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
 }
 
@@ -552,7 +539,7 @@ input:focus {
 
 .react-add-to-calendar {
   position: relative;
-  cursor: pointer;
+  cursor: default;
 }
 
 .react-add-to-calendar__dropdown {
@@ -562,7 +549,7 @@ input:focus {
   font-size: .8em;
   font-weight: 300;
   /*width: 165px;*/
-  background-color: #efefef;
+  background-color: #EFEFEF;
   border-radius: 5px;
 }
 
@@ -622,16 +609,13 @@ input:focus {
   height: auto;
 }
 
-.viewToggle {
-  cursor:pointer;
-}
-
-.view-toggle div {
+.view-toggle {
   text-align: center;
+  color: #ED6564;
 }
 
-.view-toggle p {
-  cursor: pointer;
+.view-toggle:hover {
+  cursor: default;
 }
 
 .event-map {
@@ -683,13 +667,21 @@ input:focus {
   padding: 10px 20px 0px 20px;
 }
 
-.event-grid-item {
+.event-grid-item-container {
   page-break-inside: avoid;
   -webkit-column-break-inside: avoid;
   break-inside: avoid;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
+  overflow: visible;
+}
+
+.event-grid-item {
   border-radius: 5px;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
+}
+
+.event-grid-item:hover {
+  cursor: default;
 }
 
 .hide-event-extra-details .event-time, .hide-event-extra-details .event-venue, .hide-event-extra-details .event-location, .hide-event-extra-details .event-description, .hide-event-extra-details .event-item-index {
@@ -712,10 +704,6 @@ input:focus {
   box-shadow: none;
 }
 
-.event-grid-item .event-image {
-
-}
-
 .event-grid-item .event-info-container {
   margin: 0px;
 }
@@ -732,7 +720,6 @@ input:focus {
 /* Controls styles */
 /*******************/
 
-/* Sloth's Styles for new nest and previous buttons for swiping cards */
 .Controls {
   z-index: 100;
   position: absolute;
@@ -756,6 +743,7 @@ input:focus {
   width: 40px;
   padding: 0px 10px;
   color: #ED6564;
+  cursor: default;
 }
 
 .previousEventButton {
@@ -779,6 +767,7 @@ input:focus {
 /*****************/
 /* Loader styles */
 /*****************/
+
 @keyframes seq-preloader {
   50% {
     opacity: 1;
@@ -860,6 +849,7 @@ input:focus {
 /**********************/
 /* MODAL STYLES */
 /**********************/
+
 .modal-bg{
   background-color: rgba(88, 88, 88, 0.6);
   height: 100vh;
@@ -874,12 +864,12 @@ input:focus {
 .CardModal{
   display: flex;
   justify-content: center;
-  top:10%; 
-  left:10vw;
-  right:10vw; 
+  top: 10%; 
+  left: 10vw;
+  right: 10vw; 
   position: absolute;
   z-index: 9999;
-  margin:0;
+  margin: 0;
   -webkit-transition: opacity 400ms ease-in;
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
@@ -888,20 +878,20 @@ input:focus {
 .cardModalWrapper{
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   max-width: 727px;
-  
 }
 
 .closeCardModal{
   display: flex;
   justify-content: center;
   position: absolute;
+  width: 100%;
+  max-width: 727px;
   top: -24px;
-  left: -24px;
 }
 
-.circle-close{
+.circle-close {
   display: flex;
   background-color: #fff;
   width:48px;
@@ -921,8 +911,8 @@ input:focus {
 
 .CardModal .event-image-wrapper{
   box-shadow: none;
-  width:100%;
-  max-width:727px;
+  width: 100%;
+  max-width: 727px;
   justify-content: center;
   text-align: center;
 }

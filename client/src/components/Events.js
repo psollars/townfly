@@ -39,9 +39,9 @@ class Events extends Component {
         <HeroHeader />
         <div className="header-bar-container">
           <div className="header-bar">
-            <div className="backToSearch" onClick={this.props.returnToSearch}>Back</div> 
+            <div className="back-to-search" onClick={this.props.returnToSearch}>Back</div> 
             <p>TOWNFLY</p>
-            <div className="viewToggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
+            <div className="event-style-toggle" onClick={this.listToggleHandle}>{ this.state.listView === false ? `List View` : `Card View` }</div>
           </div>
           <div className="Events">
             <div className="string-search-background">
