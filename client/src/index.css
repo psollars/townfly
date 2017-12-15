@@ -724,7 +724,7 @@ input:focus {
 /* Controls styles */
 /*******************/
 
-.previousEventButton, .nextEventButton {
+.previous-event-button, .next-event-button {
   z-index: 100;
   position: fixed;
   top: 350px;
@@ -740,11 +740,11 @@ input:focus {
   background: transparent;
 }
 
-.previousEventButton {
+.previous-event-button {
   left: 0;
 }
 
-.nextEventButton {
+.next-event-button {
   right: 0;
 }
 
@@ -859,14 +859,14 @@ input:focus {
 	transition: opacity 400ms ease-in;*/
 }
 
-.cardModalWrapper{
+.card-modal-wrapper {
   justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 727px;
 }
 
-.closeCardModal{
+.close-card-modal {
   display: flex;
   justify-content: center;
   position: absolute;
@@ -935,7 +935,7 @@ input:focus {
     width: 33%;
   }
 
-  .previousEventButton, .nextEventButton {
+  .previous-event-button, .next-event-button {
     display: flex;
   }
 
@@ -994,7 +994,7 @@ input:focus {
     width: 50%;
   }
 
-  .previousEventButton, .nextEventButton {
+  .previous-event-button, .next-event-button {
     top: 294px;
   }
 
