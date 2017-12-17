@@ -16,7 +16,7 @@ class CardModal extends Component {
             <Card event={this.props.event} />
           </div>
         </div>
-        <div className="modal-bg"></div>
+        <div className="modal-bg" onClick={this.props.hideEventDetails}></div>
       </div>
       
     );
