@@ -860,29 +860,22 @@ input:focus {
 }
 
 .card-modal-wrapper {
-  justify-content: center;
-  align-items: center;
+  position: relative;
   width: 100%;
   max-width: 727px;
-}
-
-.close-card-modal {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  max-width: 727px;
-  top: -24px;
 }
 
 .circle-close {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -24px;
+  left: -24px;
   background-color: #FFFFFF;
   width: 48px;
   height: 48px;
   border-radius: 40px;
-  justify-content: center;
-  align-items: center;
   color: #ED6564;
   margin-bottom: 20px;
   box-shadow: 0 2px 8px 0 rgba(148, 148, 148, 0.25);
