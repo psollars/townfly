@@ -10,15 +10,13 @@ class CardModal extends Component {
       <div>
         <div className="CardModal">
           <div className="card-modal-wrapper">
-            <div className="close-card-modal">
-              <div className="circle-close" onClick={this.props.hideEventDetails}>
-                <i className="fa fa-close fa-lg"/>
-              </div>
+            <div className="circle-close" onClick={this.props.hideEventDetails}>
+              <i className="fa fa-close fa-lg"/>
             </div>
             <Card event={this.props.event} />
           </div>
         </div>
-        <div className ="modal-bg"></div>
+        <div className="modal-bg"></div>
       </div>
       
     );
