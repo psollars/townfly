@@ -7,18 +7,15 @@ class CardModal extends Component {
 
   render() {
     return (
-      <div>
-        <div className="CardModal">
-          <div className="card-modal-wrapper">
-            <div className="circle-close" onClick={this.props.hideEventDetails}>
-              <i className="fa fa-close fa-lg"/>
-            </div>
-            <Card event={this.props.event} />
+      <div className="CardModal">
+        <div className="card-modal-wrapper">
+          <div className="circle-close" onClick={this.props.hideEventDetails}>
+            <i className="fa fa-close fa-lg"/>
           </div>
+          <Card event={this.props.event} />
         </div>
         <div className="modal-bg" onClick={this.props.hideEventDetails}></div>
-      </div>
-      
+      </div> 
     );
   }
 }
