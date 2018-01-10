@@ -31,6 +31,18 @@ TownFly was launched on December 8th at a public event hosted by Start Garden in
 ### Introduction
 TownFly is a local event finder app for people interested in doing something spontaneous.  For example:  you're at a conference in Chicago, have some downtime in the evening, and want to find a local bar with live music.  Or perhaps your niece is visiting this weekend and you want to find something fun and kid friendly to do.  Maybe you're simply trying to break out of your social circles and meet new people in your city.  Regardless of your situation, TownFly helps you find the events you're looking for out of the box and runs on any device.
 
+### The Technology
+TownFly was built with a React/Redux front-end with mobile-first
+design and a clean, intuitive visual layout.
+
+We built an Express API that makes multiple calls to both the Facebook
+and Google APIs - gathering multiple sets of data, merging that
+information, and sending it back to our application.
+
+All of this information is available to you with no downloads and no
+logins.  With a click of a button,  you have visibility to a wealth of
+public events all pulled directly from Facebook.
+
 ![wireframe](http://www.slothwerks.com/dev/grand-circus/townfly/work-files/launch-slide1.jpg)
 
 ### The User Journey
