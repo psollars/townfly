@@ -66,7 +66,8 @@ export function fetchEvents(location, date, distance, categories) {
   
     dispatch(requestEvents());
     $.ajax({
-      url: "/api/events/",
+      // temporary sample events until Facebook API is working again
+      url: "/api/sample_events/", //url: "/api/events/",
       method: "GET",
       data: {
         location: location,
@@ -75,7 +76,8 @@ export function fetchEvents(location, date, distance, categories) {
         categories: categories
       }
       }).done(function(events) {
-        dispatch(receiveEvents(events));
+        // need to grab nested event data, the server isn't doing this anymore
+        dispatch(receiveEvents(events.events)); //dispatch(receiveEvents(events));
     });
   };
 }

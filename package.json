@@ -16,7 +16,7 @@
     "font-awesome": "^4.7.0",
     "moment": "^2.19.2",
     "node-geocoder": "^3.21.1",
-    "nodemon": "^1.12.1",
+    "nodemon": "^1.17.3",
     "pg": "^7.4.0"
   },
   "scripts": {

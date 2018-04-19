@@ -1,0 +1,530 @@
+{
+  "events": [{
+    "id": "836655879846811",
+    "name": "U.S. Girls at Baby's All Right",
+    "type": "public",
+    "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+    "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  },{
+    "id": "836655879846812",
+    "name": "Code is better together!",
+    "type": "public",
+    "coverPicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "profilePicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  },{
+    "id": "836655879846813",
+    "name": "Code is better together!",
+    "type": "public",
+    "coverPicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "profilePicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  },{
+    "id": "836655879846814",
+    "name": "Code is better together!",
+    "type": "public",
+    "coverPicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "profilePicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  },{
+    "id": "836655879846815",
+    "name": "Code is better together!",
+    "type": "public",
+    "coverPicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "profilePicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  },{
+    "id": "836655879846816",
+    "name": "Code is better together!",
+    "type": "public",
+    "coverPicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "profilePicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  },{
+    "id": "836655879846817",
+    "name": "Code is better together!",
+    "type": "public",
+    "coverPicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "profilePicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  },{
+    "id": "836655879846818",
+    "name": "Code is better together!",
+    "type": "public",
+    "coverPicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "profilePicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  },{
+    "id": "836655879846819",
+    "name": "Code is better together!",
+    "type": "public",
+    "coverPicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "profilePicture": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/30727870_10216000300259791_1918639943563870208_o.jpg?_nc_cat=0&oh=f759d2181a219252eccba3a8d92f1d39&oe=5B707DA4",
+    "description": "Friday, April 13th @ Baby's All Right\n\nAdHoc Presents\n\nU.S. Girls\n\nTickets:  http://ticketf.ly/2j7AegO\n\n| Baby's All Right |\n146 Broadway @ Bedford Ave | Williamsburg, Brooklyn \nJMZ-Marcy, L-Bedford, G-Broadway | 8pm | $12 | 21+\n\nCheck out our calendar and sign up for our mailing list http://adhocpresents.com/",
+    "distance": 89,
+    "startTime": "2018-04-13T20:00:00-0400",
+    "endTime": null,
+    "timeFromNow": 9982924,
+    "isCancelled": false,
+    "category": "MUSIC_EVENT",
+    "ticketing": {
+      "ticket_uri": "http://ticketf.ly/2j7AegO"
+    },
+    "place": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    },
+    "stats": {
+      "attending": 20,
+      "declined": 0,
+      "maybe": 77,
+      "noreply": 6
+    },
+    "distances": {
+      "venue": 89,
+      "event": 89
+    },
+    "venue": {
+      "id": "460616340718401",
+      "name": "Baby's All Right",
+      "about": "babysallright@gmail.com",
+      "emails": ["babysallright@gmail.com"],
+      "coverPicture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/20507438_1418517768261582_7945740169309872258_o.jpg?oh=24280a4732605e140c227db955c8d5e0&oe=5AC6B878",
+      "profilePicture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/1480734_642185745894792_5820988503650852577_n.png?oh=c6e72b8a5645644e7dd3eb3d2161329f&oe=5AC0CD2D",
+      "category": "Bar",
+      "categoryList": ["Bar", "Breakfast & Brunch Restaurant", "Dance & Night Club"],
+      "location": {
+        "city": "Brooklyn",
+        "country": "United States",
+        "latitude": 40.71012,
+        "longitude": -73.96348,
+        "state": "NY",
+        "street": "146 Broadway",
+        "zip": "11211"
+      }
+    }
+  }],
+  "metadata": {
+    "venues": 100,
+    "venuesWithEvents": 2,
+    "events": 25
+  }
+}

@@ -18,6 +18,7 @@ const locationOptions = {
 const geocoder = NodeGeocoder(locationOptions);
 
 app.get("/api/geolocate/", (req, res) => {
+  console.log(req.query);
   if (req.query.lat && req.query.lon) {
     geocoder.reverse({ // Reverse brings back the lat & lon
       lat:req.query.lat,
@@ -58,6 +59,24 @@ app.get("/api/events/", (req, res) => {
     }).catch(function (error) {
       console.log(errorCallback);
     });
+});
+
+app.get('/api/sample_events/', function (req, res, next) {
+  const options = {
+    root: __dirname,
+    headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
+    }
+  };
+  const fileName = "sample_events.json";
+  res.sendFile(fileName, options, function (err) {
+    if (err) {
+      next(err);
+    } else {
+      console.log('Sent:', fileName);
+    }
+  });
 });
 
 const PORT = process.env.PORT || 5000;
